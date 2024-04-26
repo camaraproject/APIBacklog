@@ -9,4 +9,4 @@
 | Validated in lab/productive environments? | YES |
 | Validated with real customers? | YES - TMT Analysis |
 | Validated with operators? | YES - Telefonica, Hutchinson Group |
-| Supporters in API Backlog Working Group | List of supporters - to be added in future. </em> |
+| Supporters in API Backlog Working Group | Telefonica, Deutsche Telekom |
