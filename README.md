@@ -34,5 +34,5 @@ The Working Group has no (pre)releases yet, work in progress is within the main 
 * Lifecycle of API proposals:
 	* [APIbacklog.md](https://github.com/camaraproject/APIBacklog/blob/main/documentation/APIbacklog.md)
 * Procedure for the submission, discussion and approval of new API proposals:
-	* [API-onboarding.md](https://github.com/camaraproject/APIBacklog/blob/main/documentation/API-onboarding.md)
+	* [API-onboarding.md](https://github.com/camaraproject/Governance/blob/main/documentation/API-onboarding.md)
 
