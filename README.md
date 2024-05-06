@@ -32,7 +32,7 @@ The Working Group has no (pre)releases yet, work in progress is within the main 
 	* Subscribe / Unsubscribe to the mailing list of this Sub Project <https://lists.camaraproject.org/g/wg-abl>.
 	* A message to the community of this Sub Project can be sent using <wg-abl@lists.camaraproject.org>.
 * Lifecycle of API proposals:
-	* [APIbacklog.md](https://github.com/camaraproject/WorkingGroups/blob/main/APIBacklog/documentation/APIbacklog.md)
+	* [APIbacklog.md](https://github.com/camaraproject/APIBacklog/blob/main/documentation/APIbacklog.md)
 * Procedure for the submission, discussion and approval of new API proposals:
 	* [API-onboarding.md](https://github.com/camaraproject/Governance/blob/main/documentation/API-onboarding.md)
 
