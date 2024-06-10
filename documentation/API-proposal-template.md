@@ -13,4 +13,4 @@ This template captures all the information that a partner should fill out when p
 | Validated in lab/productive environments? | YES / NO. <br>If YES, specify if it was lab network or productive network. |
 | Validated with real customers? | YES / NO. <br>If YES, specify how many customers participated in the evaluation, and what their use cases were. <br><em>NOTE: It is not mandatory (though recommendable) to specify the name of the customers. </em> |
 | Validated with operators? | YES / NO. <br> If YES, specify how many operators participated in the evaluation. <br><em>NOTE: It is not mandatory (though recommendable) to specify the name of the operators. </em> |
-| Supporters in API Backlog Working Group | List of supporters. <br><em> NOTE: That shall be added by the Working Group. </em> |
+| Supporters in API Backlog Working Group | List of supporters. <br><em> NOTE: That shall be added by the Working Group. Supporting an API proposal means that the supporting company must provide at least 1 (one) Maintainer at the time of the subgroup creation.</em> |
