@@ -7,4 +7,4 @@
  | Commercial viability | This API was requested by different content providers. It helps them to get more insights, how to deliver their traffic. | NO |
  | Validated in lab/productive environments? | Yes |
  | Validated with operators? | Yes |
- | Supporters in API Backlog Working Group | |
+ | Supporters in API Backlog Working Group | Vodafone, Vonage, Deutsche Telekom |
