@@ -10,4 +10,4 @@
 | Validated in lab/productive environments? | YES<br>Available in China UniCom test environment |
 | Validated with real customers? | YES<br>For emergency rescue use by the Blue Eye Emergency Rescue Platform |
 | Validated with operators? | YES<br>Available for China Unicom in China |
-| Supporters in API Backlog Working Group | China Unicom |
+| Supporters in API Backlog Working Group | China Unicom, China Telecom, Huawei |
