@@ -9,4 +9,4 @@
 | Validated in lab/productive environments? | YES , it was in lab network. |
 | Validated with real customers? | NO |
 | Validated with operators? | YES , one operators participated in the evaluation. |
-| Supporters in API Backlog Working Group |  |
+| Supporters in API Backlog Working Group | China Unicom, China Telecom, Huawei |
