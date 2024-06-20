@@ -49,7 +49,7 @@
 | Call Status | --- | 2024/04/19 | [Link](https://github.com/camaraproject/APIBacklog/issues/29) |  --- | Not yet discussed | Not yet treated  | --- | %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%<!---Tenure-->%%%%%%%%%%%%%%%%%%%%%
 | Tenure | Vodafone | 2024/04/25 | [Link](https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/API_Proposal_Tenure_Vodafone.md) |  Vodafone, Telefonica, Deutsche Telekom, Orange, KDDI | Sent for TSC for approval (2024/05/13) | Approved (2024/05/16)  | [Tenure](https://github.com/camaraproject/Tenure) | %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%<!---Shutdown Service Status-->%%%%%%%%%%%%%%%%%%%%%
 | Shutdown Service Status | ChinaUnicom  | 2024/04/26 | [Link](https://github.com/camaraproject/APIBacklog/pull/32/files) |  ChinaUnicom | Not yet discussed | Not yet treated  | --- | %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%<!---5g-NewCalling-->%%%%%%%%%%%%%%%%%%%%%
-| New Calling | ChinaMobile  | 2024/04/29 | [Link](https://github.com/camaraproject/APIBacklog/pull/31/files) |  ChinaMobile | Not yet discussed | Not yet treated  | --- | %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%<!---Telco Scoring-->%%%%%%%%%%%%%%%%%%%%%
+| New Calling | ChinaMobile  | 2024/04/29 | [Link](https://github.com/camaraproject/APIBacklog/pull/31/files) |  ChinaMobile, Huawei | Not yet discussed | Not yet treated  | --- | %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%<!---Telco Scoring-->%%%%%%%%%%%%%%%%%%%%%
 | Telco Scoring | Telefonica  | 2024/05/13 | [Link](https://github.com/camaraproject/APIBacklog/pull/42/files) |  Telefonica | Not yet discussed | Not yet treated  | --- |
 
  ## Attributes
