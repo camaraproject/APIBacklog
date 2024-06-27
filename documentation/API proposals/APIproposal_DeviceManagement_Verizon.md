@@ -1,0 +1,11 @@
+| Field                                                          | Description                                                                                                               |
+| -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| API family name                                                | Device Management API family                                                                                              |
+| API family owner                                               | Verizon                                                                                                                   |
+| API summary                                                    | Manage device subscription state . Initial scope to include add, activate,suspend, restore, deactive and delete.                                                              |
+| Technical viability                                            | These APIs are applicable for 3G, 4G and 5G devices and not dependent on specific network functions or cloud capabilities |
+| Commercial viability                                           | Developed and owned by Verizon and commercially available in Verizon’s network                                            |
+| YAML code available?                                           | YES                                                                                                                       |
+| Validated in lab/productive environments?                      | YES. Verizon’s production network in the United States                                                                    |
+| Validated with real customers?                                 | YES. customers currently use these APIs to manage their devices                                                           |
+| Validated with operators?                                      | List of supporters.<br>NOTE: That shall be added by the Working Group.                                                    |
