@@ -53,7 +53,10 @@
 | Telco Scoring | Telefonica  | 2024/05/13 | [Link](https://github.com/camaraproject/APIBacklog/pull/42/files) |  Telefonica | Under discussion | Not yet treated  | --- |%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%<!---Device Management-->%%%%%%%%%%%%%%%%%%%%%
 | Device Management | Verizon | 2024/05/20 | [Link](https://github.com/camaraproject/APIBacklog/pull/30/files) |  Verizon | Not yet discussed | Not yet treated  | --- | %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%<!---Number recycling-->%%%%%%%%%%%%%%%%%%%%%
 | Number Recycling | KDDI | 2024/06/06 | [Link](https://github.com/camaraproject/APIBacklog/pull/55/files) | KDDI, Deutsche Telekom, Vodafone | Under discussion | Not yet treated  | --- | %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%<!---Dedicated Networks-->%%%%%%%%%%%%%%%%%%%%%
-| Dedicated Networks | Ericsson | 2024/06/20 | [Link](https://github.com/camaraproject/APIBacklog/pull/59/files) | Ericsson, Nokia, Telefonica, Vodafone | Not yet discussed | Not yet treated  | --- |
+| Dedicated Networks | Ericsson | 2024/06/20 | [Link](https://github.com/camaraproject/APIBacklog/pull/59/files) | Ericsson, Nokia, Telefonica, Vodafone | Under Discussion | Not yet treated  | --- |%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%<!---IMEI fraud-->%%%%%%%%%%%%%%%%%%%%%
+| IMEI Fraud | MTN  | 2024/07/25 | [Link](https://github.com/camaraproject/APIBacklog/pull/64/files) | MTN, Chunghwa Telecom | Under discussion | Not yet treated  | --- |%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%<!---Consent URL-->%%%%%%%%%%%%%%%%%%%%%
+| Consent URL API | Telefonica  | 2024/07/17 | [Link](https://github.com/camaraproject/APIBacklog/pull/67/files) | Telefonica | Under discussion | Not yet treated  | --- |%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%<!---Quality by design-->%%%%%%%%%%%%%%%%%%%%%
+| Quality by Design | CableLabs  | 2024/07/19 | [Link](https://github.com/camaraproject/APIBacklog/pull/71/files) | CableLabs, Charter, Liberty Global, Vodafone | Under discussion | Not yet treated  | --- |
 
 
  ## Attributes
