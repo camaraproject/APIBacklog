@@ -12,3 +12,4 @@ IMEI Fraud API submission
 | Validated in lab/productive environments? | No In Commercial network |
 | Validated with real customers? | YES – Banks from different markets as part of GSMA fintech stream in SA markets  |
 | Validated with operators? | yes South African MNOs will support |
+| Supporters in API Backlog Working Group | MTN, Chunghwa Telecom |
