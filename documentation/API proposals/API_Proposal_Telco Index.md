@@ -1,6 +1,6 @@
 | **Field** | Description | 
 | ---- | ----- |
-| API family name | Telco Scoring | 
+| API family name | Telco Index | 
 | API family owner | Telefonica |
 | API summary | (part of OGW DROP4) The service provides a scoring related to the  user's credit profile, calculated based on the information that the operator has about the owner of the associated line. Certain applications or services, like bank accounts, insurers or credit agencies, employ complex risk analysis for their operation. Telcos can calculate a credit scoring for those applications employing owned useful information, including profiling of young people or informal workers, people who do not have much commercial history or market information about who have consumption and credit potential. The service will consider as input a user identifier, like MSISDN, and the document ID or identity Card number, while the output will be the calculated credit scoring for such user. |
 | Technical viability | The service employs historical and processed information around the customer to calculate a standard scoring indicating the level of creditworthiness. This scoring is determined based on various data points that provide insights into the customer's financial behavior and stability.<br>**Inputs Explained:**<br>- **MSISDN**: Mobile Station International Subscriber Directory Number. It is used to identify the mobile number of the user. Example: "+5566912345678".<br>- **nationalIdDoc**: National identity document number of the user. Example: "123.456.789-09".<br>- **documentType**: Type of the national identity document, such as CPF (Cadastro de Pessoas Físicas) in Brazil, indicating it is a personal taxpayer registry identification.<br>**Output:**<br>- **Calculated Scoring**: The credit score calculated based on the inputs provided, reflecting the user's credit risk and potential financial reliability.|
@@ -9,4 +9,4 @@
 | Validated in lab/productive environments? | YES |
 | Validated with real customers? | YES |
 | Validated with operators? | Yes<br> Over previous service |
-| Supporters in API Backlog Working Group |  List of supporters.<br>NOTE: That shall be added by the Working Group.  |
+| Supporters in API Backlog Working Group |  Telefonica, Vodafone  |
