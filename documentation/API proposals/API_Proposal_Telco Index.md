@@ -9,4 +9,4 @@
 | Validated in lab/productive environments? | YES |
 | Validated with real customers? | YES |
 | Validated with operators? | Yes<br> Over previous service |
-| Supporters in API Backlog Working Group |  Telefonica, Vodafone  |
+| Supporters in API Backlog Working Group |  Telefonica, Vodafone, DT  |
