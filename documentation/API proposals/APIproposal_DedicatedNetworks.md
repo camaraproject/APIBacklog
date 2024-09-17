@@ -10,4 +10,4 @@
 | Validated in lab/productive environments? | No |
 | Validated with real customers? | No |
 | Validated with operators? | No |
-| Supporters in API Backlog Working Group |  |
+| Supporters in API Backlog Working Group | Nokia, Telefonica, Vodafone |
