@@ -1,7 +1,7 @@
 | **Field** | Description | 
 | ---- | ----- |
 | API family name | Q&A Assistant - Service (from "MaaS" API family) |
-| API family owner| China Mobile  |
+| API family owner| China Mobile, ZTE, Huawei |
 | API family summary | This API is based on the already built Q&A Assistant application, providing Q&A services to the users of the application. Users input prompts with questions they want to know, and the Q&A application returns answers based on the large model and knowledge base.<br><br>**Input params**<br>assistant id<br>prompt<br><br>**Output params**<br>success or failure response<br>finished(Stop / Length / Error / Filter)<br>answer text<br>reference (optional)<br>
 | Technical viability | Based on the established Q&A Assistant, this API supports the Q&A Assistant in providing Q&A services to application users. | 
 | Commercial viability | This API provide services to the users of the Q&A Assistant.|
