@@ -1,7 +1,7 @@
 | **Field** | Description | 
 | ---- | ----- |
 | API family name | Knowledge Base - Manage (from "MaaS" API family) |
-| API family owner| China Mobile  |
+| API family owner| China Mobile, ZTE, Huawei   |
 | API family summary | The API supports users in building and managing knowledge bases, including the creation, updating, querying, modification, and publication of the knowledge base.<br><br>**Scenario:**<br>Referring to the application scenarios of MaaS, the API supports enterprises in uploading product knowledge to build product and customer service knowledge bases for Q&A assistants to query and invoke.<br><br>**Input params**<br>name<br>description<br>document(doc/pdf/txt/csv)<br><br>**Output params**<br>success or failure response<br>knowledge base id<br>
 | Technical viability | This API constructs the knowledge base based on the knowledge provided by users (including doc/pdf/txt/csv), which can be utilized by Q&A assistants. | 
 | Commercial viability | This API provides services for users who need to build a knowledge base.|
