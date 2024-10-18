@@ -767,6 +767,36 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>Pending</td>
       <td>N/A</td>
     </tr>
+    <tr>
+      <th>IoT SIM Status Mgmt</th>
+      <td>China Telecom*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/105">Template</a><div>2024/10/14</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>Pending</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>IoT SMS send</th>
+      <td>China Telecom*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/104">Template</a><div>2024/10/14</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>Pending</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>IoT SIM Fraud Prevention (query&subscription)</th>
+      <td>China Telecom*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/103">Template</a><div>2024/10/14</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>Pending</td>
+      <td>N/A</td>
+    </tr> 
   </tbody>
 </table>
 
