@@ -1,0 +1,432 @@
+openapi: 3.0.0
+info:
+  title: Tenure API
+  description: |-
+    Tenure enables Service Providers to verify the length of Tenure for a Mobile Subscriber to establish a level of trust against the mobile ID.
+  version: "1.1.1"
+  contact:
+    name: Developer Marketplace
+    url: https://localhost/landing-page
+
+servers:
+  - url: https://localhost
+    description: "Sandbox"
+  - url: https://localhost
+    description: "Production"
+
+
+paths:
+  /tenure/v1:
+    post:
+      tags:
+        -  Tenure API
+      summary: Tenure enables Service Providers to verify the length of Tenure for a Mobile Subscriber to establish a level of trust against the mobile ID.
+
+      description: |-
+        Tenure requests will contain the mobile subscriber number and the SP provided date to validate against subscriber tenure. The MNO will respond with a confirmation whether the Mobile Subscriber tenure is longer than the specified date timestamp. Below is a table showing which attributes are provided by the MNO by country:
+
+        Bearer Authentication is required to perform the request: an Authorization header with the access_token retrieved with the token API request. For example:
+
+        **Authorization: Bearer alEw85xBVY83owVraNwNxzsfmpXu**
+        
+        **Sample MSISDNs:** 447772000001, 447772000002, 447772000004, 447772000006
+
+      security:
+        - oAuth2ClientCredentials: []
+
+      operationId: getPremiumInfo
+
+      parameters:
+        - $ref: "#/components/parameters/vf-trace-transaction-id"
+        - $ref: "#/components/parameters/VF_EXT_BP_ID"
+        - $ref: "#/components/parameters/User-ID-Type"
+        - $ref: "#/components/parameters/User-ID"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/mc_claim"
+      responses:
+
+        "200":
+          description: "**OK**"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/mc_response"
+      
+
+        '400' :
+          description: |
+              **Bad request**
+          content:
+            application/json:
+              examples:
+                Unknown user:
+                  value: {
+                           "error": "access_denied",
+                           "error_description": "Unknown user.",
+                          }
+                invalid msisdn:
+                  value: {
+                           "error": "invalid_request",
+                           "error_description": "Invalid User-ID value: invalid format",
+                          }
+                invalid request:
+                  value: {
+                           "error": "invalid_request",
+                           "error_description": "User-ID / User-ID-Type header is not used and the Access Token is not tied to an End-User",
+                          }
+                not whitelisted country:
+                  value: {
+                           "error": "invalid_request",
+                           "error_description": "Service is not whitelisted for this country",
+                          }
+
+        '401' : # invalid_client
+          description: |
+              **Unauthorized**
+          content:
+            application/json:
+              examples:
+                invalid_client:
+                  value: {
+                    "error": "invalid_client",
+                    "error_description": "Invalid Access Token"
+                  }
+
+        '404' :
+          description: |
+              **Not Found**
+          content:
+            application/json:
+              examples:
+                Resource Not Found:
+                  value: {
+                    "error": "Resource Not Found",
+                    "error_description": "URI does not represent a recognised resource",
+                  }
+        '405' :
+          description: |
+              **Method Not Allowed**
+          content:
+            application/json:
+              examples:
+                Method Not Allowed:
+                  value: {
+                    "error": "Method Not Allowed",
+                    "error_description": "The request method is not supported by this  resource",
+                  }
+        '406' :
+          description: |
+              **Not Acceptable**
+          content:
+            application/json:
+              examples:
+                Not Acceptable:
+                  value: {
+                    "error": "Not Acceptable",
+                    "error_description": "The Accept header is invalid ",
+                  }
+        '413' :
+          description: |
+              **Payload Too Large**
+          content:
+            application/json:
+              examples:
+                Payload Too Large:
+                  value: {
+                    "error": "Payload Too Large",
+                    "error_description": "The  response payload exceeds a maximum size.",
+                  }
+        '414' :
+          description: |
+              **Request URI Too Long**
+          content:
+            application/json:
+              examples:
+                Request URI Too Long:
+                  value: {
+                    "error": "Request URI Too Long",
+                    "error_description": "Request-URI is too long",
+                  }
+
+        '415' :
+          description: |
+              **Unsupported Media Type**
+          content:
+            application/json:
+              examples:
+                Unsupported Media Type:
+                  value: {
+                    "error": "invalid_request",
+                    "error_description": "The value of the Content-Type header is invalid",
+                  }
+        '422' :
+          description: |
+              **Unprocessable Entity**
+          content:
+            application/json:
+              examples:
+                Unprocessable Entity:
+                  value: {
+                    "error": "Unprocessable Entity",
+                    "error_description": "The request was well-formed but was unable to be followed due to semantic errors",
+                  }
+        '429' :
+          description: |-
+              **Too Many Requests**
+
+              NOTE: must also return the HTTP Header Retry-After in the response.This header should contain a value in seconds indicating how long a client should wait before making a new request.
+
+          content:
+            application/json:
+              examples:
+                Api Quota limit reached:
+                  description: The client request payload exceeds a maximum size.
+                  value: {
+                    "error": "Too Many Requests",
+                    "error_description": "Api Quota limit reached ",
+                  }
+                OpCo Quota limit reached:
+                  description: The client requests URL exceeds a maximum size.
+                  value: {
+                    "error": "Too Many Requests",
+                    "error_description": "OpCo Quota limit reached",
+                  }
+                End-User limit based on $1 has been reached:
+                  description: This error is returned in case access token throttling limit is reached.
+                  value: {
+                    "error": "Too Many Requests",
+                    "error_description": "End-User limit based on $1 has been reached",
+                  }
+
+        '431' :
+          description: |
+              **Request Header Fields Too Large**
+          content:
+            application/json:
+              examples:
+                Invalid client_id:
+                  value: {
+                    "error": "Request Header Fields Too Large",
+                    "error_description": "The server is unwilling to process the request because either an individual header field, or all the header fields collectively, are too large",
+                  }
+
+        '500' :
+          description: |
+              **Internal Server Error**
+          content:
+            application/json:
+              examples:
+                Internal Server Error:
+                  value: {
+                           "error": "server_error",
+                           "error_description": "Internal Server Error."
+                          }
+
+                Service unavailable:
+                  value: {
+                           "error": "server_error",
+                           "error_description": "The service is currently not available. Please try again later."
+                          }
+
+  /tenure/v1/ping:
+    get:
+      tags:
+        - Monitoring
+      summary: Check the upstream system is up and running.
+      description: |-
+        This API is to check the upstream system is up and running.
+
+      security:
+        - oAuth2ClientCredentials: []
+
+      operationId: getPing
+
+      parameters:
+        - $ref: "#/components/parameters/vf-trace-transaction-id"
+
+      responses:
+        "200":
+          description: "**OK**"
+          content:
+            application/json:
+              examples:
+                success_response:
+                  value: {
+                            "suffix": "/ping",
+                            "client": "35.191.13.203",
+                            "startTime": "2023-06-05T19:47:16.794Z",
+                            "endTime": "2023-06-05T19:47:16.888Z",
+                            "responseTime": 94,
+                            "message": "PONG"
+                          }
+        '400' :
+          description: |
+              **Bad request**
+          content:
+            application/json:
+              examples:
+                Unknown user:
+                  value: {
+                           "error": "invalid_request",
+                           "error_description": "The request parameter is invalid",
+                          }
+        '401' : 
+          description: |
+              **Unauthorized**
+          content:
+            application/json:
+              examples:
+                invalid_client:
+                  value: {
+                    "error": "invalid_client",
+                    "error_description": "Invalid Access Token"
+                  }
+
+  /tenure/v1/status:
+    get:
+      tags:
+        - Monitoring
+      summary: Check the downstream system is up and running.
+      description: |-
+        This API is to check the downstream system is up and running.
+
+      security:
+        - oAuth2ClientCredentials: []
+
+      operationId: getStatus
+
+      parameters:
+        - $ref: "#/components/parameters/vf-trace-transaction-id"
+
+      responses:
+        "200":
+          description: "**OK**"
+          content:
+            application/json:
+              examples:
+                success_response:
+                  value: {
+                            "status": "OK",
+
+                          }
+        '400' :
+          description: |
+              **Bad request**
+          content:
+            application/json:
+              examples:
+                Unknown user:
+                  value: {
+                           "error": "invalid_request",
+                           "error_description": "The request parameter is invalid",
+                          }
+        '401' : 
+          description: |
+              **Unauthorized**
+          content:
+            application/json:
+              examples:
+                invalid_client:
+                  value: {
+                    "error": "invalid_client",
+                    "error_description": "Invalid Access Token"
+                  }
+
+
+
+components:
+
+  securitySchemes:
+    oAuth2ClientCredentials:
+      type: oauth2
+      description: Oath2 grant type clientCredentials
+      flows: 
+        clientCredentials: 
+          tokenUrl: /mobileconnect/v1/token
+          scopes: 
+            mc_vf_mvno_discovery: "Scope for MVNO Discovery"
+
+
+  parameters:
+    vf-trace-transaction-id:
+      name: vf-trace-transaction-id
+      in: header
+      required: false
+      description: A unique identifier for each request (typically a GUID).  This is not defined as part of the standard, but it can be used by the Service Provider to set a value which could assist in troubleshooting.  Note - if this header is not set in the request, the MNO generates this value upon receipt of the message and returns the value in the response as a header.
+      schema:
+        type: string
+
+
+    VF_EXT_BP_ID:
+      name: VF_EXT_BP_ID
+      in: header
+      required: false
+      description: The "VF_EXT_BP_ID" header holds the Client Origin Id. This is a means for identifying the originating customer. It can be used to define a specific pricing model. The value of Client Origin Id can be up to 12 characters in length, and it can contain a combination of A-Z, a-z, underscore and hyphen characters as permitted values. (No other special characters/white space is permitted). The value of the Client Origin ID will be assigned by the MNO and communicated to the appropriate customer team.
+      schema:
+        type: string
+
+
+    User-ID-Type:
+      name: User-ID-Type
+      in: header
+      required: true
+      description: User identification type, it is support MSISDN type only. MSISDN Indicates the User-ID contains a plain MSISDN in international format according to ITU-T recommendation E.164 [13].
+      style: simple
+      schema:
+        type: string
+        example: 'MSISDN'
+
+    User-ID:
+      name: User-ID
+      in: header
+      required: true
+      description: User identification value should contains a plain MSISDN in international format according to ITU-T recommendation E.164 [13]. The plus sign (+) MUST NOT be included as a prefix
+      style: simple
+      schema:
+        type: number
+        example: '447772000001'
+
+  schemas:
+    mc_claim:
+      type: object
+      properties:
+      
+        mc_claims:
+          type: object
+          properties:
+            tenure_before_date:
+              type: object
+              description: |-
+                Date value since first activation ISO 8601:2004
+              properties:
+                value:
+                  type: string
+                  example: 2010-12-31T00:00:00Z
+
+
+  
+    mc_response:
+      properties:
+        tenure_before_date_check:
+          description: | 
+            Set to true (Boolean, not string) when subscriber account has valid tenure at “tenure_before_date”.
+          example: true
+          type: boolean
+        billing_segment:
+          description: |
+            If exists, populated with:
+            - “PAYG” – prepaid (pay-as-you-go) account
+            - “PAYM” – contract account
+            - “Business” – Business (enterprise) account
+            This attribute may be omitted from the response set where value is not known on the local MNO system.
+          example: "PAYM"
+          type: string
+          enum:
+              - PAYG
+              - PAYM
+              - Business
+      required:
+        - tenure_before_date_check
