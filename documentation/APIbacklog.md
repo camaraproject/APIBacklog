@@ -546,7 +546,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <th>Customer Insight</th>
       <td>Telefonica*<div>Telefonica, Vodafone, DT</div></td>
       <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/42/files#diff-12975de6ec2bebacd2681413fc588e666919802e989449f6a37dd8ff7a7b059c">Template</a><div>2024/05/13</div>
+        <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/API_Proposal_Customer%20Insights.md">Template</a><div>2024/05/13</div>
       </td>
       <td><ul><li>TSC Approved (2024/09/19)</li></ul></td>
       <td>
@@ -598,7 +598,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <th>Connected Network Type</th>
       <td>Vodafone*<div>Vodafone, Deutsche Telekom</div></td>
       <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/72">Template</a><div>2024/07/30</div>
+        <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIScopeEnhancement_Device_Status_network_info.md">Template</a><div>2024/07/30</div>
       </td>
       <td><ul><li>TSC Approved (2024/10/03)</li></ul></td>
       <td>
@@ -701,9 +701,9 @@ This is a live doc that captures the status of all the APIs which have been form
       <th>Model As A Service Family</th>
       <td>Chine Mobile*<div></div></td>
       <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/84">Template</a><div>2024/09/06</div>
+        <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIFamily_Proposal_MaaS_ChinaMobile.md">Template</a><div>2024/09/06</div>
       </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td><ul><li>TSC Approved (2024/10/17)</li></ul></td>
       <td>Pending</td>
       <td>N/A</td>
     </tr>
@@ -711,9 +711,9 @@ This is a live doc that captures the status of all the APIs which have been form
       <th>Knowledge Base - Manage</th>
       <td>Chine Mobile*<div></div></td>
       <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/84">Template</a><div>2024/09/06</div>
+        <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/API_Proposal_KnowledgeBase_Manage_ChinaMobile.md">Template</a><div>2024/09/06</div>
       </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td><ul><li>TSC Approved (2024/10/17)</li></ul></td>
       <td>Pending</td>
       <td>N/A</td>
     </tr>
@@ -721,9 +721,9 @@ This is a live doc that captures the status of all the APIs which have been form
       <th>Q&A Assistant - Manage</th>
       <td>Chine Mobile*<div></div></td>
       <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/84">Template</a><div>2024/09/06</div>
+        <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/API_Proposal_Q%26A_Assistant_Manage_ChinaMobile.md">Template</a><div>2024/09/06</div>
       </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td><ul><li>TSC Approved (2024/10/17)</li></ul></td>
       <td>Pending</td>
       <td>N/A</td>
     </tr>
@@ -731,9 +731,9 @@ This is a live doc that captures the status of all the APIs which have been form
       <th>Q&A Assistant - Service</th>
       <td>Chine Mobile*<div></div></td>
       <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/84">Template</a><div>2024/09/06</div>
+        <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/API_Proposal_Q%26A_Assistant_Service_ChinaMobile.md">Template</a><div>2024/09/06</div>
       </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td><ul><li>TSC Approved (2024/10/17)</li></ul></td>
       <td>Pending</td>
       <td>N/A</td>
     </tr>
