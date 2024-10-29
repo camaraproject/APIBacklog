@@ -2,7 +2,7 @@
 | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | API family name                                                | Device Management API family                                                                                              |
 | API family owner                                               | Verizon                                                                                                                   |
-| API summary                                                    | Manage device subscription state . Initial scope to include add, activate,suspend, restore, deactive and delete.                                                              |
+| API summary                                                    | Manage device subscription state . Initial scope to include add, activate,suspend, restore, deactive and delete. addtional details available in supporting documents(IoT Provisioning APIs.pdf).                                                              |
 | Technical viability                                            | These APIs are applicable for 3G, 4G and 5G devices and not dependent on specific network functions or cloud capabilities |
 | Commercial viability                                           | Developed and owned by Verizon and commercially available in Verizon’s network                                            |
 | YAML code available?                                           | YES                                                                                                                       |
