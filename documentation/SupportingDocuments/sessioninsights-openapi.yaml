@@ -1,25 +1,14 @@
 openapi: 3.0.3
 info:
-  title: Quality by Design (QbD) API
+  title: Session Insights (SI) API
   version: 0.0.1
-# security:
-#   - oAuth2ClientCredentials: []
-# servers:
-#   - url: "{apiRoot}/{basePath}"
-#     variables:
-#       apiRoot:
-#         default: http://localhost:5000
-#         description: API root
-#       basePath:
-#         default: qbd/v0
-#         description: Base path for the QbD API
 paths:
   /sessions:
     post:
       tags:
-        - QbD sessions
+        - SI sessions
       summary: Creates a new session
-      description: Create QbD Session to query network quality information
+      description: Create SI Session to query network quality information
       operationId: createSession
       x-router-controller: SessionController
       requestBody:
@@ -27,39 +16,39 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/CreateSession"
+              $ref: "  #/components/schemas/CreateSession"
         required: true
       callbacks:
         notifications:
-          "{$request.body#/webhook/notificationUrl}":
+          "{$request.body  #/webhook/notificationUrl}":
             post:
               tags:
                 - Session notifications callback
               summary: "Session notifications callback"
               description: |
                 Important: this endpoint is to be implemented by the API consumer.
-                The QbD server will call this endpoint whenever any network related event occurs.
-                Currently only QBD_STATUS_CHANGED event is defined.
+                The Session Insights server will call this endpoint whenever any network related event occurs.
+                Currently only SI_STATUS_CHANGED event is defined.
               operationId: postNotification
               requestBody:
                 required: true
                 content:
                   application/json:
                     schema:
-                      $ref: "#/components/schemas/EventNotification"
+                      $ref: "  #/components/schemas/EventNotification"
               responses:
                 "204":
                   description: Successful notification
                 "400":
-                  $ref: "#/components/responses/Generic400"
+                  $ref: "  #/components/responses/Generic400"
                 "401":
-                  $ref: "#/components/responses/Generic401"
+                  $ref: "  #/components/responses/Generic401"
                 "403":
-                  $ref: "#/components/responses/Generic403"
+                  $ref: "  #/components/responses/Generic403"
                 "500":
-                  $ref: "#/components/responses/Generic500"
+                  $ref: "  #/components/responses/Generic500"
                 "503":
-                  $ref: "#/components/responses/Generic503"
+                  $ref: "  #/components/responses/Generic503"
               # security:
               #   - {}
               #   - notificationsBearerAuth: []
@@ -69,13 +58,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/SessionInfo"
+                $ref: "  #/components/schemas/SessionInfo"
         "400":
           description: Invalid input for createSession operation
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorInfo"
+                $ref: "  #/components/schemas/ErrorInfo"
               examples:
                 Generic400:
                   summary: Some parameter combinations or parameter values provided are not schema compliant
@@ -84,15 +73,15 @@ paths:
                     code: INVALID_INPUT
                     message: "Schema validation failed at  ..."
         "401":
-          $ref: "#/components/responses/Generic401"
+          $ref: "  #/components/responses/Generic401"
         "403":
-          $ref: "#/components/responses/Generic403"
+          $ref: "  #/components/responses/Generic403"
         "409":
           description: Conflict
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorInfo"
+                $ref: "  #/components/schemas/ErrorInfo"
               example:
                 status: 409
                 code: CONFLICT
@@ -102,22 +91,18 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorInfo"
+                $ref: "  #/components/schemas/ErrorInfo"
               example:
                 status: 500
                 code: INTERNAL
                 message: "Session could not be created"
         "503":
-          $ref: "#/components/responses/Generic503"
-      # security:
-      #   - oAuth2ClientCredentials: []
-      #   - threeLegged:
-      #       - "qbd-sessions-write"
+          $ref: "  #/components/responses/Generic503"
 
   /metrics/{sessionId}:
     post:
       tags:
-        - QbD sessions
+        - SI sessions
       summary: Post metrics data for a session
       parameters:
         - in: path
@@ -125,7 +110,7 @@ paths:
           description: Session ID that was obtained from the createSession operation
           required: true
           schema:
-            $ref: "#/components/schemas/SessionId"
+            $ref: "  #/components/schemas/SessionId"
       requestBody:
         required: true
         content:
@@ -175,9 +160,9 @@ paths:
   /sessions/{sessionId}:
     get:
       tags:
-        - QbD sessions
-      summary: Get QbD session information
-      description: Querying for QbD session resource information details
+        - SI sessions
+      summary: Get SI session information
+      description: Querying for SI session resource information details
       operationId: getSession
       x-router-controller: SessionController
       parameters:
@@ -186,34 +171,30 @@ paths:
           description: Session ID that was obtained from the createSession operation
           required: true
           schema:
-            $ref: "#/components/schemas/SessionId"
+            $ref: "  #/components/schemas/SessionId"
       responses:
         "200":
           description: Contains information about active session
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/SessionInfo"
+                $ref: "  #/components/schemas/SessionInfo"
         "401":
-          $ref: "#/components/responses/Generic401"
+          $ref: "  #/components/responses/Generic401"
         "403":
-          $ref: "#/components/responses/Generic403"
+          $ref: "  #/components/responses/Generic403"
         "404":
-          $ref: "#/components/responses/SessionNotFound404"
+          $ref: "  #/components/responses/SessionNotFound404"
         "500":
-          $ref: "#/components/responses/Generic500"
+          $ref: "  #/components/responses/Generic500"
         "503":
-          $ref: "#/components/responses/Generic503"
-      # security:
-      #   - oAuth2ClientCredentials: []
-      #   - threeLegged:
-      #       - "qbd-sessions-read"
+          $ref: "  #/components/responses/Generic503"
 
     delete:
       tags:
-        - QbD sessions
-      summary: Delete a QbD session
-      description: Free resources related to QbD session
+        - SI sessions
+      summary: Delete a SI session
+      description: Free resources related to SI session
       operationId: deleteSession
       x-router-controller: SessionController
       parameters:
@@ -222,24 +203,20 @@ paths:
           description: Session ID that was obtained from the createSession operation
           required: true
           schema:
-            $ref: "#/components/schemas/SessionId"
+            $ref: "  #/components/schemas/SessionId"
       responses:
         "204":
           description: Session deleted
         "401":
-          $ref: "#/components/responses/Generic401"
+          $ref: "  #/components/responses/Generic401"
         "403":
-          $ref: "#/components/responses/Generic403"
+          $ref: "  #/components/responses/Generic403"
         "404":
-          $ref: "#/components/responses/SessionNotFound404"
+          $ref: "  #/components/responses/SessionNotFound404"
         "500":
-          $ref: "#/components/responses/Generic500"
+          $ref: "  #/components/responses/Generic500"
         "503":
-          $ref: "#/components/responses/Generic503"
-      # security:
-      #   - oAuth2ClientCredentials: []
-      #   - threeLegged:
-      #       - "qbd-sessions-delete"
+          $ref: "  #/components/responses/Generic503"
 
 components:
   schemas:
@@ -253,7 +230,7 @@ components:
       type: object
       properties:
         id:
-          $ref: "#/components/schemas/SessionId"
+          $ref: "  #/components/schemas/SessionId"
         startedAt:
           type: integer
           example: 1639479600
@@ -264,19 +241,19 @@ components:
           example: 1639566000
           description: Timestamp of session expiration if the session was not deleted, in seconds since unix epoch
           format: int64
-        qbdStatus:
-          $ref: "#/components/schemas/QbdStatus"
+        SIStatus:
+          $ref: "  #/components/schemas/SIStatus"
         messages:
           type: array
           items:
-            $ref: "#/components/schemas/Message"
+            $ref: "  #/components/schemas/Message"
         creationInfo:
-          $ref: "#/components/schemas/CreateSession"
+          $ref: "  #/components/schemas/CreateSession"
       required:
         - id
         - startedAt
         - expiresAt
-        - qbdStatus
+        - SIStatus
 
     CreateSession:
       description: Attributes required to create a session
@@ -285,8 +262,8 @@ components:
         duration:
           description: |
             Session duration in seconds. Maximal value of 24 hours is used if not set.
-            After session is expired the, client will receive a `QBD_STATUS_CHANGED` event with
-             - `qbdStatus` as `UNAVAILABLE`, and,
+            After session is expired the, client will receive a `SI_STATUS_CHANGED` event with
+             - `SIStatus` as `UNAVAILABLE`, and,
              - `statusInfo` as `DURATION_EXPIRED`.
             See notification callback.
           type: integer
@@ -296,9 +273,9 @@ components:
           default: 86400
           example: 86400
         applicationServer:
-          $ref: "#/components/schemas/ApplicationServer"
+          $ref: "  #/components/schemas/ApplicationServer"
         networkRequirements:
-          $ref: "#/components/schemas/QbDNetworkRequirements"
+          $ref: "  #/components/schemas/SINetworkRequirements"
         webhook:
           type: object
           required:
@@ -330,9 +307,9 @@ components:
       type: object
       properties:
         ipv4Address:
-          $ref: "#/components/schemas/Ipv4Address"
+          $ref: "  #/components/schemas/Ipv4Address"
         ipv6Address:
-          $ref: "#/components/schemas/Ipv6Address"
+          $ref: "  #/components/schemas/Ipv6Address"
       minProperties: 1
 
     Ipv4Address:
@@ -357,15 +334,15 @@ components:
             - 2001:db8:85a3:8d3::0/64
             - 2001:db8:85a3:8d3::/64
 
-    QbDNetworkRequirements:
+    SINetworkRequirements:
       type: object
       required:
         - latenciesByPercentile
       properties:
         latenciesByPercentile:
-          $ref: "#/components/schemas/LatenciesByPercentileRequirement"
+          $ref: "  #/components/schemas/LatenciesByPercentileRequirement"
         packetLoss:
-          $ref: "#/components/schemas/PacketLossRequirement"
+          $ref: "  #/components/schemas/PacketLossRequirement"
 
     LatenciesByPercentileRequirement:
       type: array
@@ -408,7 +385,7 @@ components:
           type: integer
           description: Time span in seconds to consider for QoO analysis based on packet loss.
 
-    QbdResult:
+    SIResult:
       description: Resulting Quality by Design data for a session
       type: object
       properties:
@@ -433,12 +410,12 @@ components:
         - severity
         - description
 
-    QbdStatus:
+    SIStatus:
       description: |
-        The current status of the requested QbD session. The status can be one of the following:
-        * `REQUESTED` - QbD has been requested by creating a session
-        * `AVAILABLE` - The requested QbD has been provided by the network
-        * `UNAVAILABLE` - The requested QbD cannot be provided by the network due to some reason
+        The current status of the requested SI session. The status can be one of the following:
+        * `REQUESTED` - SI has been requested by creating a session
+        * `AVAILABLE` - The requested SI has been provided by the network
+        * `UNAVAILABLE` - The requested SI cannot be provided by the network due to some reason
       type: string
       enum:
         - REQUESTED
@@ -451,15 +428,15 @@ components:
         - event
       properties:
         event:
-          $ref: "#/components/schemas/Event"
+          $ref: "  #/components/schemas/Event"
 
     Event:
       anyOf:
-        - $ref: "#/components/schemas/QbdStatusChangedEvent"
+        - $ref: "  #/components/schemas/SIStatusChangedEvent"
       discriminator:
         propertyName: eventType
         mapping:
-          QBD_STATUS_CHANGED: "#/components/schemas/QbdStatusChangedEvent"
+          SI_STATUS_CHANGED: "  #/components/schemas/SIStatusChangedEvent"
 
     EventId:
       type: string
@@ -470,7 +447,7 @@ components:
     EventType:
       type: string
       enum:
-        - QBD_STATUS_CHANGED
+        - SI_STATUS_CHANGED
       description: Type of the event
 
     EventTime:
@@ -486,41 +463,41 @@ components:
         - eventTime
       properties:
         eventid:
-          $ref: "#/components/schemas/EventId"
+          $ref: "  #/components/schemas/EventId"
         eventType:
-          $ref: "#/components/schemas/EventType"
+          $ref: "  #/components/schemas/EventType"
         eventTime:
-          $ref: "#/components/schemas/EventTime"
+          $ref: "  #/components/schemas/EventTime"
 
-    QbdStatusChangedEvent:
+    SIStatusChangedEvent:
       allOf:
-        - $ref: "#/components/schemas/EventBase"
+        - $ref: "  #/components/schemas/EventBase"
         - type: object
           description: |
-            Event notifying that there was a change of the QbD status of a requested or previously available session.
-            Applicable values for `qbdStatus` in the event are:
-            - `AVAILABLE` - Requested QbD session is already available
-            - `UNAVAILABLE` - A requested or previously available QbD session is currently unavailable. `statusInfo` may provide additional information about the reason for the unavailability.
+            Event notifying that there was a change of the SI status of a requested or previously available session.
+            Applicable values for `SIStatus` in the event are:
+            - `AVAILABLE` - Requested SI session is already available
+            - `UNAVAILABLE` - A requested or previously available SI session is currently unavailable. `statusInfo` may provide additional information about the reason for the unavailability.
           properties:
             eventDetail:
               type: object
               description: Event details depending on the event type
               required:
                 - sessionId
-                - qbdStatus
+                - SIStatus
               properties:
                 sessionId:
-                  $ref: "#/components/schemas/SessionId"
-                qbdStatus:
-                  $ref: "#/components/schemas/QbdStatus"
+                  $ref: "  #/components/schemas/SessionId"
+                SIStatus:
+                  $ref: "  #/components/schemas/SIStatus"
                 statusInfo:
-                  $ref: "#/components/schemas/StatusInfo"
+                  $ref: "  #/components/schemas/StatusInfo"
           required:
             - eventDetail
 
     StatusInfo:
       description: |
-        Reason for the new `qbdStatus`. Currently `statusInfo` is only applicable when `qbdStatus` is 'UNAVAILABLE'.
+        Reason for the new `SIStatus`. Currently `statusInfo` is only applicable when `SIStatus` is 'UNAVAILABLE'.
         * `DURATION_EXPIRED` - Session terminated due to requested duration expired
         * `NETWORK_TERMINATED` - Network terminated the session before the requested duration expired
       type: string
@@ -551,7 +528,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/ErrorInfo"
+            $ref: "  #/components/schemas/ErrorInfo"
           example:
             status: 400
             code: INVALID_ARGUMENT
@@ -562,7 +539,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/ErrorInfo"
+            $ref: "  #/components/schemas/ErrorInfo"
           example:
             status: 401
             code: UNAUTHENTICATED
@@ -573,7 +550,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/ErrorInfo"
+            $ref: "  #/components/schemas/ErrorInfo"
           example:
             status: 403
             code: PERMISSION_DENIED
@@ -584,7 +561,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/ErrorInfo"
+            $ref: "  #/components/schemas/ErrorInfo"
           example:
             status: 404
             code: NOT_FOUND
@@ -595,7 +572,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/ErrorInfo"
+            $ref: "  #/components/schemas/ErrorInfo"
           example:
             status: 500
             code: INTERNAL
@@ -606,7 +583,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/ErrorInfo"
+            $ref: "  #/components/schemas/ErrorInfo"
           example:
             status: 501
             code: NOT_IMPLEMENTED
@@ -617,7 +594,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/ErrorInfo"
+            $ref: "  #/components/schemas/ErrorInfo"
           example:
             status: 503
             code: UNAVAILABLE
