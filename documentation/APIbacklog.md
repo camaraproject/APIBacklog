@@ -608,6 +608,58 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>No released</td>
     </tr>
     <tr>
+      <th>Model As A Service Family</th>
+      <td>Chine Mobile*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIFamily_Proposal_MaaS_ChinaMobile.md">Template</a><div>2024/09/06</div>
+      </td>
+      <td><ul><li>TSC Approved (2024/10/17)</li></ul></td>
+      <td>
+        <a href="https://github.com/camaraproject/ModelAsAService">ModelAsAService</a><br>
+        <a href="https://github.com/camaraproject/ModelAsAService/blob/main/MAINTAINERS.MD">Maintainers</a>
+      </td>
+      <td>No released</td>
+    </tr>
+    <tr>
+      <th>Knowledge Base - Manage</th>
+      <td>Chine Mobile*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/API_Proposal_KnowledgeBase_Manage_ChinaMobile.md">Template</a><div>2024/09/06</div>
+      </td>
+      <td><ul><li>TSC Approved (2024/10/17)</li></ul></td>
+      <td>
+        <a href="https://github.com/camaraproject/ModelAsAService">ModelAsAService</a><br>
+        <a href="https://github.com/camaraproject/ModelAsAService/blob/main/MAINTAINERS.MD">Maintainers</a>
+      </td>
+      <td>No released</td>
+    </tr>
+    <tr>
+      <th>Q&A Assistant - Manage</th>
+      <td>Chine Mobile*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/API_Proposal_Q%26A_Assistant_Manage_ChinaMobile.md">Template</a><div>2024/09/06</div>
+      </td>
+      <td><ul><li>TSC Approved (2024/10/17)</li></ul></td>
+      <td>
+        <a href="https://github.com/camaraproject/ModelAsAService">ModelAsAService</a><br>
+        <a href="https://github.com/camaraproject/ModelAsAService/blob/main/MAINTAINERS.MD">Maintainers</a>
+      </td>
+      <td>No released</td>
+    </tr>
+    <tr>
+      <th>Q&A Assistant - Service</th>
+      <td>Chine Mobile*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/API_Proposal_Q%26A_Assistant_Service_ChinaMobile.md">Template</a><div>2024/09/06</div>
+      </td>
+      <td><ul><li>TSC Approved (2024/10/17)</li></ul></td>
+      <td>
+        <a href="https://github.com/camaraproject/ModelAsAService">ModelAsAService</a><br>
+        <a href="https://github.com/camaraproject/ModelAsAService/blob/main/MAINTAINERS.MD">Maintainers</a>
+      </td>
+      <td>No released</td>
+    </tr>
+    <tr>
       <th>Consent and Measurement</th>
       <td>Centillion*<div>Centillion</div></td>
       <td>
@@ -698,46 +750,6 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>N/A</td>
     </tr>
     <tr>
-      <th>Model As A Service Family</th>
-      <td>Chine Mobile*<div></div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIFamily_Proposal_MaaS_ChinaMobile.md">Template</a><div>2024/09/06</div>
-      </td>
-      <td><ul><li>TSC Approved (2024/10/17)</li></ul></td>
-      <td>Pending</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
-      <th>Knowledge Base - Manage</th>
-      <td>Chine Mobile*<div></div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/API_Proposal_KnowledgeBase_Manage_ChinaMobile.md">Template</a><div>2024/09/06</div>
-      </td>
-      <td><ul><li>TSC Approved (2024/10/17)</li></ul></td>
-      <td>Pending</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
-      <th>Q&A Assistant - Manage</th>
-      <td>Chine Mobile*<div></div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/API_Proposal_Q%26A_Assistant_Manage_ChinaMobile.md">Template</a><div>2024/09/06</div>
-      </td>
-      <td><ul><li>TSC Approved (2024/10/17)</li></ul></td>
-      <td>Pending</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
-      <th>Q&A Assistant - Service</th>
-      <td>Chine Mobile*<div></div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/API_Proposal_Q%26A_Assistant_Service_ChinaMobile.md">Template</a><div>2024/09/06</div>
-      </td>
-      <td><ul><li>TSC Approved (2024/10/17)</li></ul></td>
-      <td>Pending</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
       <th>IP High-throughput Elastic Network </th>
       <td>Chine Mobile*<div></div></td>
       <td>
@@ -796,7 +808,47 @@ This is a live doc that captures the status of all the APIs which have been form
       <td><ul><li>Under backlog discussion</li></ul></td>
       <td>Pending</td>
       <td>N/A</td>
+    </tr>
+    <tr>
+      <th>(API enhancement) Support application resource requirements in application profiles</th>
+      <td>Verizon*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/109">Template</a><div>2024/10/30</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>Pending</td>
+      <td>N/A</td>
     </tr> 
+    <tr>
+      <th>SIM Historical Information</th>
+      <td>China Unicom*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/114">Template</a><div>2024/10/30</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>Pending</td>
+      <td>N/A</td>
+    </tr> 
+    <tr>
+      <th>User Account Spend Count</th>
+      <td>China Unicom*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/120">Template</a><div>2024/11/08</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>Pending</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>Number Of Cards Under User's ID</th>
+      <td>China Unicom*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/119">Template</a><div>2024/11/08</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>Pending</td>
+      <td>N/A</td>
+    </tr>
   </tbody>
 </table>
 
