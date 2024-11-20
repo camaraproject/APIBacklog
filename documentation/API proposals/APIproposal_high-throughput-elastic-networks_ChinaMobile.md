@@ -12,4 +12,4 @@
 | Validated in lab/productive environments? | Yes, in productive network. |
 | Validated with real customers? | YES. |
 | Validated with operators? | Yes, 3 operators participated in the evaluations. |
-| Supporters in API Backlog Working Group |                                                              |
+| Supporters in API Backlog Working Group | China Mobile, Huawei, ZTE                                                      |
