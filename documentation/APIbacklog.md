@@ -751,7 +751,7 @@ This is a live doc that captures the status of all the APIs which have been form
     </tr>
     <tr>
       <th>IP High-throughput Elastic Network </th>
-      <td>Chine Mobile*<div></div></td>
+      <td>Chine Mobile*<div>Chine Mobile, Huawei</div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/pull/90">Template</a><div>2024/09/20</div>
       </td>
