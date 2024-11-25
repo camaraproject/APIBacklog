@@ -180,7 +180,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/CarrierBillingCheckOut/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>
-        <a href="https://github.com/camaraproject/CarrierBillingCheckOut/releases/tag/r1.2">v0.3.0 fall24</a><div>2024/09/05</div>
+        <a href="https://github.com/camaraproject/CarrierBillingCheckOut/releases/tag/r1.3">v0.3.1 fall24</a><div>2024/11/23</div>
       </td>
     </tr>
     <tr>
@@ -582,15 +582,15 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>No released</td>
     </tr>
     <tr>
-      <th>Quality by Design</th>
+      <th>Session Insights</th>
       <td>CableLabs*<div>Charter, Liberty Global, Vodafone</div></td>
       <td>
-        <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIproposal_QualityByDesign_CableLabs.md">Template</a><div>2024/07/19</div>
+        <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIproposal_SessionInsights_CableLabs.md">Template</a><div>2024/07/19</div>
       </td>
       <td><ul><li>TSC Approved (2024/09/05)</li></ul></td>
       <td>
-        <a href="https://github.com/camaraproject/QualityByDesign">QualityByDesign</a><br>
-        <a href="https://github.com/camaraproject/QualityByDesign/blob/main/MAINTAINERS.MD">Maintainers</a>
+        <a href="https://github.com/camaraproject/SessionInsights">QualityByDesign</a><br>
+        <a href="https://github.com/camaraproject/SessionInsights/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>No released</td>
     </tr>
@@ -660,6 +660,32 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>No released</td>
     </tr>
     <tr>
+      <th>Capability and Runtime Restrictions</th>
+      <td>T-Mobile US*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/77">Template</a><div>2024/02/01</div>
+      </td>
+      <td><ul><li>TSC Approved (2024/11/21)</li></ul></td>
+      <td>
+        <a href="https://github.com/camaraproject/CapabilitiesAndRuntimeRestrictions">CapabilitiesAndRuntimeRestrictions</a><br>
+        <a href="https://github.com/camaraproject/CapabilitiesAndRuntimeRestrictions/blob/main/MAINTAINERS.MD">Maintainers</a>
+      </td>
+      <td>No released</td>
+    </tr>
+    <tr>
+      <th>High-throughput Elastic Network </th>
+      <td>China Mobile*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIproposal_high-throughput-elastic-networks_ChinaMobile.md">Template</a><div>2024/09/20</div>
+      </td>
+      <td><ul><li>TSC Approved (2024/11/21)</li></ul></td>
+      <td>
+        <a href="https://github.com/camaraproject/HighThroughputElasticNetworks">HighThroughputElasticNetworks</a><br>
+        <a href="https://github.com/camaraproject/HighThroughputElasticNetworks/blob/main/MAINTAINERS.MD">Maintainers</a>
+      </td>
+      <td>No released</td>
+    </tr>
+    <tr>
       <th>Consent and Measurement</th>
       <td>Centillion*<div>Centillion</div></td>
       <td>
@@ -694,16 +720,6 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>Deutsche Telekom*<div>Deutsche Telekom, GSMA-OGW</div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/pull/88">Template</a><div>2024/01/19</div>
-      </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
-      <td>Pending</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
-      <th>Capability and Runtime Restrictions</th>
-      <td>T-Mobile US*<div>T-Mobile US</div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/77">Template</a><div>2024/02/01</div>
       </td>
       <td><ul><li>Under backlog discussion</li></ul></td>
       <td>Pending</td>
@@ -746,16 +762,6 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/APIBacklog/pull/67">Template</a><div>2024/07/17</div>
       </td>
       <td><ul><li>Sent to TSC for approval (2024/09/26)</li></ul></td>
-      <td>Pending</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
-      <th>IP High-throughput Elastic Network </th>
-      <td>Chine Mobile*<div></div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/90">Template</a><div>2024/09/20</div>
-      </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
       <td>Pending</td>
       <td>N/A</td>
     </tr>
@@ -844,6 +850,36 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>China Unicom*<div></div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/pull/119">Template</a><div>2024/11/08</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>Pending</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>Facial Recognition</th>
+      <td>China Mobile*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/130">Template</a><div>2024/11/20</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>Pending</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>Network Health Assessment</th>
+      <td>China Unicom*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/129">Template</a><div>2024/11/19</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>Pending</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>Network Traffic Analysis</th>
+      <td>China Unicom*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/129">Template</a><div>2024/11/19</div>
       </td>
       <td><ul><li>Under backlog discussion</li></ul></td>
       <td>Pending</td>
