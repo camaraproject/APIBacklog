@@ -674,7 +674,7 @@ This is a live doc that captures the status of all the APIs which have been form
     </tr>
     <tr>
       <th>High-throughput Elastic Network </th>
-      <td>China Mobile*<div></div></td>
+      <td>China Mobile*<div>China Mobile, Huawei, ZTE</div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIproposal_high-throughput-elastic-networks_ChinaMobile.md">Template</a><div>2024/09/20</div>
       </td>
