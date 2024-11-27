@@ -1,9 +1,3 @@
-
-
-# API Proposal Energy Footprint Notification
-
-
-
 | **Field** | Description | 
 | ---- | ----- |
 | API family name | Energy Footprint Notification |
