@@ -1,0 +1,12 @@
+| **Field** | Description | 
+| ---- | ----- |
+| API family name | QoS Booking |
+| API family owner | KDDI |
+| API summary | This API adds a booking feature on QoD service. This API offers a programmable interface for developers to request the assignment of a certain QoS Profile to a certain device in advance. This API enables the developers to book an assignment of the requested QoS profile to an specific device with some conditions such as start time, duration and location.<br><br>QoD Service provides the customer with the ability to set certain profile of QoS to an access network connection. Currently, the API supoports a session mode:<br>-the developer wants to set the required QoD profile for a certain period of time, after which the be network configuration must be set back to the default one.<br>-the developer wants to set the required QoD profile indefinitely, this is, each time that the UE connects to the network, it will use the required QoD profile instead of the default one, until the association is removed.<br></br>But there is another possible use case for QoD, which is not currently supported:<br>-the developer wants to give devices an right to use the required QoD profile in advance in order to know the expected number of users, while end user can apply and secure the connectivity service on "first come first served" basis.<br><br>Proposed evolution of the existing API is to add support for a new booking feature with following operations:<br>-Creating a booking for required QoS profile<br>-Removing the booking for required QoS profile<br>-Getting the QoS booking details<br>-Updating the QoS booking details for a device |
+| Technical viability | This API can leverage on the existing QoD services such as CAMARA QoD API, QoS Profile API and OoD Provision Mode API.|
+| Commercial viability | This API adds a booking feature on QoD service. This feature is more convenient for those use cases where a limited network, especially radio, resourece have to be shared by multiple devices simalteneously at the same place. For example, at the event venue, this feature enables end users to book high quality connectivity in advance.|
+| YAML code available? | YES |
+| Validated in lab/productive environments? | NO |
+| Validated with real customers? | NO |
+| Validated with operators? | NO |
+| Supporters in API Backlog Working Group | List of supporters. <br> NOTE: That shall be added by the Working Group.|
