@@ -1,0 +1,321 @@
+openapi: 3.0.1
+info:
+  title: Uganda IMEI Fraud Check API
+  description: |
+    API that allows the client to check the status and authenticity of mobile devices (using IMEI) to see if they have ever been used fraudulently, stolen, lost, or blacklisted.
+    Preprod: https://preprod.api.chenosis.io
+    Prod: https://api.chenosis.io
+  contact:
+    email: engineering@chenosis.io
+  version: "0.1"
+servers:
+- url: https://api.chenosis.io/v1/mtn/imei-information
+security:
+- OAuth2: []
+paths:
+  /status:
+    post:
+      parameters:
+      - name: transactionId
+        in: header
+        schema:
+          type: string
+      requestBody:
+        description: Request body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Request'
+        required: true
+      responses:
+        "200":
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error403'
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+        "405":
+          description: Not Allowed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error405'
+        "408":
+          description: Time out
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error408'
+        "412":
+          description: Precondition Failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error412'
+        "415":
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error415'
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        "503":
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error503'
+      x-codegen-request-body-name: body
+components:
+  schemas:
+    Request:
+      required:
+      - imeiNumber
+      type: object
+      properties:
+        imeiNumber:
+          type: string
+          description: imeiNumber
+          example: "35314711751552"
+    Response:
+      type: object
+      properties:
+        statusCode:
+          type: string
+          example: "0000"
+        statusMessage:
+          type: string
+          example: success
+        customerId:
+          type: string
+          description: request imei number
+          example: "35314711751552"
+        data:
+          type: object
+          properties:
+            date:
+              type: string
+              example: 2023-05-23 21:48:42
+            status:
+              type: string
+              example: Blocked
+              enum:
+              - lost
+              - stolen
+              - blacklisted
+              - blocked
+              - IMEI not flagged
+        timestamp:
+          type: string
+          example: 2023-12-05 02:24:57 AM
+        transactionId:
+          type: string
+          example: 279431ae-b38e-4560-85f9-9afc10681687
+    Error400:
+      type: object
+      properties:
+        statusCode:
+          type: string
+          example: "5000"
+        statusMessage:
+          type: string
+          example: Invalid or missing fields in the request body.
+          enum:
+          - Invalid or missing fields in the request body.
+          - Invalid JSON in the request body.
+        transactionId:
+          type: string
+          example: fg545f-cf4gg4fd55-fdg85hg6
+    Error401:
+      type: object
+      properties:
+        statusCode:
+          type: string
+          example: "4000"
+        statusMessage:
+          type: string
+          example: Unauthorised.
+        SupportMessage:
+          type: string
+          example: Did not provide a valid token
+        transactionId:
+          type: string
+          example: rrt-2055955879466555495-a-geu2-23563-1529151-598
+    Error403:
+      type: object
+      properties:
+        statusCode:
+          type: string
+          example: "6000"
+        statusMessage:
+          type: string
+          example: Forbidden
+        SupportMessage:
+          type: string
+          example: Did not provide a valid token
+        transactionId:
+          type: string
+          example: rrt-2055955879466555495-a-geu2-23563-1529151-598
+    Error404:
+      type: object
+      properties:
+        statusCode:
+          type: string
+          example: "5000"
+        statusMessage:
+          type: string
+          example: Not Found
+        SupportMessage:
+          type: string
+          example: Resource not found
+        transactionId:
+          type: string
+          example: rrt-2055955879466555495-a-geu2-23563-1529151-598
+    Error405:
+      type: object
+      properties:
+        statusCode:
+          type: string
+          example: "4001"
+        statusMessage:
+          type: string
+          example: Not Allowed
+        SupportMessage:
+          type: string
+          example: Invalid HTTP method
+        transactionId:
+          type: string
+          example: rrt-2055955879466555495-a-geu2-23563-1529151-598
+    Error408:
+      type: object
+      properties:
+        statusCode:
+          type: string
+          example: "3003"
+        statusMessage:
+          type: string
+          example: The request timed out.
+        SupportMessage:
+          type: string
+          example: The server took too long to respond.
+        transactionId:
+          type: string
+          example: rrt-2055955879466555495-a-geu2-23563-1529151-598
+    Error412:
+      type: object
+      properties:
+        statusCode:
+          type: string
+          example: "3006"
+        statusMessage:
+          type: string
+          example: Precondition failed
+        transactionId:
+          type: string
+          example: fg545f-cf4gg4fd55-fdg85hg6
+    Error415:
+      type: object
+      properties:
+        statusCode:
+          type: string
+          description: HTTP error code extension
+          example: "5000"
+        statusMessage:
+          type: string
+          description: Media type is not supported
+          example: Unsupported Media Type
+        SupportMessage:
+          type: string
+          description: Unsupported Media Type.It should be application/json
+          example: Unsupported Media Type.It should be application/json
+        transactionId:
+          type: string
+          description: Id for tracing.
+          example: rrt-2055955879466555495-a-geu2-23563-1529151-598
+    Error500:
+      type: object
+      properties:
+        statusCode:
+          type: string
+          description: |-
+            HTTP error code extension
+            3000-Provider API Internal server error.
+            3001-Processing error
+            1005-Please retry
+          example: "3000"
+          enum:
+          - "3000"
+          - "3001"
+          - "1005"
+        statusMessage:
+          type: string
+          description: Brief description
+          example: System error
+        SupportMessage:
+          type: string
+          description: |-
+            More information on error
+            3000-Provider API Internal server error.
+            3001-Processing error
+            1005-Please retry
+          example: Provider API Internal server error.
+        transactionId:
+          type: string
+          description: Id for tracing.
+          example: rrt-2055955879466555495-a-geu2-23563-1529151-598
+    Error503:
+      type: object
+      properties:
+        statusCode:
+          type: string
+          description: Service Unavailable
+          example: "5002"
+        statusMessage:
+          type: string
+          description: Service Unavailable
+          example: Service Unavailable
+        SupportMessage:
+          type: string
+          description: Service Unavailable
+          example: Provider API Service Unavailable.
+        transactionId:
+          type: string
+          description: Id for tracing.
+          example: rrt-2055955879466555495-a-geu2-23563-1529151-598
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.chenosis.io/oauth/client/accesstoken?grant_type=client_credentials
+          scopes: {}
+x-original-swagger-version: "2.0"
