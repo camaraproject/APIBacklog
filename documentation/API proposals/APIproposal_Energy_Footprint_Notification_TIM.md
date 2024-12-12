@@ -9,4 +9,4 @@
 | Validated in lab/productive environments? | NO. |
 | Validated with real customers? | NO. |
 | Validated with operators? | NO. |
-| Supporters in API Backlog Working Group | List of supporters. <br><em> NOTE: That shall be added by the Working Group. </em> |
+| Supporters in API Backlog Working Group | TIM, DT |
