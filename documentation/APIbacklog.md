@@ -140,7 +140,7 @@ This is a live doc that captures the status of all the APIs which have been form
     </tr>
     <tr>
       <th>Number Verification</th>
-      <td>Deutsche Telekom*<div>Airtel, Deutsche Telekom, Orange, Telefónica</div></td>
+      <td>Deutsche Telekom*<div>Airtel, Deutsche Telekom, Orange, Telefónica, CK Hutchison</div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIproposal_NumberVerificationMS2FA_DeustcheTelekom.md">Template</a><div>2022/09/30</div>
       </td>
@@ -242,7 +242,7 @@ This is a live doc that captures the status of all the APIs which have been form
     </tr>
     <tr>
       <th>KYC Match</th>
-      <td>KDDI*<div>China Telecom, Deutsche Telekom, GSMA-OGW, KDDI, Orange, Telefonica</div></td>
+      <td>KDDI*<div>China Telecom, Deutsche Telekom, GSMA-OGW, KDDI, Orange, Telefonica, CK Hutchison</div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIproposal_KYC-Match_KDDI.md">Template</a><div>2023/07/15</div>
       </td>
@@ -436,7 +436,7 @@ This is a live doc that captures the status of all the APIs which have been form
     </tr>
     <tr>
       <th>Call Forwarding Signal</th>
-      <td>Telecom Italia*<div>Telecom Italia, GSMA-OGW, Orange, China Unicom</div></td>
+      <td>Telecom Italia*<div>Telecom Italia, GSMA-OGW, CK Hutchison, Orange, China Unicom</div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIproposal_Call_FWD_Signal_TIM.md">Template</a><div>2023/12/05</div>
       </td>
