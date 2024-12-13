@@ -294,7 +294,9 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/DeviceSwap">DeviceSwap</a><br>
         <a href="https://github.com/camaraproject/DeviceSwap/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>No released</td>
+      <td>
+        <a href="https://github.com/camaraproject/DeviceSwap/releases/tag/r1.2">v0.1.0</a><br>2024/12/12
+      </td>
     </tr>
     <tr>
       <th>WebRTC</th>
@@ -663,7 +665,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <th>Capability and Runtime Restrictions</th>
       <td>T-Mobile US*<div></div></td>
       <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/77">Template</a><div>2024/02/01</div>
+        <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIproposal_CapabilitiesandRuntimeRestrictions_T-MobileUS.md">Template</a><div>2024/02/01</div>
       </td>
       <td><ul><li>TSC Approved (2024/11/21)</li></ul></td>
       <td>
@@ -796,16 +798,6 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>N/A</td>
     </tr>
     <tr>
-      <th>IoT SMS send</th>
-      <td>China Telecom*<div></div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/104">Template</a><div>2024/10/14</div>
-      </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
-      <td>Pending</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
       <th>IoT SIM Fraud Prevention (query&subscription)</th>
       <td>China Telecom*<div></div></td>
       <td>
@@ -859,9 +851,9 @@ This is a live doc that captures the status of all the APIs which have been form
       <th>Facial Recognition</th>
       <td>China Mobile*<div></div></td>
       <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/130">Template</a><div>2024/11/20</div>
+        <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIScopeEnhancement_FacialRecognition_ChinaMobile.md">Template</a><div>2024/11/20</div>
       </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td><ul><li>Sent to TSC for approval (2024/12/19)</li></ul></td>
       <td>Pending</td>
       <td>N/A</td>
     </tr>
@@ -880,6 +872,46 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>China Unicom*<div></div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/pull/129">Template</a><div>2024/11/19</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>Pending</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>eSIM Remote Management</th>
+      <td>China Unicom*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/140">Template</a><div>2024/11/26</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>Pending</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>Energy Footprint Notification</th>
+      <td>TIM*<div>TIM, DT</div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIproposal_Energy_Footprint_Notification_TIM.md">Template</a><div>2024/11/26</div>
+      </td>
+      <td><ul><li>Sent to TSC for approval (2024/12/19)</li></ul></td>
+      <td>Pending</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>IoT Data Transfer Activation</th>
+      <td>TIM*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/144">Template</a><div>2024/11/27</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>Pending</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>QoS Booking</th>
+      <td>KDDI*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/155">Template</a><div>2024/12/02</div>
       </td>
       <td><ul><li>Under backlog discussion</li></ul></td>
       <td>Pending</td>
