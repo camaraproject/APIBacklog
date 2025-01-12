@@ -681,11 +681,28 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIproposal_high-throughput-elastic-networks_ChinaMobile.md">Template</a><div>2024/09/20</div>
       </td>
       <td><ul><li>TSC Approved (2024/11/21)</li></ul></td>
-      <td>
-        <a href="https://github.com/camaraproject/HighThroughputElasticNetworks">HighThroughputElasticNetworks</a><br>
-        <a href="https://github.com/camaraproject/HighThroughputElasticNetworks/blob/main/MAINTAINERS.MD">Maintainers</a>
-      </td>
+      <td>Pending</td>
       <td>No released</td>
+    </tr>
+    <tr>
+      <th>Facial Recognition</th>
+      <td>China Mobile*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIScopeEnhancement_FacialRecognition_ChinaMobile.md">Template</a><div>2024/11/20</div>
+      </td>
+      <td><ul><li>TSC Approved (2024/12/19)</li></ul></td>
+      <td>Pending</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>Energy Footprint Notification</th>
+      <td>TIM*<div>TIM, DT</div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIproposal_Energy_Footprint_Notification_TIM.md">Template</a><div>2024/11/26</div>
+      </td>
+      <td><ul><li>TSC Approved (2024/12/19)</li></ul></td>
+      <td>Pending</td>
+      <td>N/A</td>
     </tr>
     <tr>
       <th>Consent and Measurement</th>
@@ -848,16 +865,6 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>N/A</td>
     </tr>
     <tr>
-      <th>Facial Recognition</th>
-      <td>China Mobile*<div></div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIScopeEnhancement_FacialRecognition_ChinaMobile.md">Template</a><div>2024/11/20</div>
-      </td>
-      <td><ul><li>Sent to TSC for approval (2024/12/19)</li></ul></td>
-      <td>Pending</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
       <th>Network Health Assessment</th>
       <td>China Unicom*<div></div></td>
       <td>
@@ -888,16 +895,6 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>N/A</td>
     </tr>
     <tr>
-      <th>Energy Footprint Notification</th>
-      <td>TIM*<div>TIM, DT</div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIproposal_Energy_Footprint_Notification_TIM.md">Template</a><div>2024/11/26</div>
-      </td>
-      <td><ul><li>Sent to TSC for approval (2024/12/19)</li></ul></td>
-      <td>Pending</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
       <th>IoT Data Transfer Activation</th>
       <td>TIM*<div></div></td>
       <td>
@@ -909,9 +906,39 @@ This is a live doc that captures the status of all the APIs which have been form
     </tr>
     <tr>
       <th>QoS Booking</th>
-      <td>KDDI*<div></div></td>
+      <td>KDDI*<div>KDDI, Telefonica</div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/pull/155">Template</a><div>2024/12/02</div>
+      </td>
+      <td><ul><li>Sent to TSC for approval (2025/01/16)</li></ul></td>
+      <td>Pending</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>Voice Notification</th>
+      <td>China Unicom*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/158">Template</a><div>2024/12/13</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>Pending</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>Voice Verification Code</th>
+      <td>China Unicom*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/161">Template</a><div>2024/12/13</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>Pending</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>Dynamic Connectivity Data</th>
+      <td>Telefonica*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/164">Template</a><div>2025/01/03</div>
       </td>
       <td><ul><li>Under backlog discussion</li></ul></td>
       <td>Pending</td>
