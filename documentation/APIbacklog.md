@@ -692,7 +692,7 @@ This is a live doc that captures the status of all the APIs which have been form
       </td>
       <td><ul><li>TSC Approved (2024/12/19)</li></ul></td>
       <td>Pending</td>
-      <td>N/A</td>
+      <td>No released</td>
     </tr>
     <tr>
       <th>Energy Footprint Notification</th>
@@ -702,7 +702,7 @@ This is a live doc that captures the status of all the APIs which have been form
       </td>
       <td><ul><li>TSC Approved (2024/12/19)</li></ul></td>
       <td>Pending</td>
-      <td>N/A</td>
+      <td>No released</td>
     </tr>
     <tr>
       <th>Consent and Measurement</th>
