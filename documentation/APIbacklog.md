@@ -229,9 +229,9 @@ This is a live doc that captures the status of all the APIs which have been form
     </tr>
     <tr>
       <th>Click to Dial</th>
-      <td> China Mobile*, Huawei*<div> China Mobile, Huawei, China Telecom</div></td>
+      <td>China Mobile*, Huawei*<div>China Mobile, Huawei, China Telecom</div></td>
       <td>
-        <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIproposal_ClickToDial_Mobile.md">Template</a><div>2023/05/12</div>
+        <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIproposal_ClickToDial_ChinaMobile.md">Template</a><div>2023/05/12</div>
       </td>
       <td><ul><li>TSC Approved (2023/09/07)</li></ul></td>
       <td>
