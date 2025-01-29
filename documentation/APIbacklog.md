@@ -591,7 +591,7 @@ This is a live doc that captures the status of all the APIs which have been form
       </td>
       <td><ul><li>TSC Approved (2024/09/05)</li></ul></td>
       <td>
-        <a href="https://github.com/camaraproject/SessionInsights">QualityByDesign</a><br>
+        <a href="https://github.com/camaraproject/SessionInsights">SessionInsights</a><br>
         <a href="https://github.com/camaraproject/SessionInsights/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>No released</td>
