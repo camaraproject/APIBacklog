@@ -591,7 +591,7 @@ This is a live doc that captures the status of all the APIs which have been form
       </td>
       <td><ul><li>TSC Approved (2024/09/05)</li></ul></td>
       <td>
-        <a href="https://github.com/camaraproject/SessionInsights">QualityByDesign</a><br>
+        <a href="https://github.com/camaraproject/SessionInsights">SessionInsights</a><br>
         <a href="https://github.com/camaraproject/SessionInsights/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>No released</td>
@@ -611,7 +611,7 @@ This is a live doc that captures the status of all the APIs which have been form
     </tr>
     <tr>
       <th>Model As A Service Family</th>
-      <td>Chine Mobile*<div></div></td>
+      <td>China Mobile*<div></div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIFamily_Proposal_MaaS_ChinaMobile.md">Template</a><div>2024/09/06</div>
       </td>
@@ -624,7 +624,7 @@ This is a live doc that captures the status of all the APIs which have been form
     </tr>
     <tr>
       <th>Knowledge Base - Manage</th>
-      <td>Chine Mobile*<div></div></td>
+      <td>China Mobile*<div></div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/API_Proposal_KnowledgeBase_Manage_ChinaMobile.md">Template</a><div>2024/09/06</div>
       </td>
@@ -637,7 +637,7 @@ This is a live doc that captures the status of all the APIs which have been form
     </tr>
     <tr>
       <th>Q&A Assistant - Manage</th>
-      <td>Chine Mobile*<div></div></td>
+      <td>China Mobile*<div></div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/API_Proposal_Q%26A_Assistant_Manage_ChinaMobile.md">Template</a><div>2024/09/06</div>
       </td>
@@ -650,7 +650,7 @@ This is a live doc that captures the status of all the APIs which have been form
     </tr>
     <tr>
       <th>Q&A Assistant - Service</th>
-      <td>Chine Mobile*<div></div></td>
+      <td>China Mobile*<div></div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/API_Proposal_Q%26A_Assistant_Service_ChinaMobile.md">Template</a><div>2024/09/06</div>
       </td>
@@ -766,7 +766,7 @@ This is a live doc that captures the status of all the APIs which have been form
     </tr>
     <tr>
       <th>5g New Calling</th>
-      <td>Chine Mobile*<div></div></td>
+      <td>China Mobile*<div></div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/pull/31">Template</a><div>2024/04/29</div>
       </td>
