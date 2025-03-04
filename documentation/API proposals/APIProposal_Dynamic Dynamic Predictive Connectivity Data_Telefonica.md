@@ -9,4 +9,4 @@
 | Validated in lab/productive environments? | YES <br>Lab environment |
 | Validated with real customers? | YES|
 | Validated with operators? | NO |
-| Supporters in API Backlog Working Group | List of supporters.|
+| Supporters in API Backlog Working Group | Telefonica, DT|
