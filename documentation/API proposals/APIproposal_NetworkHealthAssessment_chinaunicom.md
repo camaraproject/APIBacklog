@@ -1,5 +1,5 @@
-| Field | Description |
-| ---- | ----------- |
+| **Field** | Description | 
+| ---- | ----- |
 | API family name | NetworkHealthAssessment |
 | API family owner | chinaunicom |
 | API summary | This API allows users to query the health score of a given network, which consists of multiple components including the wireless network, transmission network, and core network. By calculating the health score for each component and then applying weighted calculations, the API provides a comprehensive health score result for the given network. This API is designed to work with any given network and is not restricted to private networks. |
