@@ -773,7 +773,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/pull/164">Template</a><div>2025/01/03</div>
       </td>
-      <td><ul><li>Sent to TSC for approval (2025/03/06)</li></ul></td>
+      <td><ul><li>Sent to TSC for approval (2025/02/27)</li></ul></td>
       <td>Pending</td>
       <td>N/A</td>
     </tr>
@@ -784,7 +784,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/pull/144">Template</a><div>2024/11/27</div>
       </td>
-      <td><ul><li>Sent to TSC for approval (2025/03/06)</li></ul></td>
+      <td><ul><li>Sent to TSC for approval (2025/02/27)</li></ul></td>
       <td>Pending</td>
       <td>N/A</td>
     <tr>
@@ -794,7 +794,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/pull/129">Template</a><div>2024/11/19</div>
       </td>
-      <td><ul><li>Sent to TSC for approval (2025/03/06)</li></ul></td>
+      <td><ul><li>Sent to TSC for approval (2025/02/27)</li></ul></td>
       <td>Pending</td>
       <td>N/A</td>
     </tr>
@@ -804,7 +804,17 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/pull/129">Template</a><div>2024/11/19</div>
       </td>
-      <td><ul><li>Sent to TSC for approval (2025/03/06)</li></ul></td>
+      <td><ul><li>Sent to TSC for approval (2025/02/27)</li></ul></td>
+      <td>Pending</td>
+      <td>N/A</td>
+    </tr>
+         <tr>
+      <th>eSIM Remote Management</th>
+      <td>China Unicom*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/140">Template</a><div>2024/11/26</div>
+      </td>
+      <td><ul><li>Sent to TSC for approval (2025/03/13) </li></ul></td>
       <td>Pending</td>
       <td>N/A</td>
     </tr>
@@ -922,16 +932,6 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>China Unicom*<div></div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/pull/119">Template</a><div>2024/11/08</div>
-      </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
-      <td>Pending</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
-      <th>eSIM Remote Management</th>
-      <td>China Unicom*<div></div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/140">Template</a><div>2024/11/26</div>
       </td>
       <td><ul><li>Under backlog discussion</li></ul></td>
       <td>Pending</td>
