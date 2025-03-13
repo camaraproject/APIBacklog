@@ -1,5 +1,4 @@
 ## API Backlog
-
 This is a live doc that captures the status of all the APIs which have been formally registered in CAMARA project.</p>
 
 <table>
@@ -626,7 +625,6 @@ This is a live doc that captures the status of all the APIs which have been form
     <tr>
       <th>Knowledge Base - Manage</th>
       <td>China Mobile*<div></div></td>
-
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/API_Proposal_KnowledgeBase_Manage_ChinaMobile.md">Template</a><div>2024/09/06</div>
       </td>
@@ -640,7 +638,6 @@ This is a live doc that captures the status of all the APIs which have been form
     <tr>
       <th>Q&A Assistant - Manage</th>
       <td>China Mobile*<div></div></td>
-
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/API_Proposal_Q%26A_Assistant_Manage_ChinaMobile.md">Template</a><div>2024/09/06</div>
       </td>
@@ -654,7 +651,6 @@ This is a live doc that captures the status of all the APIs which have been form
     <tr>
       <th>Q&A Assistant - Service</th>
       <td>China Mobile*<div></div></td>
-
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/API_Proposal_Q%26A_Assistant_Service_ChinaMobile.md">Template</a><div>2024/09/06</div>
       </td>
