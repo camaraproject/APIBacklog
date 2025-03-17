@@ -239,7 +239,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/ClickToDial">ClickToDial</a><br>
         <a href="https://github.com/camaraproject/ClickToDial/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>No released</td>
+      <td>No release</td>
     </tr>
     <tr>
       <th>KYC Match</th>
@@ -282,7 +282,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/SiteToCloudVPN">SiteToCloudVPN</a><br>
         <a href="https://github.com/camaraproject/SiteToCloudVPN/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>No released</td>
+      <td>No release</td>
     </tr>
     <tr>
       <th>Device Swap</th>
@@ -340,7 +340,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/NetworkSliceBooking">NetworkSliceBooking</a><br>
         <a href="https://github.com/camaraproject/NetworkSliceBooking/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>No released</td>
+      <td>No release</td>
     </tr>
     <tr>
       <th>KYC Age Verification</th>
@@ -353,7 +353,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/KnowYourCustomer">KnowYourCustomer</a><br>
         <a href="https://github.com/camaraproject/KnowYourCustomer/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>No released</td>
+      <td>No release</td>
     </tr>
     <tr>
       <th>Region Device Count</th>
@@ -366,7 +366,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/RegionDeviceCount">RegionUserCount</a><br>
         <a href="https://github.com/camaraproject/RegionDeviceCount/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>No released</td>
+      <td>No release</td>
     </tr>
     <tr>
       <th>Device Visit Location</th>
@@ -379,7 +379,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/LocationInsights">LocationInsights</a><br>
         <a href="https://github.com/camaraproject/LocationInsights/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>No released</td>
+      <td>No release</td>
     </tr>
     <tr>
       <th>Population Density Data</th>
@@ -407,7 +407,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/LocationInsights">LocationInsights</a><br>
         <a href="https://github.com/camaraproject/LocationInsights/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>No released</td>
+      <td>No release</td>
     </tr>
     <tr>
       <th>Device Location Retrieval</th>
@@ -435,7 +435,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/ShortMessageService">ShortMessageService</a><br>
         <a href="https://github.com/camaraproject/ShortMessageService/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>No released</td>
+      <td>No release</td>
     </tr>
     <tr>
       <th>Call Forwarding Signal</th>
@@ -463,7 +463,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/DeviceQualityIndicator">DeviceQualityIndicator</a><br>
         <a href="https://github.com/camaraproject/DeviceQualityIndicator/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>No released</td>
+      <td>No release</td>
     </tr>
     <tr>
       <th>Customer Premise Equipment Management</th>
@@ -476,7 +476,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/NetworkAccessManagement">NetworkAccessManagement</a><br>
         <a href="https://github.com/camaraproject/NetworkAccessManagement/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>No released</td>
+      <td>No release</td>
     </tr>
     <tr>
       <th>Verified Caller</th>
@@ -489,7 +489,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/VerifiedCaller">VerifiedCaller</a><br>
         <a href="https://github.com/camaraproject/VerifiedCaller/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>No released</td>
+      <td>No release</td>
     </tr>
     <tr>
       <th>Tenure</th>
@@ -502,7 +502,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/Tenure">Tenure</a><br>
         <a href="https://github.com/camaraproject/Tenure/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>No released</td>
+      <td>No release</td>
     </tr>
     <tr>
       <th>Subscription Status</th>
@@ -515,7 +515,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/SubscriptionStatus">SubscriptionStatus</a><br>
         <a href="https://github.com/camaraproject/SubscriptionStatus/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>No released</td>
+      <td>No release</td>
     </tr>
     <tr>
       <th>QoD Provision Mode</th>
@@ -543,7 +543,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/DeviceDataVolume">DeviceDataVolume</a><br>
         <a href="https://github.com/camaraproject/DeviceDataVolume/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>No released</td>
+      <td>No release</td>
     </tr>
     <tr>
       <th>Customer Insight</th>
@@ -556,7 +556,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/CustomerInsights">CustomerInsights</a><br>
         <a href="https://github.com/camaraproject/CustomerInsights/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>No released</td>
+      <td>No release</td>
     </tr>
     <tr>
       <th>Number Recycling</th>
@@ -569,7 +569,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/NumberRecycling">NumberRecycling</a><br>
         <a href="https://github.com/camaraproject/NumberRecycling/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>No released</td>
+      <td>No release</td>
     </tr>
     <tr>
       <th>Dedicated Networks</th>
@@ -582,7 +582,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/DedicatedNetworks">DedicatedNetworks</a><br>
         <a href="https://github.com/camaraproject/DedicatedNetworks/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>No released</td>
+      <td>No release</td>
     </tr>
     <tr>
       <th>Session Insights</th>
@@ -595,7 +595,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/SessionInsights">SessionInsights</a><br>
         <a href="https://github.com/camaraproject/SessionInsights/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>No released</td>
+      <td>No release</td>
     </tr>
     <tr>
       <th>Connected Network Type</th>
@@ -608,7 +608,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/DeviceStatus">DeviceStatus</a><br>
         <a href="https://github.com/camaraproject/DeviceStatus/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>No released</td>
+      <td>No release</td>
     </tr>
     <tr>
       <th>Model As A Service Family</th>
@@ -621,7 +621,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/ModelAsAService">ModelAsAService</a><br>
         <a href="https://github.com/camaraproject/ModelAsAService/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>No released</td>
+      <td>No release</td>
     </tr>
     <tr>
       <th>Knowledge Base - Manage</th>
@@ -634,7 +634,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/ModelAsAService">ModelAsAService</a><br>
         <a href="https://github.com/camaraproject/ModelAsAService/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>No released</td>
+      <td>No release</td>
     </tr>
     <tr>
       <th>Q&A Assistant - Manage</th>
@@ -647,7 +647,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/ModelAsAService">ModelAsAService</a><br>
         <a href="https://github.com/camaraproject/ModelAsAService/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>No released</td>
+      <td>No release</td>
     </tr>
     <tr>
       <th>Q&A Assistant - Service</th>
@@ -660,7 +660,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/ModelAsAService">ModelAsAService</a><br>
         <a href="https://github.com/camaraproject/ModelAsAService/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>No released</td>
+      <td>No release</td>
     </tr>
     <tr>
       <th>Capability and Runtime Restrictions</th>
@@ -673,7 +673,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/CapabilitiesAndRuntimeRestrictions">CapabilitiesAndRuntimeRestrictions</a><br>
         <a href="https://github.com/camaraproject/CapabilitiesAndRuntimeRestrictions/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>No released</td>
+      <td>No release</td>
     </tr>
     <tr>
       <th>High-throughput Elastic Network </th>
@@ -686,7 +686,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/HighThroughputElasticNetworks">High Throughput Elastic Networks</a>
         <a href="https://github.com/camaraproject/HighThroughputElasticNetworks/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>No released</td>
+      <td>No release</td>
     </tr>
     <tr>
       <th>Facial Recognition</th>
@@ -696,7 +696,7 @@ This is a live doc that captures the status of all the APIs which have been form
       </td>
       <td><ul><li>TSC Approved (2024/12/19)</li></ul></td>
       <td>Pending</td>
-      <td>No released</td>
+      <td>No release</td>
     </tr>
     <tr>
       <th>Energy Footprint Notification</th>
@@ -708,7 +708,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
       <a href="https://github.com/camaraproject/EnergyFootprintNotification">Energy Footprint Notification</a>
       <div><a href="https://github.com/camaraproject/EnergyFootprintNotification/blob/main/MAINTAINERS.MD">Maintainers</a></div></td>
-      <td>No released</td>
+      <td>No release</td>
     </tr>
         <tr>
       <th>QoS Booking</th>
@@ -723,7 +723,7 @@ This is a live doc that captures the status of all the APIs which have been form
       </div>
             <a href="https://github.com/camaraproject/QoSBooking/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>No released</td>
+      <td>No release</td>
           <tr>
       <th>(API enhancement) Support application resource requirements in application profiles</th>
       <td>Verizon*<div></div></td>
