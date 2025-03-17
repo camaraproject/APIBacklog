@@ -706,8 +706,9 @@ This is a live doc that captures the status of all the APIs which have been form
       </td>
       <td><ul><li>TSC Approved (2024/12/19)</li></ul></td>
       <td>
-      <a href="https://github.com/camaraproject/EnergyFootprintNotification">Energy Footprint Notification</a>
-      <div><a href="https://github.com/camaraproject/EnergyFootprintNotification/blob/main/MAINTAINERS.MD">Maintainers</a></div></td>
+        <a href="https://github.com/camaraproject/EnergyFootprintNotification">Energy Footprint Notification</a>
+        <a href="https://github.com/camaraproject/EnergyFootprintNotification/blob/main/MAINTAINERS.MD">Maintainers</a>
+      </td>
       <td>No release</td>
     </tr>
         <tr>
@@ -718,10 +719,8 @@ This is a live doc that captures the status of all the APIs which have been form
       </td>
       <td><ul><li>TSC Approved (2025/01/16)</li></ul></td>
       <td>
-      <div>
-      <a href="https://github.com/camaraproject/QoSBooking/">QoS Booking</a>
-      </div>
-            <a href="https://github.com/camaraproject/QoSBooking/blob/main/MAINTAINERS.MD">Maintainers</a>
+        <a href="https://github.com/camaraproject/QoSBooking/">QoS Booking</a>
+        <a href="https://github.com/camaraproject/QoSBooking/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>No release</td>
           <tr>
