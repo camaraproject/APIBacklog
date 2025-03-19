@@ -720,7 +720,8 @@ This is a live doc that captures the status of all the APIs which have been form
       <td><ul><li>TSC Approved (2025/01/16)</li></ul></td>
       <td>
         <a href="https://github.com/camaraproject/QoSBooking/">QoS Booking</a>
-        <a href="https://github.com/camaraproject/QoSBooking/blob/main/MAINTAINERS.MD">Maintainers</a>
+        <a href="https://github.com/camaraproject/QoSBooking/blob/main/MAINTAINERS.MD">Maintainers
+        </a>
       </td>
       <td>No release</td>
           <tr>
@@ -730,7 +731,10 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/APIBacklog/pull/109">Template</a><div>2024/10/30</div>
       </td>
       <td><ul><li>TSC Approved (2025/20/02)</li></ul></td>
-      <td>Pending</td>
+      <td>
+        <a href="https://github.com/camaraproject/ApplicationProfile">ApplicationProfile</a>
+        <a href="https://github.com/camaraproject/ApplicationProfile/blob/main/MAINTAINERS.MD">Maintainers</a>
+      </td>
       <td>N/A</td>
     </tr> 
             <tr>
@@ -740,7 +744,10 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/APIBacklog/pull/103">Template</a><div>2024/10/14</div>
       </td>
       <td><ul><li>TSC Approved (2025/02/20)</li></ul></td>
-      <td>Pending</td>
+      <td>
+        <a href="https://github.com/camaraproject/IoTSIMFraudPrevention">IoTSIMFraudPrevention</a>
+        <a href="https://github.com/camaraproject/IoTSIMFraudPrevention/blob/main/MAINTAINERS.MD">Maintainers</a>
+      </td>
       <td>N/A</td>
     </tr>
          <tr>
@@ -750,7 +757,9 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/APIBacklog/pull/30">Template</a><div>2024/04/26</div>
       </td>
       <td><ul><li>TSC Approved (2025/02/20)</li></ul></td>
-      <td>Pending</td>
+      <td>
+        <a href="https://github.com/camaraproject/IoTDeviceManagement">IoTDeviceManagement</a>
+        <a href="https://github.com/camaraproject/IoTDeviceManagement/blob/main/MAINTAINERS.MD">Maintainers</a></td>
       <td>N/A</td>
     </tr>
     </tr>
@@ -760,8 +769,11 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/pull/67">Template</a><div>2024/07/17</div>
       </td>
-      <td><ul><li>Sent to TSC for approval (2024/09/26)</li></ul></td>
-      <td>Pending</td>
+      <td><ul><li>TSC Approved (2025/03/06)</li></ul></td>
+      <td>
+        <a href="https://github.com/camaraproject/ConsentInfo">ConsentInfo</a>
+        <a href="https://github.com/camaraproject/ConsentInfo/blob/main/MAINTAINERS.MD">Maintainers</a>
+      </td>
       <td>N/A</td>
     </tr>
     <tr>
@@ -770,7 +782,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/pull/164">Template</a><div>2025/01/03</div>
       </td>
-      <td><ul><li>Sent to TSC for approval (2025/02/27)</li></ul></td>
+      <td><ul><li>TSC Approved (2025/03/06)</li></ul></td>
       <td>Pending</td>
       <td>N/A</td>
     </tr>
@@ -781,7 +793,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/pull/144">Template</a><div>2024/11/27</div>
       </td>
-      <td><ul><li>Sent to TSC for approval (2025/02/27)</li></ul></td>
+      <td><ul><li>TSC Approved (2025/03/06)</li></ul></td>
       <td>Pending</td>
       <td>N/A</td>
     <tr>
