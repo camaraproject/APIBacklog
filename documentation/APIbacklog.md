@@ -751,7 +751,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>N/A</td>
     </tr>
          <tr>
-      <th>Device Management</th>
+      <th>IoT Device Management</th>
       <td>Verizon*<div></div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/pull/30">Template</a><div>2024/04/26</div>
