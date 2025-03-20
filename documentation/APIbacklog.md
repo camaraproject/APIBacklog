@@ -823,7 +823,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/pull/140">Template</a><div>2024/11/26</div>
       </td>
-      <td><ul><li>Sent to TSC for approval (2025/03/13) </li></ul></td>
+      <td><ul><li>TSC Approved (2025/03/20) </li></ul></td>
       <td>Pending</td>
       <td>N/A</td>
     </tr>
