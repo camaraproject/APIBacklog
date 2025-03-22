@@ -803,7 +803,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/pull/129">Template</a><div>2024/11/19</div>
       </td>
-      <td><ul><li>Sent to TSC for approval (2025/02/27)</li></ul></td>
+      <td><ul><li>Updates requested by TSC (2025/02/27)</li></ul></td>
       <td>Pending</td>
       <td>N/A</td>
     </tr>
@@ -813,7 +813,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/pull/129">Template</a><div>2024/11/19</div>
       </td>
-      <td><ul><li>Sent to TSC for approval (2025/02/27)</li></ul></td>
+      <td><ul><li>Updates requested by TSC (2025/02/27)</li></ul></td>
       <td>Pending</td>
       <td>N/A</td>
     </tr>
@@ -993,5 +993,6 @@ This is a live doc that captures the status of all the APIs which have been form
   - Sent to TSC for approval (date)
   - TSC Approved (date)
   - Not approved (date)
+  - Updates requested by TSC (date)
 - `Sub Project Link & Active Maintainers`: Direct links to API repository (or repository where the API is specified) and the API maintainer list
 - `Latest Release & date`: Direct link to latest release version (tag to meta-release if applies) and date.
