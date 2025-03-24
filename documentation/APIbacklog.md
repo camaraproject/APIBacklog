@@ -752,7 +752,6 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>N/A</td>
     </tr>
     <tr>
-
       <th>IoT Device Management</th>
       <td>Verizon*<div></div></td>
       <td>
@@ -764,8 +763,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/IoTDeviceManagement/blob/main/MAINTAINERS.MD">Maintainers</a></td>
       <td>N/A</td>
     </tr>
-    </tr>
-        <tr>
+    <tr>
       <th>Consent URL</th>
       <td>Telefonica*<div>Telefonica, KPN </div></td>
       <td>
@@ -949,7 +947,6 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>N/A</td>
     </tr>
     <tr>
-     </tr>
       <th>Voice Notification</th>
       <td>China Unicom*<div></div></td>
       <td>
