@@ -711,7 +711,7 @@ This is a live doc that captures the status of all the APIs which have been form
       </td>
       <td>No release</td>
     </tr>
-     <tr>
+    <tr>
       <th>QoS Booking</th>
       <td>KDDI*<div>KDDI, Telefonica</div></td>
       <td>
@@ -724,7 +724,8 @@ This is a live doc that captures the status of all the APIs which have been form
         </a>
       </td>
       <td>No release</td>
-          <tr>
+    </tr>
+    <tr>
       <th>(API enhancement) Support application resource requirements in application profiles</th>
       <td>Verizon*<div></div></td>
       <td>
@@ -787,8 +788,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>Pending</td>
       <td>N/A</td>
     </tr>
-     </tr>
-        <tr>
+    <tr>
       <th>IoT Network Optimization</th>
       <td>TIM*<div></div></td>
       <td>
@@ -797,7 +797,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td><ul><li>TSC Approved (2025/03/06)</li></ul></td>
       <td>Pending</td>
       <td>N/A</td>
-    <tr>
+    </tr>
     <tr>
       <th>Network Traffic Analysis</th>
       <td>China Unicom*<div></div></td>
@@ -897,7 +897,8 @@ This is a live doc that captures the status of all the APIs which have been form
       <td><ul><li>Under backlog discussion</li></ul></td>
       <td>Pending</td>
       <td>N/A</td>
-      <tr>
+    </tr>
+    <tr>
       <th>Fixed Lines in Location</th>
       <td>Telefonica*<div></div></td>
       <td>
