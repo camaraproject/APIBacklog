@@ -711,7 +711,7 @@ This is a live doc that captures the status of all the APIs which have been form
       </td>
       <td>No release</td>
     </tr>
-        <tr>
+     <tr>
       <th>QoS Booking</th>
       <td>KDDI*<div>KDDI, Telefonica</div></td>
       <td>
@@ -736,8 +736,8 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/ApplicationProfile/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>N/A</td>
-    </tr> 
-            <tr>
+    </tr>
+    <tr>
       <th>IoT SIM Fraud Prevention (query&subscription)</th>
       <td>China Telecom*<div></div></td>
       <td>
@@ -750,7 +750,8 @@ This is a live doc that captures the status of all the APIs which have been form
       </td>
       <td>N/A</td>
     </tr>
-         <tr>
+    <tr>
+
       <th>IoT Device Management</th>
       <td>Verizon*<div></div></td>
       <td>
@@ -797,7 +798,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>Pending</td>
       <td>N/A</td>
     <tr>
-            <tr>
+    <tr>
       <th>Network Traffic Analysis</th>
       <td>China Unicom*<div></div></td>
       <td>
@@ -817,7 +818,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>Pending</td>
       <td>N/A</td>
     </tr>
-         <tr>
+    <tr>
       <th>eSIM Remote Management</th>
       <td>China Unicom*<div></div></td>
       <td>
@@ -877,7 +878,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>Pending</td>
       <td>N/A</td>
     </tr>
-        <tr>
+    <tr>
       <th>Steering of Roaming Management</th>
       <td>Netfocusin Technologies*<div>Netfocusin Technologies</div></td>
       <td>
@@ -925,7 +926,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td><ul><li>Under backlog discussion</li></ul></td>
       <td>Pending</td>
       <td>N/A</td>
-    </tr> 
+    </tr>
     <tr>
       <th>User Account Spend Count</th>
       <td>China Unicom*<div></div></td>
@@ -946,7 +947,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>Pending</td>
       <td>N/A</td>
     </tr>
-        <tr>
+    <tr>
      </tr>
       <th>Voice Notification</th>
       <td>China Unicom*<div></div></td>
@@ -967,7 +968,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>Pending</td>
       <td>N/A</td>
     </tr>
-        <tr>
+    <tr>
       <th>IdentityAndConsentManagement</th>
       <td>Cellcard*<div></div></td>
       <td>
