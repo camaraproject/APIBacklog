@@ -343,6 +343,17 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>No release</td>
     </tr>
     <tr>
+      <th>Receive SMS</th>
+      <td>Telecom Italia*<div>Telecom Italia, GSMA-OGW, Orange, China Unicom</div></td>
+      <td>
+        <a href="https://github.com/camaraproject/WorkingGroups/pull/361">Template</a><div>2023/12/05</div>
+      </td>
+      <td><ul><li>TSC Approved (2024/03/27)</li></ul></td>
+      <td>Pending</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+    <tr>
       <th>KYC Age Verification</th>
       <td>Orange*<div>Orange, GSMA-OGW</div></td>
       <td>
@@ -555,6 +566,16 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/DeviceDataVolume/releases/tag/r1.1">v0.1.0-alpha.1 (Pre-release) spring25</a><br>2025/01/16
       </td>
     </tr>
+    </tr>
+      <th>Best Interconnection</th>
+      <td>Deutsche Telekom*<div>Deutsche Telekom, GSMA-OGW</div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/88">Template</a><div>2024/01/19</div>
+      </td>
+      <td><ul><li>TSC Approved (2024/09/06)</li></ul></td>
+      <td>Pending</td>
+      <td>N/A</td>
+    </tr>
     <tr>
       <th>Customer Insight</th>
       <td>Telefonica*<div>Telefonica, Vodafone, DT</div></td>
@@ -568,7 +589,6 @@ This is a live doc that captures the status of all the APIs which have been form
       </td>
       <td>
         <a href="https://github.com/camaraproject/CustomerInsights/releases/tag/r1.3">v0.1.1 spring25</a><br>2025/03/18
-
       </td>
     </tr>
     <tr>
@@ -678,6 +698,26 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/ModelAsAService/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>No release</td>
+    </tr>
+    <tr>
+      <th>Fixed Lines in Location</th>
+      <td>Telefonica*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/92">Template</a><div>2024/10/01</div>
+      </td>
+      <td><ul><li>TSC Approved (2024/10/17)</li></ul></td>
+      <td>Pending</td>
+      <td>N/A</td>
+    </tr>
+        <tr>
+      <th>Line Eligibility for Carrier Billing API</th>
+      <td>Telefonica*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/94">Template</a><div>2024/10/01</div>
+      </td>
+      <td><ul><li>TSC Approved (2024/10/28)</li></ul></td>
+      <td>Pending</td>
+      <td>N/A</td>
     </tr>
     <tr>
       <th>Capability and Runtime Restrictions</th>
@@ -862,27 +902,6 @@ This is a live doc that captures the status of all the APIs which have been form
       <td><ul><li>Under backlog discussion</li></ul></td>
       <td>Pending</td>
       <td>N/A</td>
-    </tr>
-    <tr>
-      <th>Receive SMS</th>
-      <td>Telecom Italia*<div>Telecom Italia, GSMA-OGW, Orange, China Unicom</div></td>
-      <td>
-        <a href="https://github.com/camaraproject/WorkingGroups/pull/361">Template</a><div>2023/12/05</div>
-      </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
-      <td>Pending</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
-      <th>Best Interconnection</th>
-      <td>Deutsche Telekom*<div>Deutsche Telekom, GSMA-OGW</div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/88">Template</a><div>2024/01/19</div>
-      </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
-      <td>Pending</td>
-      <td>N/A</td>
-    </tr>
     <tr>
       <th>Carrier Wholesale Pricing</th>
       <td>TelecomsXChange*<div>TelecomsXChange</div></td>
@@ -908,26 +927,6 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>Chine Mobile*<div></div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/pull/31">Template</a><div>2024/04/29</div>
-      </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
-      <td>Pending</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
-      <th>Fixed Lines in Location</th>
-      <td>Telefonica*<div></div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/92">Template</a><div>2024/10/01</div>
-      </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
-      <td>Pending</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
-      <th>Line Eligibility for Carrier Billing API</th>
-      <td>Telefonica*<div></div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/94">Template</a><div>2024/10/01</div>
       </td>
       <td><ul><li>Under backlog discussion</li></ul></td>
       <td>Pending</td>
