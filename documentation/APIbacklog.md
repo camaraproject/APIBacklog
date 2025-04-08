@@ -509,7 +509,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/Tenure/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
         <td>
-        <a href="">v0.1.0 spring25</a><div>2025/03/07</div>
+        <a href="https://github.com/camaraproject/Tenure/releases/tag/r1.2">v0.1.0 spring25</a><div>2025/03/07</div>
       </td>
     </tr>
     <tr>
@@ -567,7 +567,8 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/CustomerInsights/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>
-        <a href="">v0.1.1 spring25</a><br>2025/03/18
+        <a href="https://github.com/camaraproject/CustomerInsights/releases/tag/r1.3">v0.1.1 spring25</a><br>2025/03/18
+
       </td>
     </tr>
     <tr>
