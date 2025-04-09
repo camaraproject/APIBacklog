@@ -874,6 +874,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>Pending</td>
       <td>N/A</td>
     </tr>
+    <tr>
       <th>Carrier Wholesale Pricing</th>
       <td>TelecomsXChange*<div>TelecomsXChange</div></td>
       <td>
