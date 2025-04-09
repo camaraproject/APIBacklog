@@ -547,7 +547,6 @@ This is a live doc that captures the status of all the APIs which have been form
       </td>
       <td>No release</td>
     </tr>
-    </tr>
     <tr>
       <th>Customer Insight</th>
       <td>Telefonica*<div>Telefonica, Vodafone, DT</div></td>
