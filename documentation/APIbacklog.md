@@ -79,9 +79,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/EdgeCloud">EdgeCloud</a><br>
         <a href="https://github.com/camaraproject/EdgeCloud/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>
-        <a href="https://github.com/camaraproject/EdgeCloud/releases/tag/v0.9.3-rc">v0.9.3 (Pre-release)</a><br>2024/02/08
-      </td>
+      <td>No release</td>
     </tr>
     <tr>
       <th>Device Location</th>
@@ -192,11 +190,9 @@ This is a live doc that captures the status of all the APIs which have been form
       </td>
       <td><ul><li>TSC Approved (2022/11/10)</li></ul></td>
       <td>
-        <a href="https://github.com/camaraproject/EdgeCloud">EdgeCloud</a><br>
-        <a href="https://github.com/camaraproject/EdgeCloud/blob/main/MAINTAINERS.MD">Maintainers</a>
-      <td>
-        <a href="https://github.com/camaraproject/EdgeCloud/releases/tag/v0.9.3-rc">v0.9.3-rc (Pre-release)</a><div>2024/02/08</div>
-      </td>
+        <a href="https://github.com/camaraproject/TrafficInfluence">TrafficInfluence</a><br>
+        <a href="https://github.com/camaraproject/TrafficInfluence/blob/main/MAINTAINERS.MD">Maintainers</a>
+      <td>No release</td>
     </tr>
     <tr>
       <th>Blockchain Public Address</th>
@@ -210,7 +206,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/BlockchainPublicAddress/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>
-        <a href="https://github.com/camaraproject/BlockchainPublicAddress/releases/tag/v0.1.0">v0.1.0</a><div>2023/10/06</div>
+        <a href="https://github.com/camaraproject/BlockchainPublicAddress/releases/tag/r1.2">v0.2.0 spring25</a><div>2025/03/07</div>
       </td>
     </tr>
     <tr>
@@ -343,17 +339,6 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>No release</td>
     </tr>
     <tr>
-      <th>Receive SMS</th>
-      <td>Telecom Italia*<div>Telecom Italia, GSMA-OGW, Orange, China Unicom</div></td>
-      <td>
-        <a href="https://github.com/camaraproject/WorkingGroups/pull/361">Template</a><div>2023/12/05</div>
-      </td>
-      <td><ul><li>TSC Approved (2024/03/27)</li></ul></td>
-      <td>Pending</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
-    <tr>
       <th>KYC Age Verification</th>
       <td>Orange*<div>Orange, GSMA-OGW</div></td>
       <td>
@@ -422,9 +407,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/LocationInsights">LocationInsights</a><br>
         <a href="https://github.com/camaraproject/LocationInsights/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>
-        <a href="https://github.com/camaraproject/LocationInsights/releases/tag/r1.2">v0.1.0 spring25</a><div>2025/01/30</div>
-      </td>
+      <td>No release</td>
     </tr>
     <tr>
       <th>Device Location Retrieval</th>
@@ -562,19 +545,8 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/DeviceDataVolume">DeviceDataVolume</a><br>
         <a href="https://github.com/camaraproject/DeviceDataVolume/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>
-        <a href="https://github.com/camaraproject/DeviceDataVolume/releases/tag/r1.1">v0.1.0-alpha.1 (Pre-release) spring25</a><br>2025/01/16
-      </td>
+      <td>No release</td>
     </tr>
-    </tr>
-      <th>Best Interconnection</th>
-      <td>Deutsche Telekom*<div>Deutsche Telekom, GSMA-OGW</div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/88">Template</a><div>2024/01/19</div>
-      </td>
-      <td><ul><li>TSC Approved (2024/09/06)</li></ul></td>
-      <td>Pending</td>
-      <td>N/A</td>
     </tr>
     <tr>
       <th>Customer Insight</th>
@@ -698,26 +670,6 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/ModelAsAService/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>No release</td>
-    </tr>
-    <tr>
-      <th>Fixed Lines in Location</th>
-      <td>Telefonica*<div></div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/92">Template</a><div>2024/10/01</div>
-      </td>
-      <td><ul><li>TSC Approved (2024/10/17)</li></ul></td>
-      <td>Pending</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
-      <th>Line Eligibility for Carrier Billing API</th>
-      <td>Telefonica*<div></div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/94">Template</a><div>2024/10/01</div>
-      </td>
-      <td><ul><li>TSC Approved (2024/10/28)</li></ul></td>
-      <td>Pending</td>
-      <td>N/A</td>
     </tr>
     <tr>
       <th>Capability and Runtime Restrictions</th>
@@ -902,7 +854,27 @@ This is a live doc that captures the status of all the APIs which have been form
       <td><ul><li>Under backlog discussion</li></ul></td>
       <td>Pending</td>
       <td>N/A</td>
+    </tr>
     <tr>
+      <th>Receive SMS</th>
+      <td>Telecom Italia*<div>Telecom Italia, GSMA-OGW, Orange, China Unicom</div></td>
+      <td>
+        <a href="https://github.com/camaraproject/WorkingGroups/pull/361">Template</a><div>2023/12/05</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>Pending</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>Best Interconnection</th>
+      <td>Deutsche Telekom*<div>Deutsche Telekom, GSMA-OGW</div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/88">Template</a><div>2024/01/19</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>Pending</td>
+      <td>N/A</td>
+    </tr>
       <th>Carrier Wholesale Pricing</th>
       <td>TelecomsXChange*<div>TelecomsXChange</div></td>
       <td>
@@ -927,6 +899,26 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>Chine Mobile*<div></div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/pull/31">Template</a><div>2024/04/29</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>Pending</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>Fixed Lines in Location</th>
+      <td>Telefonica*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/92">Template</a><div>2024/10/01</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>Pending</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>Line Eligibility for Carrier Billing API</th>
+      <td>Telefonica*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/94">Template</a><div>2024/10/01</div>
       </td>
       <td><ul><li>Under backlog discussion</li></ul></td>
       <td>Pending</td>
