@@ -733,8 +733,8 @@ This is a live doc that captures the status of all the APIs which have been form
       </td>
       <td><ul><li>TSC Approved (2025/20/02)</li></ul></td>
       <td>
-        <a href="https://github.com/camaraproject/ApplicationProfile">ApplicationProfile</a>
-        <a href="https://github.com/camaraproject/ApplicationProfile/blob/main/MAINTAINERS.MD">Maintainers</a>
+        <a href="https://github.com/camaraproject/ApplicationProfiles">ApplicationProfiles</a>
+        <a href="https://github.com/camaraproject/ApplicationProfiles/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>N/A</td>
     </tr>
