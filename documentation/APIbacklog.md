@@ -26,7 +26,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/Commonalities/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>
-        <a href="https://github.com/camaraproject/Commonalities/releases/tag/r0.4.0">v0.4.0 fall24</a><div>2024/08/23</div>
+        <a href="https://github.com/camaraproject/Commonalities/releases/tag/r2.3">v0.5.0 spring25</a><div>2025/02/21</div>
       </td>
     </tr>
     <tr>
@@ -41,7 +41,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/HomeDevicesQoD/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>
-        <a href="https://github.com/camaraproject/IdentityAndConsentManagement/releases/tag/r0.2.1">v0.2.1 fall24</a><div>2024/09/02</div>
+        <a href="https://github.com/camaraproject/IdentityAndConsentManagement/releases/tag/r2.3">v0.3.0 spring25</a><div>2025/02/18</div>
       </td>
     </tr>
     <tr>
@@ -54,7 +54,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/QualityOnDemand/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>
-        <a href="https://github.com/camaraproject/QualityOnDemand/releases/tag/r1.2">v0.11.0 fall24</a><br>2024/09/06
+        <a href="https://github.com/camaraproject/QualityOnDemand/releases/tag/r2.2#quality-on-demand-v100">v1.0.0 spring25</a><br>2025/03/07
       </td>
     </tr>
     <tr>
@@ -79,9 +79,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/EdgeCloud">EdgeCloud</a><br>
         <a href="https://github.com/camaraproject/EdgeCloud/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>
-        <a href="https://github.com/camaraproject/EdgeCloud/releases/tag/v0.9.3-rc">v0.9.3 (Pre-release)</a><br>2024/02/08
-      </td>
+      <td>No release</td>
     </tr>
     <tr>
       <th>Device Location</th>
@@ -93,7 +91,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/DeviceLocation/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>
-        <a href="https://github.com/camaraproject/DeviceLocation/releases/tag/r1.2">v1.0.0 fall24</a><br>2024/09/10
+        <a href="https://github.com/camaraproject/DeviceLocation/releases/tag/r2.2">v2.0.0 spring25</a><br>2025/03/07
       </td>
     </tr>
     <tr>
@@ -106,7 +104,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/DeviceStatus/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>
-        <a href="https://github.com/camaraproject/DeviceStatus/releases/tag/r1.2">v0.6.0 fall24</a><div>2024/09/10</div>
+        <a href="https://github.com/camaraproject/DeviceStatus/releases/tag/r2.2">v1.0.0 spring25</a><div>2025/03/17</div>
       </td>
     </tr>
     <tr>
@@ -136,7 +134,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/SimSwap/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>
-        <a href="https://github.com/camaraproject/SimSwap/releases/tag/r1.2">v1.0.0 fall24</a><div>2024/09/12</div>
+        <a href="https://github.com/camaraproject/SimSwap/releases/tag/r2.2">v2.0.0 spring25</a><div>2025/03/07</div>
       </td>
     </tr>
     <tr>
@@ -151,7 +149,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/NumberVerification/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>
-        <a href="https://github.com/camaraproject/NumberVerification/releases/tag/r1.3">v1.0.0 fall24</a><div>2024/10/01</div>
+        <a href="https://github.com/camaraproject/NumberVerification/releases/tag/r2.4">v2.0.0 spring25</a><div>2025/03/17</div>
       </td>
     </tr>
     <tr>
@@ -166,7 +164,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/OTPValidationAPI/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>
-        <a href="https://github.com/camaraproject/OTPValidation/releases/tag/r1.2">v1.0.0 fall24</a><div>2024/09/09</div>
+        <a href="https://github.com/camaraproject/OTPValidation/releases/tag/r2.3">v1.1.0 spring25</a><div>2025/03/07</div>
       </td>
     </tr>
     <tr>
@@ -181,7 +179,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/CarrierBillingCheckOut/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>
-        <a href="https://github.com/camaraproject/CarrierBillingCheckOut/releases/tag/r1.3">v0.3.1 fall24</a><div>2024/11/23</div>
+        <a href="https://github.com/camaraproject/CarrierBillingCheckOut/releases/tag/r2.2">v0.4.0 spring25</a><div>2025/03/07</div>
       </td>
     </tr>
     <tr>
@@ -192,11 +190,9 @@ This is a live doc that captures the status of all the APIs which have been form
       </td>
       <td><ul><li>TSC Approved (2022/11/10)</li></ul></td>
       <td>
-        <a href="https://github.com/camaraproject/EdgeCloud">EdgeCloud</a><br>
-        <a href="https://github.com/camaraproject/EdgeCloud/blob/main/MAINTAINERS.MD">Maintainers</a>
-      <td>
-        <a href="https://github.com/camaraproject/EdgeCloud/releases/tag/v0.9.3-rc">v0.9.2 (Pre-release)</a><div>2024/02/08</div>
-      </td>
+        <a href="https://github.com/camaraproject/TrafficInfluence">TrafficInfluence</a><br>
+        <a href="https://github.com/camaraproject/TrafficInfluence/blob/main/MAINTAINERS.MD">Maintainers</a>
+      <td>No release</td>
     </tr>
     <tr>
       <th>Blockchain Public Address</th>
@@ -210,7 +206,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/BlockchainPublicAddress/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>
-        <a href="https://github.com/camaraproject/BlockchainPublicAddress/releases/tag/v0.1.0">v0.1.0</a><div>2023/10/06</div>
+        <a href="https://github.com/camaraproject/BlockchainPublicAddress/releases/tag/r1.2">v0.2.0 spring25</a><div>2025/03/07</div>
       </td>
     </tr>
     <tr>
@@ -225,7 +221,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/DeviceIdentifier/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>
-        <a href="https://github.com/camaraproject/DeviceIdentifier/releases/tag/device-identifier-0.1.0">pre-release v0.1.0</a><div>2024/04/05</div>
+        <a href="https://github.com/camaraproject/DeviceIdentifier/releases/tag/r1.3">v0.2.0 spring25</a><div>2025/03/07</div>
       </td>
     </tr>
     <tr>
@@ -253,7 +249,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/KnowYourCustomer/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>
-        <a href="https://github.com/camaraproject/KnowYourCustomer/releases/tag/r1.3">v0.2.1 fall24</a><div>2024/09/12</div>
+        <a href="https://github.com/camaraproject/KnowYourCustomer/releases/tag/r2.2">v0.3.0 spring25</a><div>2025/03/07</div>
       </td>
     </tr>
     <tr>
@@ -268,7 +264,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/KnowYourCustomer/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>
-        <a href="https://github.com/camaraproject/KnowYourCustomer/releases/tag/r1.3">v0.2.0 fall24</a><div>2024/09/12</div>
+        <a href="https://github.com/camaraproject/KnowYourCustomer/releases/tag/r2.2">v0.3.0 spring25</a><div>2025/03/07</div>
       </td>
     </tr>
     <tr>
@@ -296,7 +292,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/DeviceSwap/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>
-        <a href="https://github.com/camaraproject/DeviceSwap/releases/tag/r1.2">v0.1.0</a><br>2024/12/12
+        <a href="https://github.com/camaraproject/DeviceSwap/releases/tag/r2.2">v0.2.0 spring25</a><br>2025/03/07
       </td>
     </tr>
     <tr>
@@ -311,7 +307,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/WebRTC/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>
-        <a href="https://github.com/camaraproject/WebRTC/releases/tag/v0.1.1">v0.1.1</a><br>2024/07/23
+        <a href="https://github.com/camaraproject/WebRTC/releases/tag/r1.2">v0.2.0 spring25</a><br>2025/03/17
       </td>
     </tr>
     <tr>
@@ -326,7 +322,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/ConnectivityInsights/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>
-        <a href="https://github.com/camaraproject/ConnectivityInsights/releases/tag/r1.2">v0.4.0 fall24</a><br>2024/09/11
+        <a href="https://github.com/camaraproject/ConnectivityInsights/releases/tag/r2.2">v0.5.0 spring25</a><br>2025/03/17
       </td>
     </tr>
     <tr>
@@ -353,7 +349,9 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/KnowYourCustomer">KnowYourCustomer</a><br>
         <a href="https://github.com/camaraproject/KnowYourCustomer/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>No release</td>
+      <td>
+        <a href="https://github.com/camaraproject/KnowYourCustomer/releases/tag/r2.2">v0.1.0 spring25</a><br>2025/03/07
+      </td>
     </tr>
     <tr>
       <th>Region Device Count</th>
@@ -366,7 +364,9 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/RegionDeviceCount">RegionUserCount</a><br>
         <a href="https://github.com/camaraproject/RegionDeviceCount/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>No release</td>
+      <td>
+        <a href="https://github.com/camaraproject/RegionDeviceCount/releases/tag/r1.2">v0.1.0 spring25</a><br>2025/03/07
+      </td>
     </tr>
     <tr>
       <th>Device Visit Location</th>
@@ -393,7 +393,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/PopulationDensityData/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>
-        <a href="https://github.com/camaraproject/PopulationDensityData/releases/tag/r1.2">v0.1.1 fall24</a><div>2024/09/11</div>
+        <a href="https://github.com/camaraproject/PopulationDensityData/releases/tag/r2.2">v0.2.0 spring25</a><div>2025/03/17</div>
       </td>
     </tr>
     <tr>
@@ -421,7 +421,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/DeviceLocation/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>
-        <a href="https://github.com/camaraproject/DeviceLocation/releases/tag/r1.2">v0.3.0 fall24</a><br>2024/09/10
+        <a href="https://github.com/camaraproject/DeviceLocation/releases/tag/r1.2">v0.4.0 spring25</a><br>2025/03/07
       </td>
     </tr>
     <tr>
@@ -449,7 +449,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/CallForwardingSignal/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>
-        <a href="https://github.com/camaraproject/CallForwardingSignal/releases/tag/r1.3">v0.2.0 fall24</a><div>2024/09/05</div>
+        <a href="https://github.com/camaraproject/CallForwardingSignal/releases/tag/r2.2">v0.3.0 spring25</a><div>2025/03/06</div>
       </td>
     </tr>
     <tr>
@@ -502,7 +502,9 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/Tenure">Tenure</a><br>
         <a href="https://github.com/camaraproject/Tenure/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>No release</td>
+        <td>
+        <a href="https://github.com/camaraproject/Tenure/releases/tag/r1.2">v0.1.0 spring25</a><div>2025/03/07</div>
+      </td>
     </tr>
     <tr>
       <th>Subscription Status</th>
@@ -529,7 +531,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/QualityOnDemand/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>
-        <a href="https://github.com/camaraproject/QualityOnDemand/releases/tag/r1.2">v0.1.0 fall24</a><br>2024/09/06
+        <a href="https://github.com/camaraproject/QualityOnDemand/releases/tag/r2.2">v0.2.0 spring25</a><br>2025/03/07
       </td>
     </tr>
     <tr>
@@ -556,7 +558,9 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/CustomerInsights">CustomerInsights</a><br>
         <a href="https://github.com/camaraproject/CustomerInsights/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>No release</td>
+      <td>
+        <a href="https://github.com/camaraproject/CustomerInsights/releases/tag/r1.3">v0.1.1 spring25</a><br>2025/03/18
+      </td>
     </tr>
     <tr>
       <th>Number Recycling</th>
@@ -569,7 +573,9 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/NumberRecycling">NumberRecycling</a><br>
         <a href="https://github.com/camaraproject/NumberRecycling/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>No release</td>
+      <td>
+        <a href="https://github.com/camaraproject/NumberRecycling/releases/tag/r1.2">v0.1.0 spring25</a><br>2025/03/07
+      </td>
     </tr>
     <tr>
       <th>Dedicated Networks</th>
@@ -608,8 +614,10 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/DeviceStatus">DeviceStatus</a><br>
         <a href="https://github.com/camaraproject/DeviceStatus/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>No release</td>
-    </tr>
+      <td>
+        <a href="https://github.com/camaraproject/DeviceStatus/releases/tag/r2.2">v0.1.0 spring25</a><br>2025/03/07
+      </td>    
+      </tr>
     <tr>
       <th>Model As A Service Family</th>
       <td>China Mobile*<div></div></td>
