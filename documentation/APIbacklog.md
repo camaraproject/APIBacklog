@@ -775,7 +775,8 @@ This is a live doc that captures the status of all the APIs which have been form
       <th>Consent URL</th>
       <td>Telefonica*<div>Telefonica, KPN </div></td>
       <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/67">N/A</a><div>2024/07/17</div>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/67">Template</a><div>2024/07/17</div>
+
       </td>
       <td><ul><li>TSC Approved (2025/03/06)</li></ul></td>
       <td>
