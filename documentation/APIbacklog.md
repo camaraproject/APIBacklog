@@ -776,7 +776,6 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>Telefonica*<div>Telefonica, KPN </div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/pull/67">Template</a><div>2024/07/17</div>
-
       </td>
       <td><ul><li>TSC Approved (2025/03/06)</li></ul></td>
       <td>
@@ -817,7 +816,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIproposal_NetworkTrafficAnalysis_chinaunicom.md">Template</a><div>2024/11/19</div>
       </td>
-      <td><ul><li>Updates requested by TSC (2025/02/27)</li></ul></td>
+      <td><ul><li>Updates requested by TSC (2025/04/17)</li></ul></td>
       <td>Pending</td>
       <td>N/A</td>
     </tr>
@@ -827,7 +826,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIproposal_NetworkHealthAssessment_chinaunicom.md">Template</a><div>2024/11/19</div>
       </td>
-      <td><ul><li>Updates requested by TSC (2025/02/27)</li></ul></td>
+      <td><ul><li>Updates requested by TSC (2025/04/17)</li></ul></td>
       <td>Pending</td>
       <td>N/A</td>
     </tr>
@@ -875,7 +874,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <th>Receive SMS</th>
       <td>Telecom Italia*<div>Telecom Italia, GSMA-OGW, Orange, China Unicom</div></td>
       <td>
-        <a href="https://github.com/camaraproject/ShortMessageService/issues/9#issuecomment-2222236507">Template</a><div>2023/12/05</div>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/75">Template</a><div>2023/12/05</div>
       </td>
       <td><ul><li>Under backlog discussion</li></ul></td>
       <td>Pending</td>
