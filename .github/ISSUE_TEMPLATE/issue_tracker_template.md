@@ -1,3 +1,12 @@
+---
+name: Onboarding Tracker⛴️
+about: To be created by API Backlog codeowners after a new repository got approved
+title: '[Onboarding Tracker] $repo name$'
+labels: 'API Onboarding Tracker'
+assignees: ''
+
+---
+
 <!-- API & repository Tracker Issue -->
 **API information**
 - **Name**: XXXX
