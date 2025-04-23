@@ -19,15 +19,13 @@ assignees: ''
 
 **Action List**
 - [ ] Get nominations of initial code owner(s) (one mandatory) (API owner)
-- [ ] Create repository
-- [ ] Update of APIBacklog.md with new status
-- [ ] Update CODEOWNERS file with PR
+- [ ] Update of APIBacklog.md with new status ("Onboarding")
+- [ ] Create wiki page and mailing list (send mail to support@camaraproject.org)
+- [ ] Create repository (by Admin, using automation)
+- [ ] Update README with API information (API owner)
+- [ ] Update of CAMARA presentation and website (create issue within Marketing repository)
+- [ ] Update of APIBacklog.md with new status ("Onboarded" or similar)
 - [ ] Optional: get nominations of initial Maintainers (API owner)
 - [ ] Update Maintainers.md file with PR
-- [ ] Create wiki page
-- [ ] Create mailing list
-- [ ] Create README with links to wiki page and mailing list
-- [ ] Update README with API information (API owner)
-- [ ] Update of CAMARA presentation and website
 
 CC: @camaraproject/admins @camaraproject/api-backlog_maintainers @camaraproject/marketing_maintainers
