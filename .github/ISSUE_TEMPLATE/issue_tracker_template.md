@@ -26,6 +26,6 @@ assignees: ''
 - [ ] Update of CAMARA presentation and website (create issue within Marketing repository)
 - [ ] Update of APIBacklog.md with new status ("Onboarded" or similar)
 - [ ] Optional: get nominations of initial Maintainers (API owner)
-- [ ] Update Maintainers.md file with PR
+- [ ] Optional: Update Maintainers.md file with PR
 
 CC: @camaraproject/admins @camaraproject/api-backlog_maintainers @camaraproject/marketing_maintainers
