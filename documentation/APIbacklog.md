@@ -574,7 +574,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/NumberRecycling/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>
-        <a href="https://github.com/camaraproject/NumberRecycling/releases/tag/r1.2">v0.1.0 spring25</a><br>2025/03/07
+        <a href="https://github.com/camaraproject/NumberRecycling/releases/tag/r1.3">v0.1.1 spring25</a><br>2025/05/07
       </td>
     </tr>
     <tr>
