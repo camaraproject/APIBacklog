@@ -611,11 +611,41 @@ This is a live doc that captures the status of all the APIs which have been form
       </td>
       <td><ul><li>TSC Approved (2024/10/03)</li></ul></td>
       <td>
-        <a href="https://github.com/camaraproject/DeviceStatus">DeviceStatus</a><br>
-        <a href="https://github.com/camaraproject/DeviceStatus/blob/main/MAINTAINERS.MD">Maintainers</a>
+        <a href="https://github.com/camaraproject/ConnectedNetworkType/">ConnectedNetworkType</a><br>
+        <a href="https://github.com/camaraproject/ConnectedNetworkType/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>
         <a href="https://github.com/camaraproject/DeviceStatus/releases/tag/r2.2">v0.1.0 spring25</a><br>2025/03/07
+      </td>    
+      </tr>
+      <tr>
+      <th>Device Roaming Status</th>
+      <td>Vodafone*<div>Vodafone, Deutsche Telekom</div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIScopeEnhancement_Device_Status_network_info.m">Template</a><div>2024/07/30</div>
+      </td>
+      <td><ul><li>TSC Approved (2024/10/03)</li></ul></td>
+      <td>
+        <a href="https://github.com/camaraproject/DeviceRoamingStatus">DeviceRoamingStatus</a><br>
+        <a href="https://github.com/camaraproject/DeviceRoamingStatus/blob/main/MAINTAINERS.MD">Maintainers</a>
+      </td>
+      <td>
+        <a href="https://github.com/camaraproject/DeviceStatus/releases/tag/r2.2">v1.0.0 spring25</a><br>2025/03/07
+      </td>    
+      </tr>
+        <tr>
+      <th>Device Reachability Status</th>
+      <td>Vodafone*<div>Vodafone, Deutsche Telekom</div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIScopeEnhancement_Device_Status_network_info.m">Template</a><div>2024/07/30</div>
+      </td>
+      <td><ul><li>TSC Approved (2024/10/03)</li></ul></td>
+      <td>
+        <a href="https://github.com/camaraproject/DeviceReachabilityStatus">DeviceReachabilityStatus</a><br>
+        <a href="https://github.com/camaraproject/DeviceReachabilityStatus/blob/main/MAINTAINERS.MD">Maintainers</a>
+      </td>
+      <td>
+        <a href="https://github.com/camaraproject/DeviceStatus/releases/tag/r2.2">v1.0.0 spring25</a><br>2025/03/07
       </td>    
       </tr>
     <tr>
@@ -816,8 +846,11 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIproposal_NetworkTrafficAnalysis_chinaunicom.md">Template</a><div>2024/11/19</div>
       </td>
-      <td><ul><li>Updates requested by TSC (2025/04/17)</li></ul></td>
-      <td>Pending</td>
+      <td><ul><li>Onboarding - TSC Approved (2025/04/17)</li></ul></td>
+      <td>
+        <a href="https://github.com/camaraproject/NetworkInsights">NetworkInsights</a>
+        <a href="https://github.com/camaraproject/NetworkInsights/blob/main/MAINTAINERS.MD">Maintainers</a>
+      </td>     
       <td>N/A</td>
     </tr>
     <tr>
@@ -826,8 +859,11 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIproposal_NetworkHealthAssessment_chinaunicom.md">Template</a><div>2024/11/19</div>
       </td>
-      <td><ul><li>Updates requested by TSC (2025/04/17)</li></ul></td>
-      <td>Pending</td>
+      <td><ul><li>Onboarding - TSC Approved (2025/04/17)</li></ul></td>
+      <td>
+        <a href="https://github.com/camaraproject/NetworkInsights">NetworkInsights</a>
+        <a href="https://github.com/camaraproject/NetworkInsights/blob/main/MAINTAINERS.MD">Maintainers</a>
+      </td>     
       <td>N/A</td>
     </tr>
     <tr>
@@ -990,6 +1026,16 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>Pending</td>
       <td>N/A</td>
     </tr>
+    <tr>
+      <th>Multi Point VPN</th>
+      <td>Infosys Ltd*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/205">Template</a><div>2024/11/26</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>Pending</td>
+      <td>N/A</td>
+    </tr>
   </tbody>
 </table>
 
@@ -1004,6 +1050,7 @@ This is a live doc that captures the status of all the APIs which have been form
   - Not yet discussed
   - Under backlog discussion
   - Sent to TSC for approval (date)
+  - Onboarding - TSC Approved (date)
   - TSC Approved (date)
   - Not approved (date)
   - Updates requested by TSC (date)
