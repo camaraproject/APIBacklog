@@ -22,6 +22,7 @@ assignees: ''
 - [ ] Update of APIBacklog.md with new status ("Onboarding")
 - [ ] Create wiki page and mailing list (send mail to support@camaraproject.org)
 - [ ] Create repository (by Admin, using automation)
+- [ ] Update API Repository wiki page with GitHub repository link
 - [ ] Update README with API information (API owner)
 - [ ] Update of CAMARA presentation and website (create issue within Marketing repository)
 - [ ] Update of APIBacklog.md with new status ("Onboarded" or similar)
