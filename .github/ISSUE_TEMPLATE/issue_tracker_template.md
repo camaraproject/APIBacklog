@@ -20,7 +20,9 @@ assignees: ''
 **Action List**
 - [ ] Get nominations of initial code owner(s) (one mandatory) (API owner)
 - [ ] Update of APIBacklog.md with new status ("Onboarding")
-- [ ] Create wiki page and mailing list (send mail to support@camaraproject.org)
+- [ ] Request wiki page and mailing list (send mail to support@camaraproject.org)
+- [ ] Mailing list created (by LF Admin team)
+- [ ] Wiki page created (by LF Admin team)
 - [ ] Create repository (by Admin, using automation)
 - [ ] Update API Repository wiki page with GitHub repository link
 - [ ] Update README with API information (API owner)
