@@ -28,7 +28,7 @@ assignees: ''
 
 ---
 
-### 📋 Checklist for Sandbox → Incubating
+### Checklist for Sandbox → Incubating
 
 - [ ] Initial API version released and implemented by at least one operator  
   _e.g.:_ https://opengateway.telefonica.com/apis/device-swap
