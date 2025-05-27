@@ -30,6 +30,16 @@ assignees: ''
 
 ### Checklist for Sandbox → Incubating
 
+#### SubProject Alignment
+
+- [ ] Define if the API will:
+  - [ ] Join an existing Sub Project  
+    _e.g.:_ https://lf-camaraproject.atlassian.net/wiki/spaces/CAM/pages/123456789/SubProject-Example  
+  - [ ] Require creation or expansion of a new Sub Project  
+    _If so, has the process for creating the Sub Project been followed or agreed upon?_
+
+#### General Criteria
+
 - [ ] Initial API version released and implemented by at least one operator  
   _e.g.:_ https://opengateway.telefonica.com/apis/device-swap
 
@@ -40,19 +50,34 @@ assignees: ''
   _e.g.:_ https://github.com/camaraproject/DeviceSwap/blob/r2.2/documentation/API_documentation/device-swap-API-Readiness-Checklist.md
 
 - [ ] At least 3 maintainers from 3 different companies listed in `MAINTAINERS.md`  
-  _e.g.:_ https://github.com/camaraproject/DeviceSwap/blob/r2.2/MAINTAINERS.MD
+  _e.g.:_ https://github.com/camaraproject/DeviceSwap/blob/r2.2/MAINTAINERS.md
 
-- [ ] Subproject aligned (either new or agreed by existing)  
-  _e.g.:_ https://lf-camaraproject.atlassian.net/wiki/spaces/CAM/pages/125272154/2025-05-22+Number+Verification+SIM+Swap+OTP+-+Minutes
-
-- [ ] This issue has been opened in API Backlog WG
-_e.g.:_ https://github.com/camaraproject/APIBacklog/issues/214
+- [ ] Issue opened in API Backlog WG  
+  _e.g.:_ https://github.com/camaraproject/APIBacklog/issues/214
 
 - [ ] Final approval from TSC pending
 
+#### GitHub Repository Tasks
+
+- [ ] Ensure `CODEOWNERS` and `MAINTAINERS.md` are aligned and updated  
+- [ ] Update `README.md`:
+  - Replace the status badge to "Incubating"
+  - Modify intro sentence to reflect maturity
+  - Add link to corresponding Sub Project
+
+- [ ] Update GitHub repository topics:
+  - Remove: `sandbox-api-repository`
+  - Add: `incubating-api-repository`
+
+#### Wiki Tasks
+
+- [ ] Ensure all wiki information is up to date
+- [ ] Change maturity label/flag from “Sandbox” to “Incubating”
+- [ ] Move the wiki page tree under the appropriate Sub Project space
+
 ---
 
-### Checklist for Incubating → Stable
+### 📋 Checklist for Incubating → Stable
 
 - [ ] API implemented by at least 2 operators
 
@@ -70,7 +95,7 @@ _e.g.:_ https://github.com/camaraproject/APIBacklog/issues/214
 
 ---
 
-### Checklist for Archiving Repository
+### 📋 Checklist for Archiving Repository
 
 - [ ] API is no longer maintained or used
 
