@@ -245,8 +245,8 @@ This is a live doc that captures the status of all the APIs which have been form
       </td>
       <td><ul><li>TSC Approved (2023/09/07)</li></ul></td>
       <td>
-        <a href="https://github.com/camaraproject/KnowYourCustomer">KnowYourCustomer</a><br>
-        <a href="https://github.com/camaraproject/KnowYourCustomer/blob/main/MAINTAINERS.MD">Maintainers</a>
+        <a href="https://github.com/camaraproject/KnowYourCustomerMatch">KnowYourCustomerMatch</a><br>
+        <a href="https://github.com/camaraproject/KnowYourCustomerMatch/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>
         <a href="https://github.com/camaraproject/KnowYourCustomer/releases/tag/r2.2">v0.3.0 spring25</a><div>2025/03/07</div>
@@ -260,8 +260,8 @@ This is a live doc that captures the status of all the APIs which have been form
       </td>
       <td><ul><li>TSC Approved (2023/09/07)</li></ul></td>
       <td>
-        <a href="https://github.com/camaraproject/KnowYourCustomer">KnowYourCustomer</a><br>
-        <a href="https://github.com/camaraproject/KnowYourCustomer/blob/main/MAINTAINERS.MD">Maintainers</a>
+        <a href="https://github.com/camaraproject/KnowYourCustomerFill-in">KnowYourCustomerFill-in</a><br>
+        <a href="https://github.com/camaraproject/KnowYourCustomerFill-in/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>
         <a href="https://github.com/camaraproject/KnowYourCustomer/releases/tag/r2.2">v0.3.0 spring25</a><div>2025/03/07</div>
@@ -346,8 +346,8 @@ This is a live doc that captures the status of all the APIs which have been form
       </td>
       <td><ul><li>TSC Approved (2023/11/16)</li></ul></td>
       <td>
-        <a href="https://github.com/camaraproject/KnowYourCustomer">KnowYourCustomer</a><br>
-        <a href="https://github.com/camaraproject/KnowYourCustomer/blob/main/MAINTAINERS.MD">Maintainers</a>
+        <a href="https://github.com/camaraproject/KnowYourCustomerAgeVerification">KnowYourCustomerAgeVerification</a><br>
+        <a href="https://github.com/camaraproject/KnowYourCustomerAgeVerification/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>
         <a href="https://github.com/camaraproject/KnowYourCustomer/releases/tag/r2.2">v0.1.0 spring25</a><br>2025/03/07
@@ -883,6 +883,29 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIproposal_Voice%20Notification_chinaunicom.md">Template</a><div>2024/12/13</div>
       </td>
       <td><ul><li>TSC Approved (2025/04/17) </li></ul></td>
+      <td>
+        <a href="https://github.com/camaraproject/VoiceNotification">VoiceNotification</a>
+        <a href="https://github.com/camaraproject/VoiceNotification/blob/main/MAINTAINERS.MD">Maintainers</a>
+      </td>     
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>Voice Verification Code</th>
+      <td>China Unicom*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/161">Template</a><div>2024/12/13</div>
+      </td>
+      <td><ul><li>TSC Approved (2025/06/05)</li></ul></td>
+      <td>Pending</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>Multi Point VPN</th>
+      <td>Infosys Ltd*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/205">Template</a><div>2024/11/26</div>
+      </td>
+      <td><ul><li>TSC Approved (2025/06/05)</li></ul></td>
       <td>Pending</td>
       <td>N/A</td>
     </tr>
@@ -957,26 +980,6 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>N/A</td>
     </tr>
     <tr>
-      <th>Fixed Lines in Location</th>
-      <td>Telefonica*<div></div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/92">Template</a><div>2024/10/01</div>
-      </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
-      <td>Pending</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
-      <th>Line Eligibility for Carrier Billing API</th>
-      <td>Telefonica*<div></div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/94">Template</a><div>2024/10/01</div>
-      </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
-      <td>Pending</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
       <th>SIM Historical Information</th>
       <td>China Unicom*<div></div></td>
       <td>
@@ -1007,30 +1010,10 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>N/A</td>
     </tr>
     <tr>
-      <th>Voice Verification Code</th>
-      <td>China Unicom*<div></div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/161">Template</a><div>2024/12/13</div>
-      </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
-      <td>Pending</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
       <th>IdentityAndConsentManagement</th>
       <td>Cellcard*<div></div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/pull/166">Template</a><div>2024/11/26</div>
-      </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
-      <td>Pending</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
-      <th>Multi Point VPN</th>
-      <td>Infosys Ltd*<div></div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/issues/205">Template</a><div>2024/11/26</div>
       </td>
       <td><ul><li>Under backlog discussion</li></ul></td>
       <td>Pending</td>
