@@ -1019,6 +1019,16 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>Pending</td>
       <td>N/A</td>
     </tr>
+      <tr>
+      <th>Sponsored Data</th>
+      <td>Telecom Argentina S.A.*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/224">Template</a><div>2024/11/26</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>Pending</td>
+      <td>N/A</td>
+    </tr>
   </tbody>
 </table>
 
