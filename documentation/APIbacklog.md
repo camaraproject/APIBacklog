@@ -979,6 +979,26 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>Pending</td>
       <td>N/A</td>
     </tr>
+  <tr>
+      <th>Fixed Lines in Location</th>
+      <td>Telefonica*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/92">Template</a><div>2024/10/01</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>Pending</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>Line Eligibility for Carrier Billing API</th>
+      <td>Telefonica*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/94">Template</a><div>2024/10/01</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>Pending</td>
+      <td>N/A</td>
+    </tr>
     <tr>
       <th>SIM Historical Information</th>
       <td>China Unicom*<div></div></td>
