@@ -82,6 +82,39 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>No release</td>
     </tr>
     <tr>
+      <th>Optimal Edge Discovery</th>
+      <td>Telefónica, 5GFF, Capgemini, EdgeXR, Orange*</td>
+      <td>N/A<br>N/A</td>
+      <td><ul><li>TSC Approved (N/A)</li></ul></td>
+      <td>
+        <a href="https://github.com/camaraproject/OptimalEdgeDiscovery">OptimalEdgeDiscovery</a><br>
+        <a href="https://github.com/camaraproject/OptimalEdgeDiscovery/blob/main/MAINTAINERS.MD">Maintainers</a>
+      </td>
+      <td>No release</td>
+    </tr>
+    <tr>
+      <th>Application Endpoint Discovery</th>
+      <td>Telefónica, 5GFF, Capgemini, EdgeXR, Orange*</td>
+      <td>N/A<br>N/A</td>
+      <td><ul><li>TSC Approved (N/A)</li></ul></td>
+      <td>
+        <a href="https://github.com/camaraproject/ApplicationEndpointDiscovery">ApplicationEndpointDiscovery</a><br>
+        <a href="https://github.com/camaraproject/ApplicationEndpointDiscovery/blob/main/MAINTAINERS.MD">Maintainers</a>
+      </td>
+      <td>No release</td>
+    </tr>
+    <tr>
+      <th>Application Endpoint Registration</th>
+      <td>Telefónica, 5GFF, Capgemini, EdgeXR, Orange*</td>
+      <td>N/A<br>N/A</td>
+      <td><ul><li>TSC Approved (N/A)</li></ul></td>
+      <td>
+        <a href="https://github.com/camaraproject/ApplicationEndpointRegistration">ApplicationEndpointRegistration</a><br>
+        <a href="https://github.com/camaraproject/ApplicationEndpointRegistration/blob/main/MAINTAINERS.MD">Maintainers</a>
+      </td>
+      <td>No release</td>
+    </tr>
+    <tr>
       <th>Device Location</th>
       <td>Deutsche Telekom*, Orange, Telefónica, Vodafone</td>
       <td>N/A<br>2022/01/11</td>
@@ -1039,7 +1072,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>Pending</td>
       <td>N/A</td>
     </tr>
-      <tr>
+    <tr>
       <th>Sponsored Data</th>
       <td>Telecom Argentina S.A.*<div></div></td>
       <td>
