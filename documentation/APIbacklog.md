@@ -979,8 +979,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>Pending</td>
       <td>N/A</td>
     </tr>
-  <tr>
-
+    <tr>
       <th>Fixed Lines in Location</th>
       <td>Telefonica*<div></div></td>
       <td>
