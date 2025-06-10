@@ -11,7 +11,7 @@ assignees: ''
 ## API Repository Information
 - **API Repository Name:** XXXX
 - **Sub Project (or "Independent"):** XXXX _(Name of existing parent Sub Project or "Independent" — for wiki classification)_
-- **Mailing List:** XXXX
+- **Mailing List:** XXXX _(if part of Sub Project, add here the mailing list of the Sub Project)_
 - **Repository:** XXXX
 - **Wiki Page:** XXXX
 - **API Owner:** TBD
@@ -24,8 +24,8 @@ assignees: ''
 
 - [ ] Nominate initial code owner(s) _(at least one required, by API owner)_
 - [ ] Update `APIBacklog.md` with status: `Onboarding`
-- [ ] Request wiki page and mailing list _(email: support@camaraproject.org)_
-- [ ] Confirm mailing list creation _(LF Admin)_
+- [ ] Request wiki page and mailing list _(email: support@camaraproject.org, clearly state what is needed)_
+- [ ] Confirm mailing list creation (only if Independent Sandbox) _(LF Admin)_
 - [ ] Confirm wiki page creation _(LF Admin)_
 - [ ] API Repository created _(LF Admin via automation)_
 - [ ] Add repository link to API wiki page _(LF Admin)_
