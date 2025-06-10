@@ -10,6 +10,7 @@ assignees: ''
 <!-- API & repository Tracker Issue -->
 **API information**
 - **Name**: XXXX
+- **Parent API**: XXXX _( # Parent API or Independent — this helps with wiki creation )_
 - **Mail List:** XXXX
 - **Repository**: XXXX
 - **Wiki Page**: XXXX
