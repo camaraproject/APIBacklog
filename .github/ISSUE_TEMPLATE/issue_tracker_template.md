@@ -1,16 +1,16 @@
 ---
-name: API Onboarding Tracker ⛴️
+name: API Repository Onboarding Tracker ⛴️
 about: Use this template after a new API repository is approved to track onboarding steps.
 title: '[Onboarding Tracker] $repo_name$'
-labels: 'API Onboarding Tracker'
+labels: 'Onboarding Tracker'
 assignees: ''
 ---
 
 <!-- API & Repository Onboarding Tracker -->
 
-## API Information
-- **API Name:** XXXX
-- **Parent API:** XXXX _(Parent API or ‘Independent’ — for wiki classification)_
+## API Repository Information
+- **API Repository Name:** XXXX
+- **Sub Project (or "Independent"):** XXXX _(Name of existing parent Sub Project or "Independent" — for wiki classification)_
 - **Mailing List:** XXXX
 - **Repository:** XXXX
 - **Wiki Page:** XXXX
@@ -27,7 +27,7 @@ assignees: ''
 - [ ] Request wiki page and mailing list _(email: support@camaraproject.org)_
 - [ ] Confirm mailing list creation _(LF Admin)_
 - [ ] Confirm wiki page creation _(LF Admin)_
-- [ ] Repository created _(LF Admin via automation)_
+- [ ] API Repository created _(LF Admin via automation)_
 - [ ] Add repository link to API wiki page _(LF Admin)_
 - [ ] Update `README.md` in repo with API details _(API owner)_
 - [ ] File issue to update CAMARA website and slide deck _(in Marketing repo)_
