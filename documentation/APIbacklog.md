@@ -71,7 +71,7 @@ This is a live doc that captures the status of all the APIs which have been form
       </td>
     </tr>
     <tr>
-      <th>MEC Management</th>
+      <th>Edge Application Management</th>
       <td>Telefónica*</td>
       <td>N/A<br>N/A</td>
       <td><ul><li>TSC Approved (N/A)</li></ul></td>
