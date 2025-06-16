@@ -929,7 +929,10 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/APIBacklog/pull/161">Template</a><div>2024/12/13</div>
       </td>
       <td><ul><li>TSC Approved (2025/06/05)</li></ul></td>
-      <td>Pending</td>
+      <td>
+        <a href="https://github.com/camaraproject/VoiceVerificationCode">VoiceVerificationCode</a>
+        <a href="https://github.com/camaraproject/VoiceVerificationCode/blob/main/MAINTAINERS.MD">Maintainers</a>
+      </td>  
       <td>N/A</td>
     </tr>
     <tr>
