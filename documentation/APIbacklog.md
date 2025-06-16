@@ -939,7 +939,10 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/APIBacklog/issues/205">Template</a><div>2024/11/26</div>
       </td>
       <td><ul><li>TSC Approved (2025/06/05)</li></ul></td>
-      <td>Pending</td>
+      <td>
+        <a href="https://github.com/camaraproject/MultiPointVPN">MultiPointVPN</a>
+        <a href="https://github.com/camaraproject/MultiPointVPN/blob/main/MAINTAINERS.MD">Maintainers</a>
+      </td>   
       <td>N/A</td>
     </tr>
     <tr>
