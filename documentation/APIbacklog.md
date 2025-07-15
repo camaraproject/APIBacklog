@@ -407,10 +407,10 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIproposal_DeviceVisitLocation_ChinaUnicom.md">Template</a><div>2023/10/25</div>
       </td>
-      <td><ul><li>TSC Approved (2024/05/02)</li></ul></td>
+      <td><ul><li>TSC Approved (2024/05/02) & Onboarded (2025/03/07) </li></ul></td>
       <td>
-        <a href="https://github.com/camaraproject/LocationInsights">LocationInsights</a><br>
-        <a href="https://github.com/camaraproject/LocationInsights/blob/main/MAINTAINERS.MD">Maintainers</a>
+        <a href="https://github.com/camaraproject/DeviceVisitLocation">DeviceVisitLocation</a><br>
+        <a href="https://github.com/camaraproject/DeviceVisitLocation/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>No release</td>
     </tr>
@@ -435,10 +435,10 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIproposal_Most%20Frequent%20Location_Telefonica.md">Template</a><div>2023/10/28</div>
       </td>
-      <td><ul><li>TSC Approved (2024/05/02)</li></ul></td>
+      <td><ul><li>TSC Approved (2024/05/02) & Onboarded (2025/03/07)</li></ul></td>
       <td>
-        <a href="https://github.com/camaraproject/LocationInsights">LocationInsights</a><br>
-        <a href="https://github.com/camaraproject/LocationInsights/blob/main/MAINTAINERS.MD">Maintainers</a>
+        <a href="https://github.com/camaraproject/MostFrequentLocation">MostFrequentLocation</a><br>
+        <a href="https://github.com/camaraproject/MostFrequentLocation/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>No release</td>
     </tr>
@@ -1083,6 +1083,16 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>Telecom Argentina S.A.*<div></div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/pull/224">Template</a><div>2024/11/26</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>Pending</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>Communication Risk Check</th>
+      <td>Chunghwa Telecom*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/241">Template</a><div>2024/11/26</div>
       </td>
       <td><ul><li>Under backlog discussion</li></ul></td>
       <td>Pending</td>
