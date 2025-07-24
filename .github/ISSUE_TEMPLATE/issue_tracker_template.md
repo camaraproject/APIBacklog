@@ -2,7 +2,7 @@
 name: API Repository Onboarding Tracker ⛴️
 about: Use this template after a new API repository is approved to track onboarding steps.
 title: '[Onboarding Tracker] $repo_name$'
-labels: 'Onboarding Tracker'
+labels: 'API Onboarding Tracker'
 assignees: ''
 ---
 
