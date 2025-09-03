@@ -1,0 +1,1289 @@
+openapi: 3.0.0
+info:
+  title: Sponsored Data API
+  version: 1.0.0
+  description: |
+  
+    Sponsored Data API for OpenGateway/CAMARA Project
+
+    The Sponsored Data API allows sponsoring companies (EPs) to cover the cost of mobile data access for end-users on 4G and 5G networks. This API is part of the Open Gateway/CAMARA initiative and provides a set of operations for the dynamic management of mobile data sponsorship. Sponsoring companies can start or revoke sponsorships for users, as well as query the status of both sponsorship sessions and their campaigns.
+    [TODO: Pensar si vale la pena poner elegibilidad, balance y pausa de campaña]
+    The API also allows for the verification of user eligibility for sponsorship and the ability to pause and resume active campaigns. With this API, mobile operators can offer differentiated services that enable innovative business models, providing connectivity at no direct cost to the end-user, with funding provided by a sponsoring entity.
+
+    This service is ideal for advertising campaigns, product promotions, or services.
+
+    Objective of This Initial Version
+    In this initial version of the API, the sponsorship is proposed for all data traffic (ANY) carried by the user's default bearer, for a specified volume and time, without focusing on a specific destination.
+
+    * Onboarding* 
+    Onboarding is the process by which a Sponsoring Company (EP) contracts a Sponsorship Campaign with the API Gateway Platform (OpenGateway) and the specific Mobile Network Operator (MNO). Initially, this event is supported by the signing of an agreement or documentation outlining the general objectives of the campaign and default sponsorship conditions. For example:
+
+        Type of Campaign: Prepaid or postpaid
+        Total data volume contracted for prepaid campaigns, e.g., 2000 MB
+        Campaign validity, e.g., (from/to) or (336 total hours consumed since activation)
+        Default sponsored data volume for users, e.g., 50 MB
+        Default sponsorship validity per user, e.g., 10 minutes
+        Additionally, during this onboarding process, the EP is provided with the "sponsorId" and the specific "campaign_Id".
+
+    * campaignId *
+    Campaign_ID is a unique identifier assigned to each sponsorship campaign contracted by a Sponsoring Company and assigned during the onboarding process.
+
+    * Traceability - sessionId *
+    All operations associated with a user (UE) sponsorship are grouped under a session identified by a sessionId. This identifier allows tracking and correlating all interactions within the same sponsorship session.
+
+    * Assignment of Identifiers *
+    Both, campaign_Id and sessionId, are assigned and managed exclusively by the API Gateway Platforms (OpenGateway) and communicated to both the Sponsoring Companies and the MNOs. CampaignId during the onboarding document signing proccess. And sessionId on real time during each sponsorship operation request.
+
+    * Authorization and Authentication *
+    The "Camara Security and Interoperability Profile" provides details on how a client requests an access token. Please refer to Identity and Consent Management (https://github.com/camaraproject/IdentityAndConsentManagement/) for the released version of the Profile.
+
+    The specific authorization flows to be used will be determined during the onboarding process, occurring between the API Client and the Telco Operator exposing the API, taking into account the declared purpose for accessing the API, and subject to the prevailing legal framework dictated by local legislation.
+
+    It is important to note that in cases where personal user data is processed by the API, and users can exercise their rights through mechanisms such as opt-in and/or opt-out, the use of 3-legged access tokens becomes mandatory. This measure ensures that the API remains in strict compliance with user privacy preferences and regulatory obligations, upholding the principles of transparency and user-centric data control.
+
+    * Authorization and Consent Approach *
+    The Sponsored Data API facilitates user-initiated sponsorship of data services, requiring active user engagement at specific moments via the sponsor’s application. Given the nature of this service, where users must explicitly request sponsorship, the "Authorization Code Flow - Frontend Flow" has been chosen as the authorization and consent method. This flow aligns with the need for secure, direct interaction between the user and the service, ensuring that consent is explicitly provided in a manner that complies with data protection regulations such as GDPR.
+
+    * API Functionality *
+    This API exposes the following endpoints: NOTE: All of these are REQUIRED for minimal and correct operation unless explicitly indicated otherwise [OPTIONAL OPERATION]
+
+      /sponsorship: Initiates sponsorship and includes a webhook for session-related notifications. With HTTP 201, the Gateway Platform returns the sessionId.
+      /sponsorship/{sponsorId}/{campaignId}/{sessionId}/session-status: Queries the status of a particular session. Returns session-related data.
+      /sponsorship/{sponsorId}/{campaignId}/{sessionId}/revoke: Revokes an active sponsorship session. If active, it must be terminated.
+      /campaign/{sponsorId}/{campaignId}/status: Queries the status of the campaign, returning if it is active, paused, or finished, data balance associated with the campaign, consumed data volume and additional information [OPTIONAL OPERATION]
+      /campaign/{sponsorId}/{campaignId}/active-sponsorship-list: Queries the list of users currently sponsored by the campaign. [OPTIONAL OPERATION]
+      /campaign/{sponsorId}/{campaignId}/alert-subscription: Requests subscription to events associated with the campaign. Includes a webhook for notifications. In this version of the API, only consumption thresholds and expiration events are available. [OPTIONAL OPERATION]
+      /campaign/{sponsorId}/{campaignId}/manage: Allows pausing and reactivating a campaign. During onboarding, it should be defined whether paused periods consume campaign validity time. [OPTIONAL OPERATION]
+    
+    * Date and Time Formats *
+    All date and time values in this API are represented using the ISO 8601 format. For example, '2023-11-22T13:37:00Z' represents November 22, 2023 at 1:37 PM UTC.
+    
+    * Roles *
+    Mobile Network Operators (MNOs): Providers of mobile services that manage network infrastructure and data provisioning.
+    Sponsoring Companies (SCs): Companies that fund the use of mobile data for their clients or specific users, aiming to offer a no-cost data experience.
+    API Gateway Operator Platform (OpenGateway level): A gateway with various functions based on best business practices established by OpenGateway. In addition to translation functions, it must track and manage campaigns and sessions established during operation.
+    Sponsored Users (SU): Mobile network users whose mobile data usage is sponsored by the EPs.
+
+servers:
+  - url: "{apiRoot}/sponsored-data/v1.0.0"
+    variables:
+      apiRoot:
+        default: http://localhost:9091
+        description: API root, defined by the service provider, e.g. `api.example.com` or `api.example.com/somepath`
+
+paths:
+
+  /sponsorship:
+    post:
+      summary: Start Sponsorship Session Request
+      description: This operation requests the sponsorship for a subscriber in a specific campaign, allowing them to use sponsored data within the limits set by this request or those defined in the campaign onboarding declaration by default.
+      operationId: startSponsorship
+      parameters:
+        - $ref: '#/components/parameters/x-correlator'
+        - $ref: '#/components/parameters/x-accessToken'
+      requestBody:
+        description: Parameters for creating the new sponsorship session
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sponsorId:
+                  $ref: '#/components/schemas/sponsorId'
+                campaignId:
+                  $ref: '#/components/schemas/campaignId'
+                phoneNumber:
+                  $ref: '#/components/schemas/phoneNumber'
+                dataVolume:
+                  description: Data volume (in MegaBytes) to be sponsored by the sponsor for the mobile user. If not specified, the default data volume defined in the onboarding rules will apply.
+                  type: integer
+                  minimum: 1
+                  maximum: 1000
+                duration:
+                  description: Duration (in minutes) of the requested sponsorship. If not specified, the duration defined in the onboarding rules will apply.
+                  type: integer
+                  minimum: 1
+                  maximum: 1440
+                webhookUrl:
+                  $ref: '#/components/schemas/webhookUrl'
+                callbackToken:
+                  description: Security token for authenticating notifications sent to the webhook.
+                  type: string
+                  format: "uuid"  
+                  pattern: "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-4[0-9a-fA-F]{3}-[89aAbB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$" # UUID versión 4 regular expression
+              required:
+                - sponsorId
+                - campaignId
+                - phoneNumber
+                - webhookUrl
+                - callbackToken   
+      callbacks:
+        notifications:
+          "{$request.body#/webhookUrl}":
+            post:
+              tags:
+                - Sponsorship notifications callback
+              summary: "Sponsorship notifications callback"
+              description: |
+                This endpoint must be implemented by the API consumer. The sponsorship server will send notifications to this URI when a sponsorship ends, providing the reason for termination and session details
+              operationId: notifySponsorshipEnd
+              parameters:
+                - $ref: "#/components/parameters/x-correlator"
+                - $ref: "#/components/parameters/x-callbackToken"
+              requestBody:
+                required: true
+                content:
+                  application/json:
+                    schema:
+                      $ref: "#/components/schemas/SponsorshipEndNotification"
+              responses:
+                "204":
+                  description: Successful notification
+                  headers:
+                    x-correlator:
+                      $ref: '#/components/headers/x-correlator'
+                "400":
+                  $ref: "#/components/responses/Generic400"
+                "401":
+                  $ref: "#/components/responses/Generic401"
+                "403":
+                  $ref: "#/components/responses/Generic403"
+                "410":
+                  $ref: "#/components/responses/Generic410"
+                "500":
+                  $ref: "#/components/responses/Generic500"
+                "503":
+                  $ref: "#/components/responses/Generic503"
+      responses:
+        '201':
+          description: Successful operation. New sponsorship session created.
+          headers:
+            x-correlator:
+              $ref: '#/components/headers/x-correlator'       
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sponsorId:
+                    $ref: '#/components/schemas/sponsorId'
+                  campaignId:
+                    $ref: '#/components/schemas/campaignId'
+                  sessionId:
+                    $ref: '#/components/schemas/sessionId'
+                  startTime:
+                    $ref: "#/components/schemas/time"
+                  endTime:
+                    $ref: "#/components/schemas/time"
+                    description: |
+                      End date and time of the sponsorship. 
+                      Calculated by adding the specified sponsorship duration to the start time (startTime). 
+                      If duration is not specified, the default value defined in the onboarding campaign profile is used.
+                  sponsoredDataVolume:
+                    description: The assigned data volume for the user. This value is derived from either the sponsorship request or, if not specified in the request, from the default value defined in the campaign profile during onboarding.
+                    type: integer
+                    minimum: 1
+                    maximum: 1000
+                required:
+                - sponsorId
+                - campaignId
+                - sessionId
+                - startTime
+                - endTime
+                - sponsoredDataVolume
+        "400":
+          $ref: "#/components/responses/Generic400"
+        "401":
+          $ref: "#/components/responses/Generic401"
+        "403":
+          $ref: "#/components/responses/Generic403"
+        "404":
+          $ref: "#/components/responses/Generic404"
+        "405":
+          $ref: "#/components/responses/Generic405"
+        "406":
+          $ref: "#/components/responses/Generic406"
+        "415":
+          $ref: "#/components/responses/Generic415"
+        "422":
+          $ref: "#/components/responses/Generic422"
+        "429":
+          $ref: "#/components/responses/Generic429"
+        "500":
+          $ref: "#/components/responses/Generic500"
+        "501":
+          $ref: "#/components/responses/Generic501"
+        "502":
+          $ref: "#/components/responses/Generic502"
+        "503":
+          $ref: "#/components/responses/Generic503"
+        "504":
+          $ref: "#/components/responses/Generic504"
+
+  /sponsorship/{sponsorId}/{campaignId}/{sessionId}/session-status:
+    get:
+      summary: Sponsorship Session Status Inquiry
+      description: |
+          Queries detailed information about a sponsorship session for a specific campaign and sponsor.
+          NOTES:
+          The access token for this query must be a 2-legged token, and the sponsor must have been previously authorized with a 3-legged token at the time of session initiation.
+          The session must have been created by the same API client indicated in the access token.
+      operationId: getSessionStatus
+      parameters:
+        - $ref: '#/components/parameters/x-correlator'
+        - $ref: '#/components/parameters/x-accessToken'
+        - name: sponsorId
+          in: path
+          required: true
+          schema:
+            $ref: '#/components/schemas/sponsorId'
+        - name: campaignId
+          in: path
+          required: true
+          schema:
+            $ref: '#/components/schemas/campaignId'
+        - name: sessionId
+          in: path
+          required: true
+          schema:
+            $ref: '#/components/schemas/sessionId'
+      responses:
+        "200":
+          description: Contains information about the sponsorship session
+          headers:
+            x-correlator:
+              $ref: '#/components/headers/x-correlator'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sponsorId:
+                    $ref: '#/components/schemas/sponsorId'
+                  campaignId:
+                    $ref: '#/components/schemas/campaignId'
+                  sessionId:
+                    $ref: '#/components/schemas/sessionId'
+                  phoneNumber:
+                    $ref: "#/components/schemas/phoneNumber"
+                  startTime:
+                    $ref: "#/components/schemas/time"
+                    description: Date and time when the sponsorship started.
+                  endTime:
+                    $ref: "#/components/schemas/time"
+                    description: Date and time when the session expires if it is still active, or the end time if the session concluded due to data volume exhaustion.
+                  sessionStatus:
+                    description: Indicates whether the session is active or inactive.
+                    enum:
+                    - active
+                    - inactive 
+                  dataVolumeConsumed:
+                    description: Volume of data consumed in the session. (MBytes)
+                    type: integer
+                  dataVolumeAvailable:
+                    description: Volume of remaining available data in the session. (MBytes)
+                    type: integer
+                  endReason:
+                    description: Reason for session termination, if it is no longer active.
+                    enum:
+                    - validity_expired
+                    - data_exhausted
+                    - session_revoked
+                    - not_available
+                required:
+                  - phoneNumber
+                  - startTime
+                  - endTime
+                  - sessionActive
+                  - dataVolumeConsumed
+                  - dataVolumeAvailable
+              examples:
+                session_active:
+                  description: Session still active
+                  value:
+                    sponsorId: "3fa85f64-5717-4562-b3fc-2c963f66afaf@company.com"
+                    campaignId: "3fa85f64-5717-4562-b3fc-2c963f663faf@company.com"
+                    sessionId: "3fa85f64-5717-4562-b3fc-2c963f66afa6@company.com"
+                    phoneNumber: "+541149924576"
+                    startTime: "2024-09-01T12:00:00Z"
+                    endTime: "2024-09-01T14:00:00Z"
+                    sessionStatus: "active"
+                    dataVolumeConsumed: 60
+                    dataVolumeAvailable: 40
+                    endReason: not_available
+                session_inactive:
+                  description: Session still active
+                  value:
+                    sponsorId: "3fa85f64-5717-4562-b3fc-2c963f66afaf@company.com"
+                    campaignId: "3fa85f64-5717-4562-b3fc-2c963f663faf@company.com"
+                    sessionId: "3fa85f64-5717-4562-b3fc-2c963f66afa6@company.com"
+                    phoneNumber: "+541149924576"
+                    startTime: "2024-09-01T12:00:00Z"
+                    endTime: "2024-09-01T13:03:00Z"
+                    sessionStatus: "active"
+                    dataVolumeConsumed: 100
+                    dataVolumeAvailable: 0
+                    endReason: data_exhausted
+        "400":
+          $ref: "#/components/responses/Generic400"
+        "401":
+          $ref: "#/components/responses/Generic401"
+        "403":
+          $ref: "#/components/responses/Generic403"
+        "404":
+          $ref: "#/components/responses/Generic404"
+        "405":
+          $ref: "#/components/responses/Generic405"
+        "406":
+          $ref: "#/components/responses/Generic406"
+        "415":
+          $ref: "#/components/responses/Generic415"
+        "422":
+          $ref: "#/components/responses/Generic422"
+        "429":
+          $ref: "#/components/responses/Generic429"
+        "500":
+          $ref: "#/components/responses/Generic500"
+        "501":
+          $ref: "#/components/responses/Generic501"
+        "502":
+          $ref: "#/components/responses/Generic502"
+        "503":
+          $ref: "#/components/responses/Generic503"
+        "504":
+          $ref: "#/components/responses/Generic504"
+
+  /sponsorship/{sponsorId}/{campaignId}/{sessionId}/revoke:
+    delete:
+      summary: Revocation of Sponsorship
+      description: This operation revokes an active sponsorship, preventing further use of sponsored data for the subscriber.
+      operationId: revokeSponsorship
+      parameters:
+        - $ref: '#/components/parameters/x-correlator'
+        - $ref: '#/components/parameters/x-accessToken'
+        - name: sponsorId
+          in: path
+          required: true
+          schema:
+            $ref: '#/components/schemas/sponsorId'
+        - name: campaignId
+          in: path
+          required: true
+          schema:
+            $ref: '#/components/schemas/campaignId'
+        - name: sessionId
+          in: path
+          required: true
+          schema:
+            $ref: '#/components/schemas/sessionId'
+      responses:
+        '200':
+          description: Session revoked successfully
+          headers:
+            x-correlator:
+              $ref: '#/components/headers/x-correlator'       
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sponsorId:
+                    $ref: '#/components/schemas/sponsorId'
+                  campaignId:
+                    $ref: '#/components/schemas/campaignId'
+                  sessionId:
+                    $ref: '#/components/schemas/sessionId'
+                  phoneNumber:
+                    $ref: "#/components/schemas/phoneNumber"
+                  startTime:
+                    $ref: "#/components/schemas/time"
+                    description: Date and time when the sponsorship started.
+                  endTime:
+                    $ref: "#/components/schemas/time"
+                    description: Date and time when the sponsorship finished.
+                  requestResult:
+                    type: string
+                    enum:
+                    - successful_revocation
+        "400":
+          $ref: "#/components/responses/Generic400"
+        "401":
+          $ref: "#/components/responses/Generic401"
+        "403":
+          $ref: "#/components/responses/Generic403"
+        "404":
+          $ref: "#/components/responses/Generic404"
+        "405":
+          $ref: "#/components/responses/Generic405"
+        "406":
+          $ref: "#/components/responses/Generic406"
+        "415":
+          $ref: "#/components/responses/Generic415"
+        "422":
+          $ref: "#/components/responses/Generic422"
+        "429":
+          $ref: "#/components/responses/Generic429"
+        "500":
+          $ref: "#/components/responses/Generic500"
+        "501":
+          $ref: "#/components/responses/Generic501"
+        "502":
+          $ref: "#/components/responses/Generic502"
+        "503":
+          $ref: "#/components/responses/Generic503"
+        "504":
+          $ref: "#/components/responses/Generic504"
+
+  /campaign/{sponsorId}/{campaignId}/campaign-status:
+    get:
+      summary: Campaign Status Inquiry [active, paused, concluded], data volume balance. 
+      operationId: getCampaignStatus
+      parameters:
+        - $ref: '#/components/parameters/x-correlator'
+        - $ref: '#/components/parameters/x-accessToken'
+        - name: sponsorId
+          in: path
+          required: true
+          schema:
+            $ref: '#/components/schemas/sponsorId'
+        - name: campaignId
+          in: path
+          required: true
+          schema:
+            $ref: '#/components/schemas/campaignId'
+      responses:
+        '200':
+          description: Returns the status of the campaign
+          headers:
+            x-correlator:
+              $ref: '#/components/headers/x-correlator'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sponsorId:
+                    $ref: '#/components/schemas/sponsorId'
+                  campaignId:
+                    $ref: '#/components/schemas/campaignId'
+                  status:
+                    type: string
+                    description: Current status of the campaign (e.g., "active", "paused", "completed").
+                    enum:
+                      - active # The campaign is currently ongoing.
+                      - paused # The campaign is temporarily halted. Active sponsorships continue until completion, and the campaign's duration does not extend due to this pause.
+                      - completed #The campaign has finished successfully, either because all contracted data has been consumed or the time limit has been reached. This status could be sufficient to indicate that the campaign has ended.
+                      - not_available
+                  startTime:
+                    $ref: "#/components/schemas/time"
+                    description: Date and time when the campaign started.
+                  endTime:
+                    $ref: "#/components/schemas/time"
+                    description: Date and time when the campaign expires if it is still active, or the end time if the campaign concluded due to data volume exhaustion.
+                  campaignType:
+                    description: Indicates whether the campaign is prepaid or postpaid
+                    type: string
+                    enum:
+                      - prepaid
+                      - postpaid
+                  contractedDataVolume:
+                    type: integer
+                    description: Total data volume contracted for the campaign in MegaBytes.
+                  usedDataVolume:
+                    type: integer
+                    description: Total data volume consumed in the campaign, in megabytes (MB), as allocated for sponsorships.
+                  remainingDataVolume:
+                    type: integer
+                    description: Remaining data volume available for the campaign in MegaBytes.
+                  completionReason:
+                    type: string
+                    description: Reason for completion (e.g., "time expired", "data exhausted").
+                    enum:
+                      - time_expired
+                      - data_exhausted
+                      - not_available # if the campaign is still active or paused
+                required:
+                  - sponsorId
+                  - campaignId
+                  - status
+                  - startTime
+                  - endTime
+                  - contractedDataVolume
+                  - usedDataVolume
+                  - remainingDataVolume
+                  - completionReason
+        "400":
+          $ref: "#/components/responses/Generic400"
+        "401":
+          $ref: "#/components/responses/Generic401"
+        "403":
+          $ref: "#/components/responses/Generic403"
+        "404":
+          $ref: "#/components/responses/Generic404"
+        "405":
+          $ref: "#/components/responses/Generic405"
+        "406":
+          $ref: "#/components/responses/Generic406"
+        "415":
+          $ref: "#/components/responses/Generic415"
+        "422":
+          $ref: "#/components/responses/Generic422"
+        "429":
+          $ref: "#/components/responses/Generic429"
+        "500":
+          $ref: "#/components/responses/Generic500"
+        "501":
+          $ref: "#/components/responses/Generic501"
+        "502":
+          $ref: "#/components/responses/Generic502"
+        "503":
+          $ref: "#/components/responses/Generic503"
+        "504":
+          $ref: "#/components/responses/Generic504"
+
+  /campaign/{sponsorId}/{campaignId}/active-sponsorship-list:
+    get:
+      summary: Query of Active Sponsorships
+      operationId: getActiveSponsorships
+      parameters:
+        - $ref: '#/components/parameters/x-correlator'
+        - $ref: '#/components/parameters/x-accessToken'
+        - name: sponsorId
+          in: path
+          description: Sponsor ID
+          required: true
+          schema:
+            $ref: '#/components/schemas/sponsorId'
+        - name: campaignId
+          in: path
+          description: ID de la campaña
+          required: true
+          schema:
+            $ref: '#/components/schemas/campaignId'
+      responses:
+        '200':
+          description: List of users currently sponsored by the campaign. 
+          headers:
+            x-correlator:
+              $ref: '#/components/headers/x-correlator'       
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sponsorId:
+                    $ref: '#/components/schemas/sponsorId'
+                  campaignId:
+                    $ref: '#/components/schemas/campaignId'
+                  activeSponsorships:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        sessionId:
+                          $ref: '#/components/schemas/sessionId'
+                        phoneNumber:
+                          $ref: "#/components/schemas/phoneNumber"
+                  totalCount:
+                    description: Total number of sponsored subscribers currently.
+                    type: integer
+                    example: 5000
+              example:
+                sponsorId: "3fa85f64-5717-4562-b3fc-2c963f66afaf@company.com"
+                campaignId: "3fa85f64-5717-4562-b3fc-2c963f663faf@company.com"
+                activeSponsorships:
+                  - sessionId: "3fa85f64-5717-4562-b3fc-2c963f66afa6@company.com"
+                    phoneNumber: "+541100000001"
+                  - sessionId: "3fa85f64-5717-4562-b3fc-2c967f66afa6@company.com"
+                    phoneNumber: "+541100000002"
+                  - sessionId: "3fa85f64-5717-4562-b3fc-2c953f66afa6@company.com"
+                    phoneNumber: "+541100000003"
+                totalCount: 3
+        "400":
+          $ref: "#/components/responses/Generic400"
+        "401":
+          $ref: "#/components/responses/Generic401"
+        "403":
+          $ref: "#/components/responses/Generic403"
+        "404":
+          $ref: "#/components/responses/Generic404"
+        "405":
+          $ref: "#/components/responses/Generic405"
+        "406":
+          $ref: "#/components/responses/Generic406"
+        "415":
+          $ref: "#/components/responses/Generic415"
+        "422":
+          $ref: "#/components/responses/Generic422"
+        "429":
+          $ref: "#/components/responses/Generic429"
+        "500":
+          $ref: "#/components/responses/Generic500"
+        "501":
+          $ref: "#/components/responses/Generic501"
+        "502":
+          $ref: "#/components/responses/Generic502"
+        "503":
+          $ref: "#/components/responses/Generic503"
+        "504":
+          $ref: "#/components/responses/Generic504"
+
+  /campaign/{sponsorId}/{campaignId}/alert-subscription:
+    post:
+      summary: Campaigns - Subscription to Alert y Notifications
+      description: >
+        This operation enables Sponsors (EPs) to subscribe to receive notifications related to campaigns. With the subscription, the EP provides a webhook URL and a token, which will be used by the API Gateway to send notifications related to the campaign.
+        In this API version, only two types of alerts are provided:
+          - Notification for consuming more than 80% of the contracted data volume.
+          - Notification for campaign validity expiration.
+          - Notification for campaign data volume exhausted.
+          - Alerts for network failures will be addressed in future versions.
+      operationId: configureAlerts
+      parameters:
+        - $ref: '#/components/parameters/x-correlator'
+        - $ref: '#/components/parameters/x-accessToken'
+        - name: sponsorId
+          in: path
+          required: true
+          schema:
+            $ref: '#/components/schemas/sponsorId'
+        - name: campaignId
+          in: path
+          required: true
+          schema:
+            $ref: '#/components/schemas/campaignId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                webhookUrl:
+                  $ref: '#/components/schemas/webhookUrl'
+                callbackToken:
+                  type: string
+                  description: Security token to authenticate notifications sent to the webhook.
+                alertDataVolumeThresholds:
+                  type: boolean
+                  description: Indicates whether a notification should be sent when data consumption exceeds 80% of the contracted amount (applicable for prepaid campaigns)..
+                  example: true
+                campaignExpiryNotification:
+                  type: boolean
+                  description: Indicates whether a notification should be sent when the campaign expires.
+                  example: true
+                dataVolumeExhausted:
+                  type: boolean
+                  description: Indicates whether a notification should be sent when the campaign data volume is exhausted.
+                  example: true
+      callbacks:
+        notifications:
+          "{$request.body#/webhookUrl}":
+            post:
+              tags:
+                - Campaign notifications callback
+              summary: "Callback definition for campaign notifications (webhookUrl)"
+              description: >
+                This endpoint must be implemented by the API consumer. The server will send notifications to this URL with the token provided in the subscription to authenticate the request.
+              operationId: notifyCampaignEvent
+              parameters:
+                - $ref: '#/components/parameters/x-correlator'
+                - $ref: '#/components/parameters/x-callbackToken'
+              requestBody:
+                required: true
+                content:
+                  application/json:
+                    schema:
+                      $ref: "#/components/schemas/CampaignNotification"
+              responses:
+                "204":
+                  description: Successful notification
+                  headers:
+                    x-correlator:
+                      $ref: '#/components/headers/x-correlator'
+                  content:
+                    application/json:
+                      schema:
+                        type: object
+                        properties:
+                          sponsorId:
+                            $ref: '#/components/schemas/sponsorId'
+                          campaignId:
+                            $ref: '#/components/schemas/campaignId'
+                          notifications:
+                            enum:
+                            - alertDataVolumeThresholds
+                            - campaignExpiryNotification
+                            - dataVolumeExhausted
+                "400":
+                  $ref: "#/components/responses/Generic400"
+                "401":
+                  $ref: "#/components/responses/Generic401"
+                "403":
+                  $ref: "#/components/responses/Generic403"
+                "410":
+                  $ref: "#/components/responses/Generic410"
+                "500":
+                  $ref: "#/components/responses/Generic500"
+                "503":
+                  $ref: "#/components/responses/Generic503"
+      responses:
+        '200':
+          description: Campaign notifications subscription - SUCCESS
+          headers:
+            x-correlator:
+              $ref: '#/components/headers/x-correlator'       
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sponsorId:
+                    $ref: '#/components/schemas/sponsorId'
+                  campaignId:
+                    $ref: '#/components/schemas/campaignId'
+                  requestResult:
+                    type: string
+                    example: "Campaign notifications subscription - SUCCESS"
+        "400":
+          $ref: "#/components/responses/Generic400"
+        "401":
+          $ref: "#/components/responses/Generic401"
+        "403":
+          $ref: "#/components/responses/Generic403"
+        "404":
+          $ref: "#/components/responses/Generic404"
+        "405":
+          $ref: "#/components/responses/Generic405"
+        "406":
+          $ref: "#/components/responses/Generic406"
+        "415":
+          $ref: "#/components/responses/Generic415"
+        "422":
+          $ref: "#/components/responses/Generic422"
+        "429":
+          $ref: "#/components/responses/Generic429"
+        "500":
+          $ref: "#/components/responses/Generic500"
+        "501":
+          $ref: "#/components/responses/Generic501"
+        "502":
+          $ref: "#/components/responses/Generic502"
+        "503":
+          $ref: "#/components/responses/Generic503"
+        "504":
+          $ref: "#/components/responses/Generic504"
+
+  /campaign/management:
+    post:
+      summary: Campaign Management
+      description: >
+        This operation allows pausing or resuming a campaign based on the action parameter provided in the request body. The possible values for action are:
+          - PAUSE to temporarily halt new sponsorships (ongoing sponsorships will continue until completion).
+          - RESUME to reactivate the campaign.
+        If the campaign has already ended, the API will respond with a 400 error, indicating that the campaign is finished and cannot be modified. Pausing a campaign does not extend its end date or overall duration.
+      operationId: manageCampaign
+      parameters:
+        - $ref: '#/components/parameters/x-correlator'
+        - $ref: '#/components/parameters/x-accessToken'
+      requestBody:
+        description: Parameters to manage the campaign.
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sponsorId:
+                  $ref: '#/components/schemas/sponsorId'
+                campaignId:
+                  $ref: '#/components/schemas/campaignId'
+                action:
+                  type: string
+                  enum:
+                    - pause
+                    - resume
+                  description: "The action to be performed on the campaign. It can be 'PAUSE' to pause or 'RESUME' to resume."
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            x-correlator:
+              $ref: '#/components/headers/x-correlator'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  requestResult:
+                    type: string
+                    example: "CAMPAIGN PAUSED SUCCESSFULLY or CAMPAIGN RESUMED SUCCESSFULLY"
+                  sponsorId:
+                    $ref: '#/components/schemas/sponsorId'
+                  campaignId:
+                    $ref: '#/components/schemas/campaignId'
+                  startTime:
+                    $ref: "#/components/schemas/time"
+                    description: The timestamp indicating when the requested action (PAUSE or RESUME) on the campaign takes effect (in ISO 8601 format).
+                  status:
+                    type: string
+                    description: Current status of the campaign (e.g., "active", "paused", "completed").
+                    enum:
+                      - paused
+                      - resumed
+                      - completed
+        "400":
+          $ref: "#/components/responses/Generic400"
+        "401":
+          $ref: "#/components/responses/Generic401"
+        "403":
+          $ref: "#/components/responses/Generic403"
+        "404":
+          $ref: "#/components/responses/Generic404"
+        "405":
+          $ref: "#/components/responses/Generic405"
+        "406":
+          $ref: "#/components/responses/Generic406"
+        "415":
+          $ref: "#/components/responses/Generic415"
+        "422":
+          $ref: "#/components/responses/Generic422"
+        "429":
+          $ref: "#/components/responses/Generic429"
+        "500":
+          $ref: "#/components/responses/Generic500"
+        "501":
+          $ref: "#/components/responses/Generic501"
+        "502":
+          $ref: "#/components/responses/Generic502"
+        "503":
+          $ref: "#/components/responses/Generic503"
+        "504":
+          $ref: "#/components/responses/Generic504"
+
+components:
+  
+  parameters:
+    x-correlator:
+      name: x-correlator
+      in: header
+      description: Correlation identifier in UUID version 4 format
+      required: true
+      schema:
+        type: string
+        format: "uuid"
+        pattern: "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-4[0-9a-fA-F]{3}-[89aAbB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$" # UUID versión 4 regular expression
+    x-accessToken:
+      name: accessToken
+      in: header
+      description: Access token for the Sponsor.
+      required: true
+      schema:
+        type: string
+    x-callbackToken:
+      name: x-callbackToken
+      in: header
+      description: |
+        Security token for authenticating the notification. It must match the value provided in the callbackToken field of the initial sponsorship request body.
+      required: true
+      schema:
+        type: string
+        format: uri
+        example: https://tonys-server.com
+  headers:
+    x-correlator:
+      required: true
+      schema:
+        type: string
+        format: "uuid" 
+        pattern: "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-4[0-9a-fA-F]{3}-[89aAbB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$"
+  schemas:
+    sponsorId:
+      type: string
+      description: Unique sponsor identifier, assigned by the API GW Platform operator. Should include a domain associated with the company for easy recognition.
+      pattern: "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$" # Excample 'ID@sponsor_domain.com'
+    campaignId:
+      type: string
+      description: "Unique identifier for the campaign, including a UUID and the sponsor's domain."
+      pattern: "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$" # Example "UUID@sponsor_domain.com"
+    phoneNumber:
+      description: A public identifier addressing a telephone subscription. In mobile networks it corresponds to the MSISDN (Mobile Station International Subscriber Directory Number). In order to be globally unique it has to be formatted in international format, according to E.164 standard, prefixed with '+'.
+      type: string
+      pattern: '^\+[1-9][0-9]{4,14}$'
+      example: "+123456789"
+    sessionId:
+      description: Unique session identifier, assigned by the API GW Platform operator. Should include a domain associated with the company for easy recognition.
+      type: string
+      format: uuid
+      pattern: "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$" # Example "UUID@sponsor_domain.com"
+    CampaignNotification:
+      type: object
+      properties:
+        api_version:
+          description: Data Sponsored API Version (must be 1.0.0)
+          type: string
+          enum:
+            - '1.0.0'
+        datacontenttype:
+          description: 'media-type that describes the event payload encoding, must be "application/json" for CAMARA APIs'
+          type: string
+          enum:
+            - 'application/json'
+        sponsorId:
+          $ref: '#/components/schemas/sponsorId'
+        campaignId:
+          type: string
+          description: "Identificador de la campaña."
+        eventType:
+          type: string
+          description: "Tipo de evento que desencadenó la notificación."
+          enum:
+            - DATA_VOLUME_THRESHOLD_EXCEEDED (80%)
+            - DATA_VOLUME_EXHASTED
+            - CAMPAIGN_EXPIRED
+        timestamp:
+          type: string
+          format: date-time
+          description: "Fecha y hora en que ocurrió el evento."
+    ErrorInfo:
+      description: The error object used for error-cases.
+      type: object
+      required:
+        - status
+        - code
+        - message
+      properties:
+        status:
+          type: integer
+          description: HTTP response status code
+        code:
+          type: string
+          description: Code given to this error
+        message:
+          type: string
+          description: Detailed error description  
+    webhookUrl:
+      type: string
+      format: url
+      description: The URL to which notifications about session status changes will be sent using the HTTP protocol. (e.g., session termination)
+      example: "https://sponsor.endpoint.example.com/webhook"
+    SponsorshipEndNotification:
+      type: object
+      properties:
+        api_version:
+          description: Data Sponsored API Version (must be 1.0.0)
+          type: string
+          enum:
+            - '1.0.0'
+        datacontenttype:
+          description: media-type that describes the event payload encoding, must be "application/json" for CAMARA APIs
+          type: string
+          enum:
+            - 'application/json'
+        sponsorId:
+          $ref: '#/components/schemas/sponsorId'
+        campaignId:
+          $ref: '#/components/schemas/campaignId'
+        sessionId:
+          $ref: '#/components/schemas/sessionId'
+        reason:
+          type: string
+          description: Reason for the termination of the sponsorship.
+          enum:
+            - EXPIRED
+            - TERMINATED_BY_SPONSOR
+            - DATA_EXHAUSTED
+            - USER_DEREGISTERED
+            - NOT_AVAILABLE
+        endTimestamp:
+          type: string
+          format: date-time
+          description: Date and time when the sponsorship session ended.
+    time:
+      description: Exact time in ISO 8601 format.
+      type: string
+      format: date-time
+      example: "2024-08-20T14:34:56Z"
+  responses:
+    Generic400:
+      description: Problem with the client request
+      headers:
+        x-correlator:
+          $ref: '#/components/headers/x-correlator'
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorInfo"
+          examples:
+            GENERIC_400_INVALID_ARGUMENT:
+              description: Invalid Argument. Generic Syntax Exception
+              value:
+                status: 400
+                code: INVALID_ARGUMENT
+                message: Client specified an invalid argument, request body or query param.
+    Generic401:
+      description: Unauthorized
+      headers:
+        x-correlator:
+          $ref: '#/components/headers/x-correlator'
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorInfo"
+          examples:
+            GENERIC_401_UNAUTHENTICATED:
+              description: Request cannot be authenticated
+              value:
+                status: 401
+                code: UNAUTHENTICATED
+                message: Request not authenticated due to missing, invalid, or expired credentials.
+            GENERIC_401_AUTHENTICATION_REQUIRED:
+              description: New authentication is needed, authentication is no longer valid
+              value:
+                status: 401
+                code: AUTHENTICATION_REQUIRED
+                message: New authentication is required.
+    Generic403:
+      description: |
+        Client does not have sufficient permission.
+        In addition to regular scenario of `PERMISSION_DENIED`, other scenarios may exist:
+          - Phone number cannot be deducted from access token context.(`{"code": "INVALID_TOKEN_CONTEXT","message": "Phone number cannot be deducted from access token context"}`)
+      headers:
+        x-correlator:
+          $ref: '#/components/headers/x-correlator'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorInfo'
+          examples:
+            GENERIC_403_PERMISSION_DENIED:
+              description: Permission denied. OAuth2 token access does not have the required scope or when the user fails operational security
+              value:
+                status: 403
+                code: PERMISSION_DENIED
+                message: Client does not have sufficient permissions to perform this action.
+            GENERIC_403_INVALID_TOKEN_CONTEXT:
+              description: Reflect some inconsistency between information in some field of the API and the related OAuth2 Token
+              value:
+                status: 403
+                code: INVALID_TOKEN_CONTEXT
+                message: "{{field}} is not consistent with access token."
+    Generic404:
+      description: Resource Not Found
+      headers:
+        x-correlator:
+          $ref: '#/components/headers/x-correlator'
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorInfo"
+          examples:
+            NOT_FOUND:
+              value:
+                status: 404
+                code: NOT_FOUND
+                message: The specified resource is not found
+            DEVICE_IDENTIFIER_NOT_FOUND:
+              value:
+                status: 404
+                code: DEVICE_NOT_FOUND
+                message: Some identifier cannot be matched to a device
+    Generic405:
+      description: Method Not Allowed
+      headers:
+        x-correlator:
+          $ref: "#/components/headers/x-correlator"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorInfo"
+          examples:
+            GENERIC_405_METHOD_NOT_ALLOWED:
+              description: Invalid HTTP verb used with a given endpoint
+              value:
+                status: 405
+                code: METHOD_NOT_ALLOWED
+                message: The requested method is not allowed/supported on the target resource.
+    Generic406:
+      description: Not Acceptable
+      headers:
+        x-correlator:
+          $ref: "#/components/headers/x-correlator"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorInfo"
+          examples:
+            GENERIC_406_NOT_ACCEPTABLE:
+              description: API Server does not accept the media type (`Accept-*` header) indicated by API client
+              value:
+                status: 406
+                code: NOT_ACCEPTABLE
+                message: The server cannot produce a response matching the content requested by the client through `Accept-*` headers.
+    Generic410:
+      description: Gone
+      headers:
+        x-correlator:
+          $ref: "#/components/headers/x-correlator"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorInfo"
+          examples:
+            GENERIC_410_GONE:
+              description: Use in notifications flow to allow API Consumer to indicate that its callback is no longer available
+              value:
+                status: 410
+                code: GONE
+                message: Access to the target resource is no longer available.
+    Generic415:
+      description: Unsupported Media Type
+      headers:
+        x-correlator:
+          $ref: "#/components/headers/x-correlator"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorInfo"
+          examples:
+            GENERIC_415_UNSUPPORTED_MEDIA_TYPE:
+              description: Payload format of the request is in an unsupported format by the Server. Should not happen
+              value:
+                status: 415
+                code: UNSUPPORTED_MEDIA_TYPE
+                message: The server refuses to accept the request because the payload format is in an unsupported format.
+    Generic422:
+      description: Unprocessable Entity
+      headers:
+        x-correlator:
+          $ref: '#/components/headers/x-correlator'
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorInfo"
+          examples:
+            GENERIC_422_DEVICE_IDENTIFIERS_MISMATCH:
+              description: Inconsistency between device identifiers not pointing to the same device
+              value:
+                status: 422
+                code: DEVICE_IDENTIFIERS_MISMATCH
+                message: Provided device identifiers are not consistent.
+            GENERIC_422_DEVICE_NOT_APPLICABLE:
+              description: Service is not available for the provided device
+              value:
+                status: 422
+                code: DEVICE_NOT_APPLICABLE
+                message: The service is not available for the provided device.
+            GENERIC_422_UNABLE_TO_PROVIDE_REACHABILITY_STATUS:
+              value:
+                status: 422
+                code: UNABLE_TO_PROVIDE_REACHABILITY_STATUS
+                message: Network issue - Unable to provide reachability status
+            GENERIC_422_UNSUPPORTED_DEVICE_IDENTIFIERS:
+              value:
+                status: 422
+                code: UNSUPPORTED_DEVICE_IDENTIFIERS
+                message: None of the provided device identifiers is supported by the implementation
+    Generic429:
+      description: Too Many Requests
+      headers:
+        x-correlator:
+          $ref: "#/components/headers/x-correlator"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorInfo"
+          examples:
+            GENERIC_429_QUOTA_EXCEEDED:
+              description: Request is rejected due to exceeding a business quota limit
+              value:
+                status: 429
+                code: QUOTA_EXCEEDED
+                message: Either out of resource quota or reaching rate limiting.
+            GENERIC_429_TOO_MANY_REQUESTS:
+              description: API Server request limit is overpassed
+              value:
+                status: 429
+                code: TOO_MANY_REQUESTS
+                message: Either out of resource quota or reaching rate limiting.
+    Generic500:
+      description: Internal Server Error
+      headers:
+        x-correlator:
+          $ref: "#/components/headers/x-correlator"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorInfo"
+          examples:
+            GENERIC_500_INTERNAL:
+              description: Problem in Server side. Regular Server Exception
+              value:
+                status: 500
+                code: INTERNAL
+                message: Unknown server error. Typically a server bug.
+    Generic501:
+      description: Not Implemented
+      headers:
+        x-correlator:
+          $ref: "#/components/headers/x-correlator"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorInfo"
+          examples:
+            GENERIC_501_NOT_IMPLEMENTED:
+              description: Service not implemented. The use of this code should be avoided as far as possible to get the objective to reach aligned implementations
+              value:
+                status: 501
+                code: NOT_IMPLEMENTED
+                message: This functionality is not implemented yet.
+    Generic502:
+      description: Bad Gateway
+      headers:
+        x-correlator:
+          $ref: "#/components/headers/x-correlator"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorInfo"
+          examples:
+            GENERIC_502_BAD_GATEWAY:
+              description: Internal routing problem in the Server side that blocks to manage the service properly
+              value:
+                status: 502
+                code: BAD_GATEWAY
+                message: An upstream internal service cannot be reached.
+    Generic503:
+      description: Service Unavailable
+      headers:
+        x-correlator:
+          $ref: "#/components/headers/x-correlator"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorInfo"
+          examples:
+            GENERIC_503_UNAVAILABLE:
+              description: Service is not available. Temporary situation usually related to maintenance process in the server side
+              value:
+                status: 503
+                code: UNAVAILABLE
+                message: Service Unavailable.
+    Generic504:
+      description: Gateway Timeout
+      headers:
+        x-correlator:
+          $ref: "#/components/headers/x-correlator"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorInfo"
+          examples:
+            GENERIC_504_TIMEOUT:
+              description: API Server Timeout
+              value:
+                status: 504
+                code: TIMEOUT
+                message: Request timeout exceeded.
