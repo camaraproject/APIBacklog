@@ -1089,7 +1089,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>N/A</td>
     </tr>
     <tr>
-      <th>Communication Risk Check</th>
+      <th>Fraud Hotzone Alert</th>
       <td>Chunghwa Telecom*<div></div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/issues/241">Template</a><div>2024/11/26</div>
