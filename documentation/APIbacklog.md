@@ -1092,7 +1092,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <th>Fraud Hotzone Alert</th>
       <td>Chunghwa Telecom*<div></div></td>
       <td>
-        <a href="https://github.com/camaraproject/APIBacklog/issues/241">Template</a><div>2024/11/26</div>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/243">Template</a><div>2024/11/26</div>
       </td>
       <td><ul><li>Updates requested by TSC (2025/08/21)</li></ul></td>
       <td>Pending</td>
