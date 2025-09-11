@@ -939,7 +939,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <th>Multi Point VPN</th>
       <td>Infosys Ltd*<div></div></td>
       <td>
-        <a href="https://github.com/camaraproject/APIBacklog/issues/205">Template</a><div>2024/11/26</div>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/205">Template</a><div>2025/04/25</div>
       </td>
       <td><ul><li>TSC Approved (2025/06/05)</li></ul></td>
       <td>
@@ -948,6 +948,17 @@ This is a live doc that captures the status of all the APIs which have been form
       </td>   
       <td>N/A</td>
     </tr>
+    <tr>
+      <th>Sponsored Data</th>
+      <td>Telecom Argentina S.A.*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/224">Template</a><div>2025/06/02</div>
+      </td>
+      <td><ul><li>Sent to TSC for approval (2025/09/04)</li></ul></td>
+      <td>Pending</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
     <tr>
       <th>Consent and Measurement</th>
       <td>Centillion*<div>Centillion</div></td>
@@ -960,7 +971,7 @@ This is a live doc that captures the status of all the APIs which have been form
     </tr>
     <tr>
       <th>IMEI Fraud</th>
-      <td>MTN*<div>GSMA-OGW, MTN, Huawei</div></td>
+      <td>xFlow Research Inc*<div>xFlow Research Inc</div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/IMEI%20Fraud.md">Template</a><div>2023/08/13</div>
       </td>
@@ -1078,21 +1089,20 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>Pending</td>
       <td>N/A</td>
     </tr>
-    <tr>
-      <th>Sponsored Data</th>
-      <td>Telecom Argentina S.A.*<div></div></td>
+      <th>Fraud Hotzone Alert</th>
+      <td>Chunghwa Telecom*<div></div></td>
       <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/224">Template</a><div>2024/11/26</div>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/243">Template</a><div>2024/11/26</div>
       </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td><ul><li>Updates requested by TSC (2025/08/21)</li></ul></td>
       <td>Pending</td>
       <td>N/A</td>
     </tr>
-    <tr>
-      <th>Communication Risk Check</th>
-      <td>Chunghwa Telecom*<div></div></td>
+    </tr>
+      <th>In Home Device Management API</th>
+      <td>Infosys*<div></div></td>
       <td>
-        <a href="https://github.com/camaraproject/APIBacklog/issues/241">Template</a><div>2024/11/26</div>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/250">Template</a><div>2025/08/09</div>
       </td>
       <td><ul><li>Under backlog discussion</li></ul></td>
       <td>Pending</td>
