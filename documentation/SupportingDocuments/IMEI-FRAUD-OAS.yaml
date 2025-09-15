@@ -63,7 +63,6 @@ info:
     If the request is valid, the API response is a JSON object containing the device status and register information:
     - The response will always contain `imei`, `operationalStatus`, and `registers`
     - A `lastChecked` field indicates when the information was last verified
-    - The `registers` object shows the device's presence in each register type
     - If the device has a negative status, `reportedDate` may be included if available
     - Other response parameters are implementation dependent
 
@@ -73,11 +72,6 @@ info:
        "lastChecked": "2024-02-20T10:41:38.657Z",
        "imei": "490154203237518",
        "operationalStatus": "prohibited",
-       "registers": {
-         "allowedList": false,
-         "prohibitedList": true,
-         "trackedList": false
-       },
        "prohibitedReason": "stolen",
        "reportedDate": "2023-05-23T21:48:42.000Z"
     }
@@ -244,20 +238,12 @@ components:
                 lastChecked: "2024-02-20T10:41:38.657Z"
                 imei: "490154203237518"
                 operationalStatus: "allowed"
-                registers:
-                  allowedList: true
-                  prohibitedList: false
-                  trackedList: false
             Prohibited IMEI (Stolen):
               description: IMEI status check for a prohibited device
               value:
                 lastChecked: "2024-02-20T10:41:38.657Z"
                 imei: "490154203237519"
                 operationalStatus: "prohibited"
-                registers:
-                  allowedList: false
-                  prohibitedList: true
-                  trackedList: false
                 prohibitedReason: "stolen"
                 reportedDate: "2023-05-23T21:48:42.000Z"
             Tracked IMEI:
@@ -266,30 +252,18 @@ components:
                 lastChecked: "2024-02-20T10:41:38.657Z"
                 imei: "490154203237520"
                 operationalStatus: "tracked"
-                registers:
-                  allowedList: false
-                  prohibitedList: false
-                  trackedList: true
             Unknown IMEI:
               description: IMEI status check for a device not in any register
               value:
                 lastChecked: "2024-02-20T10:41:38.657Z"
                 imei: "490154203237521"
                 operationalStatus: "unknown"
-                registers:
-                  allowedList: false
-                  prohibitedList: false
-                  trackedList: false
             Multi-Register IMEI:
               description: IMEI present in multiple registers (prohibited takes precedence)
               value:
                 lastChecked: "2024-02-20T10:41:38.657Z"
                 imei: "490154203237522"
                 operationalStatus: "prohibited"
-                registers:
-                  allowedList: true
-                  prohibitedList: true
-                  trackedList: true
                 prohibitedReason: "blacklisted"
                 reportedDate: "2023-08-15T14:30:22.000Z"
 
@@ -483,35 +457,6 @@ components:
           description: The IMEI that was checked
           pattern: '^[0-9]{15}$'
           example: "490154203237518"
-        operationalStatus:
-          type: string
-          description: The operational status of the IMEI based on register evaluation
-          enum:
-            - allowed
-            - prohibited
-            - tracked
-            - unknown
-          example: "allowed"
-        registers:
-          type: object
-          description: Shows the presence of the IMEI in each operator register
-          required:
-            - allowedList
-            - prohibitedList
-            - trackedList
-          properties:
-            allowedList:
-              type: boolean
-              description: Whether the IMEI is present in the allowed list (white list)
-              example: true
-            prohibitedList:
-              type: boolean
-              description: Whether the IMEI is present in the prohibited list (black list)
-              example: false
-            trackedList:
-              type: boolean
-              description: Whether the IMEI is present in the tracked list (gray list)
-              example: false
         prohibitedReason:
           type: string
           description: Reason why the IMEI is prohibited (only present when operationalStatus is "prohibited")
