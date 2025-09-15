@@ -10,6 +10,7 @@ IMEI Fraud API submission
 | Commercial viability | Customer demand has been validated |
 | YAML code available? | Yes|
 | Validated in lab/productive environments? | No |
-| Validated with real customers? | Yes |
+| Validated with real customers? | No |
 | Validated with operators? | No |
 | Supporters in API Backlog Working Group |  |
+
