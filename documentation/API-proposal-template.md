@@ -3,39 +3,47 @@ This template captures all the information that a partner should fill out when p
 
 
 ### API family name  
-Name of the API or API family.
+Voice One-Time Password (OTP) Call
 
 ### API family owner  
-Company submitting the API proposal.
+Heksagon
 
 ### API summary  
-High level description / scope of the API or API family, and two/three examples of in-scope business cases.
+The “Voice One Time Password Call” API is used to send short-lived one time passwords (OTP) to a phone number via voice call and validate it afterwards, in order to provide a proof of possession of the phone number.
+Voice OTP Call API performs real-time checks to verify that the user possessed the device that carries the indicated mobile phone number. It provides a frequent method of verifying possession of the device by delivering an OTP through voice call and validating it afterwards.
+Voice OTP Call API is a secure method for providing one-time access to an application or performing a single transaction. As compared to One Time Password SMS API, it is fast and more secure. It is possible to deliver OTP code in different languages including regional and local languages in different countries. Upon answering the voice call, the recipient would hear OTP code two to three times in different supported languages e.g. English-German-Spanish, English-Hindi-Urdu etc. 
+The recipient then uses this code or password as an additional layer of security to login to a service, website or app.
+Use Cases:-
+•	Online Banking: To authenticate users during login and transactions, ensuring secure access to financial accounts.
+•	Account Registration: To confirm user identity during account creation by sending a verification code to their mobile device.
+•	Password Recovery: To securely verify users when they request to reset their passwords, ensuring only the rightful owner can make changes.
+•	Two-Factor Authentication (2FA): To enhance security for sensitive applications by requiring a second verification step via SMS after entering a password.
+Benefits
+The One Time Password Call API has several benefits for the API consumer:
+•	Enhanced Security: OTPs provide an additional layer of security beyond passwords, reducing the risk of unauthorized access.
+•	User Verification: Ensures that the user has access to the registered mobile device, confirming their identity.
+•	Cost-Effective: Reduces the need for complex authentication systems while providing strong security.
+•	User Trust: Increases user confidence in the security of the platform, leading to higher user satisfaction.
 
 ### Technical viability  
-Identify the underlying network/cloud capabilities which are needed for the support of this API or API family, relating these capabilities to standards maturity.  
-*Example: this API requires the availability of NEF with this Rel-15 "X" feature.*
+API represents an attempt to standardize interfaces between OTP Call solutions deployed by MNOs or external providers and their enterprise users. As such the API is not bound to any specific cloud platform or specific solution but aims to encourage vendors providing MNO or enterprise solution to support this API format and assure interoperability between different solutions.
 
 ### Commercial viability  
-Specify the availability of commercial or (industrialized) open-source solutions for the identified network/cloud capabilities.  
-*NOTE: If open-source, provide a publicly available reference/link to the actual solution, and specify the version under consideration.*
+There are not specific cloud requirements related to proposed API.
 
 ### YAML code available?  
-YES / NO.
+YES
 
 ### Validated in lab/productive environments?  
-YES / NO.  
-If YES, specify if it was lab network or productive network.
+YES
 
 ### Validated with real customers?  
-YES / NO.  
-If YES, specify how many customers participated in the evaluation, and what their use cases were.  
-*NOTE: It is not mandatory (though recommendable) to specify the name of the customers.*
+API has not been deployed for real customers yet but we are in communication with several interested parties and expect PoC by Q1 2026
 
 ### Validated with operators?  
-YES / NO.  
-If YES, specify how many operators participated in the evaluation.  
-*NOTE: It is not mandatory (though recommendable) to specify the name of the operators.*
+It is one of our new products and hence we didn’t get an opportunity to get it validated with some telco operators. We are expecting some PoC to start by Q1 2026 
 
 ### Supporters in API Backlog Working Group  
 List of supporters.  
 *NOTE: That shall be added by the Working Group. Supporting an API proposal means that the supporting company must provide at least 1 (one) Maintainer at the time of the Sub Project creation.*
+
