@@ -1136,7 +1136,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <th>Voice One Time Password Call</th>
       <td>Infosys*<div></div></td>
       <td>
-        <a href="https://github.com/camaraproject/APIBacklog/issues/250">Template</a><div>2025/08/09</div>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/256">Template</a><div>2025/09/24</div>
       </td>
       <td><ul><li>Under backlog discussion</li></ul></td>
       <td>Pending</td>
