@@ -844,7 +844,7 @@ This is a live doc that captures the status of all the APIs which have been form
     </tr>
     <tr>
       <th>IoT Device Management</th>
-      <td>Verizon*<div></div></td>
+      <td>Verizon*, China Telecom*<div></div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIproposal_IoTDeviceManagement_Verizon.md">Template</a><div>2024/04/26</div>
       </td>
