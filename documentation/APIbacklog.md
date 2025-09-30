@@ -929,7 +929,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIproposal_eSIM%20Remote%20Management_China%20Unicom.md">Template</a><div>2024/11/26</div>
       </td>
-      <td><ul><li>TSC Approved (2025/03/20) </li></ul></td>
+      <td><ul><li>TSC Approved (2025/03/20) and Onboarding</li></ul></td>
       <td>Pending</td>
       <td>N/A</td>
     </tr>
@@ -978,21 +978,14 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/pull/224">Template</a><div>2025/06/02</div>
       </td>
-      <td><ul><li>TSC Approved (2025/09/18) & Onboarding (2025/09/24)</li></ul></td>
-      <td>Pending</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
-    <tr>
-      <th>Consent and Measurement</th>
-      <td>Centillion*<div>Centillion</div></td>
+      <td><ul><li>TSC Approved (2025/09/18) & Onboarded (2025/09/24)</li></ul></td>
       <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/73">Template</a><div>2023/11/15</div>
-      </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
-      <td>Pending</td>
-      <td>N/A</td>
+        <a href="https://github.com/camaraproject/SponsoredData">SponsoredData</a>
+        <a href="https://github.com/camaraproject/SponsoredData/blob/main/MAINTAINERS.MD">Maintainers</a>
+      </td>  
+      <td>No release</td>
     </tr>
+    <tr>
     <tr>
       <th>IMEI Fraud</th>
       <td>xFlow Research Inc*<div>xFlow Research Inc</div></td>
@@ -1000,126 +993,17 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/IMEI%20Fraud.md">Template</a><div>2023/08/13</div>
       </td>
       <td><ul><li>Under backlog discussion</li></ul></td>
-      <td>Pending</td>
+      <td>N/A</td>
       <td>N/A</td>
     </tr>
     <tr>
-      <th>Receive SMS</th>
-      <td>Telecom Italia*<div>Telecom Italia, GSMA-OGW, Orange, China Unicom</div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/75">Template</a><div>2023/12/05</div>
-      </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
-      <td>Pending</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
-      <th>Best Interconnection</th>
-      <td>Deutsche Telekom*<div>Deutsche Telekom, GSMA-OGW</div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/88">Template</a><div>2024/01/19</div>
-      </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
-      <td>Pending</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
-      <th>Carrier Wholesale Pricing</th>
-      <td>TelecomsXChange*<div>TelecomsXChange</div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/77">Template</a><div>2024/03/04</div>
-      </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
-      <td>Pending</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
-      <th>Steering of Roaming Management</th>
-      <td>Netfocusin Technologies*<div>Netfocusin Technologies</div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/78">Template</a><div>2024/03/04</div>
-      </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
-      <td>Pending</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
-      <th>5g New Calling</th>
-      <td>Chine Mobile*<div></div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/31">Template</a><div>2024/04/29</div>
-      </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
-      <td>Pending</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
-      <th>Fixed Lines in Location</th>
-      <td>Telefonica*<div></div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/92">Template</a><div>2024/10/01</div>
-      </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
-      <td>Pending</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
-      <th>Line Eligibility for Carrier Billing API</th>
-      <td>Telefonica*<div></div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/94">Template</a><div>2024/10/01</div>
-      </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
-      <td>Pending</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
-      <th>SIM Historical Information</th>
-      <td>China Unicom*<div></div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/114">Template</a><div>2024/10/30</div>
-      </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
-      <td>Pending</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
-      <th>User Account Spend Count</th>
-      <td>China Unicom*<div></div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/120">Template</a><div>2024/11/08</div>
-      </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
-      <td>Pending</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
-      <th>Number Of Cards Under User's ID</th>
-      <td>China Unicom*<div></div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/119">Template</a><div>2024/11/08</div>
-      </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
-      <td>Pending</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
-      <th>IdentityAndConsentManagement</th>
-      <td>Cellcard*<div></div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/166">Template</a><div>2024/11/26</div>
-      </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
-      <td>Pending</td>
-      <td>N/A</td>
-    </tr>
       <th>Fraud Hotzone Alert</th>
       <td>Chunghwa Telecom*<div></div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/pull/243">Template</a><div>2024/11/26</div>
       </td>
       <td><ul><li>Updates requested by TSC (2025/08/21)</li></ul></td>
-      <td>Pending</td>
+      <td>N/A</td>
       <td>N/A</td>
     </tr>
     </tr>
@@ -1129,17 +1013,137 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/APIBacklog/issues/250">Template</a><div>2025/08/09</div>
       </td>
       <td><ul><li>Under backlog discussion</li></ul></td>
-      <td>Pending</td>
+      <td>N/A</td>
       <td>N/A</td>
     </tr>
     </tr>
       <th>Voice One Time Password Call</th>
-      <td>Infosys*<div></div></td>
+      <td>Heksagon*<div></div></td>
       <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/256">Template</a><div>2025/09/24</div>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/259">Template</a><div>2025/09/24</div>
       </td>
       <td><ul><li>Under backlog discussion</li></ul></td>
-      <td>Pending</td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>Consent and Measurement</th>
+      <td>Centillion*<div>Centillion</div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/73">Template</a><div>2023/11/15</div>
+      </td>
+      <td><ul><li>Archived (2025/09/29)</li></ul></td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>Receive SMS</th>
+      <td>Telecom Italia*<div>Telecom Italia, GSMA-OGW, Orange, China Unicom</div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/75">Template</a><div>2023/12/05</div>
+      </td>
+      <td><ul><li>Archived (2025/09/29)</li></ul></td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>Best Interconnection</th>
+      <td>Deutsche Telekom*<div>Deutsche Telekom, GSMA-OGW</div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/88">Template</a><div>2024/01/19</div>
+      </td>
+      <td><ul><li>Archived (2025/09/29)</li></ul></td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>Carrier Wholesale Pricing</th>
+      <td>TelecomsXChange*<div>TelecomsXChange</div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/77">Template</a><div>2024/03/04</div>
+      </td>
+      <td><ul><li>Archived (2025/09/29)</li></ul></td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>Steering of Roaming Management</th>
+      <td>Netfocusin Technologies*<div>Netfocusin Technologies</div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/78">Template</a><div>2024/03/04</div>
+      </td>
+      <td><ul><li>Archived (2025/09/29)</li></ul></td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>5g New Calling</th>
+      <td>Chine Mobile*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/31">Template</a><div>2024/04/29</div>
+      </td>
+      <td><ul><li>Archived (2025/09/29)</li></ul></td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>Fixed Lines in Location</th>
+      <td>Telefonica*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/92">Template</a><div>2024/10/01</div>
+      </td>
+      <td><ul><li>Archived (2025/09/29)</li></ul></td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>Line Eligibility for Carrier Billing API</th>
+      <td>Telefonica*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/94">Template</a><div>2024/10/01</div>
+      </td>
+      <td><ul><li>Archived (2025/09/29)</li></ul></td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>SIM Historical Information</th>
+      <td>China Unicom*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/115">Template</a><div>2024/10/30</div>
+      </td>
+      <td><ul><li>Archived (2025/09/29)</li></ul></td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>User Account Spend Count</th>
+      <td>China Unicom*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/121">Template</a><div>2024/11/08</div>
+      </td>
+      <td><ul><li>Archived (2025/09/29)</li></ul></td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>Number Of Cards Under User's ID</th>
+      <td>China Unicom*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/119">Template</a><div>2024/11/08</div>
+      </td>
+      <td><ul><li>Archived (2025/09/29)</li></ul></td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>IdentityAndConsentManagement</th>
+      <td>Cellcard*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/166">Template</a><div>2024/11/26</div>
+      </td>
+      <td><ul><li>Archived (2025/09/29)</li></ul></td>
+      <td>N/A</td>
       <td>N/A</td>
     </tr>
   </tbody>
@@ -1160,5 +1164,7 @@ This is a live doc that captures the status of all the APIs which have been form
   - TSC Approved (date)
   - Not approved (date)
   - Updates requested by TSC (date)
+  - Frozen (date): Proposal marked as Frozen if no activity in GitHub for 6+ weeks or API owner absent in 3 consecutive WG meetings, or if TSC approved but no onboarding tracker after 3 WG sessions. Can be reactivated by any contributor via a comment in the GitHub issue (mentioning the owner) and notifying the Backlog WG at least one week before the meeting agenda is finalized.
+  - Archived (date): Proposal marked as Archived if it remains Frozen for two consecutive meta-release cycles (≈ 6 months) or by explicit decision of WG/TSC. Cannot be reactivated; a new proposal is required.
 - `Sub Project Link & Active Maintainers`: Direct links to API repository (or repository where the API is specified) and the API maintainer list
 - `Latest Release & date`: Direct link to latest release version (tag to meta-release if applies) and date.
