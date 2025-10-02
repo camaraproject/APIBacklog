@@ -192,7 +192,7 @@ paths:
 components:
   securitySchemes:
     openId:
-      description: Common security scheme for all CAMARA APIs
+      description: Common security scheme for all CAMARA APIs. The OpenID Connect discovery URL will be provided by the API provider during onboarding.
       type: openIdConnect
       openIdConnectUrl: https://example.com/.well-known/openid-configuration
 
@@ -520,6 +520,7 @@ components:
       description: Example request to check IMEI register status
       value:
         imei: "490154203237518"
+
 
 
 
