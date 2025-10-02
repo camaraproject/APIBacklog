@@ -61,9 +61,9 @@ info:
     To call this endpoint, the API consumer must first obtain a valid access token from the token endpoint, which is then passed as an Authorization header. The API consumer must provide the IMEI of the device to be checked in the request body.
 
     If the request is valid, the API response is a JSON object containing the device status and register information:
-    - The response will always contain `imei`, `operationalStatus`, and `registers`
+    - The response will always contain `imei` and `operationalStatus`.
     - A `lastChecked` field indicates when the information was last verified
-    - If the device has a negative status, `reportedDate` may be included if available
+    - If the device has a negative status, `reportedDate` and `prohibitedReason` may be included if available
     - Other response parameters are implementation dependent
 
     An example of a JSON response object is as follows:
@@ -515,3 +515,4 @@ components:
       description: Example request to check IMEI register status
       value:
         imei: "490154203237518"
+
