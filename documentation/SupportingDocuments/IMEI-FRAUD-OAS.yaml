@@ -141,7 +141,7 @@ servers:
   - url: "{apiRoot}/imei-fraud-check/vwip"
     variables:
       apiRoot:
-        default: http://localhost:9091
+        default: https://api.example.com
         description: API root, defined by the service provider, e.g. `api.example.com` or `api.example.com/somepath`
 
 tags:
@@ -520,6 +520,7 @@ components:
       description: Example request to check IMEI register status
       value:
         imei: "490154203237518"
+
 
 
 
