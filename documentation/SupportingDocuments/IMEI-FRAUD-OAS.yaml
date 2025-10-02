@@ -457,6 +457,15 @@ components:
           description: The IMEI that was checked
           pattern: '^[0-9]{15}$'
           example: "490154203237518"
+        operationalStatus:
+          type: string
+          description: The operational status of the device, determined by register presence
+          enum:
+            - allowed
+            - prohibited
+            - tracked
+            - unknown
+          example: "allowed"
         prohibitedReason:
           type: string
           description: Reason why the IMEI is prohibited (only present when operationalStatus is "prohibited")
@@ -515,4 +524,5 @@ components:
       description: Example request to check IMEI register status
       value:
         imei: "490154203237518"
+
 
