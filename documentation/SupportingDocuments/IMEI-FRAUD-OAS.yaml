@@ -464,7 +464,7 @@ components:
           example: "allowed"
         prohibitedReason:
           type: string
-          description: Reason why the IMEI is prohibited (only present when operationalStatus is "prohibited")
+          description: Reason why the IMEI is prohibited. Only included when operationalStatus is "prohibited".
           enum:
             - lost
             - stolen
@@ -520,6 +520,7 @@ components:
       description: Example request to check IMEI register status
       value:
         imei: "490154203237518"
+
 
 
 
