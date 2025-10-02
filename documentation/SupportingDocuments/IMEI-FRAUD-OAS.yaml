@@ -224,7 +224,6 @@ components:
               - lastChecked
               - imei
               - operationalStatus
-              - registers
             allOf:
               - $ref: "#/components/schemas/CommonResponseBody"
               - $ref: "#/components/schemas/ImeiStatus"
@@ -521,6 +520,7 @@ components:
       description: Example request to check IMEI register status
       value:
         imei: "490154203237518"
+
 
 
 
