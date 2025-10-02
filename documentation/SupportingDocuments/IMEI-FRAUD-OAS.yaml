@@ -136,9 +136,6 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   x-camara-commonalities: 0.6
 
-#externalDocs:
- # description: Product documentation at CAMARA
-  #url: https://github.com/camaraproject/ImeifraudCheck
 
 servers:
   - url: "{apiRoot}/imei-fraud-check/vwip"
@@ -524,5 +521,6 @@ components:
       description: Example request to check IMEI register status
       value:
         imei: "490154203237518"
+
 
 
