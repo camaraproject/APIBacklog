@@ -1,11 +1,11 @@
 Description
-API family name
+### API family name
 Authentication and Fraud Prevention
-API Name
+### API Name
 Voice One-Time Password (OTP) Call
-API family owner
+### API family owner
 Heksagon
-API summary
+### API summary
 The “Voice One Time Password Call” API is used to send short-lived one time passwords (OTP) to a phone number via voice call and validate it afterwards, in order to provide a proof of possession of the phone number.
 Voice OTP Call API performs real-time checks to verify that the user possessed the device that carries the indicated mobile phone number. It provides a frequent method of verifying possession of the device by delivering an OTP through voice call and validating it afterwards.
 Voice OTP Call API is a secure method for providing one-time access to an application or performing a single transaction. As compared to One Time Password SMS API, it is fast and more secure. It is possible to deliver OTP code in different languages including regional and local languages in different countries. Upon answering the voice call, the recipient would hear OTP code two to three times in different supported languages e.g. English-German-Spanish, English-Hindi-Urdu etc.
@@ -21,8 +21,8 @@ Validated in lab/productive environments?
 Validated in Lab environment
 Validated with real customers?
 NO. API has not been deployed real use yet but we are in communication with several interested parties and expect PoC by Q1 2026
-Validated with operators?
-Not yet. It is one of our new products and hence we didn’t get an opportunity to get it validated with some telco operators. We are expecting some PoC to start by Q1 2026
+### Validated with operators?
+Not yet. It is one of our new products and hence we didn’t get an opportunity to get it validated with some telco operators. We are expecting some PoC to start by Q1 2026 
 
 Use cases
 • Online Banking: To authenticate users during login and transactions, ensuring secure access to financial accounts.
