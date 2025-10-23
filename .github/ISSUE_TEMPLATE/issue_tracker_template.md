@@ -65,4 +65,4 @@ assignees: ''
 ---
 
 **Notifications:**  
-CC: @camaraproject/admins @camaraproject/api-backlog_maintainers @camaraproject/marketing_maintainers```
+CC: @camaraproject/admins @camaraproject/api-backlog_maintainers @camaraproject/marketing_maintainers 
