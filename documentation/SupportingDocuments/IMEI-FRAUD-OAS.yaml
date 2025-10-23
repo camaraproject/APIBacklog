@@ -1,0 +1,527 @@
+openapi: 3.0.3
+info:
+  title: IMEI Fraud Check
+  version: wip
+  description: |
+    # Summary
+
+    The IMEI Fraud Check API allows clients to verify the status of mobile devices using their IMEI (International Mobile Equipment Identity) across three operator-managed registers: allowed lists, prohibited lists, and tracked lists.
+
+    This API is useful for various scenarios:
+     - Device registration and network access control
+     - Insurance claims validation - verify if a claimed lost/stolen device is actually prohibited
+     - Device purchase verification - check if a second-hand device has a clean status
+     - Fraud prevention - detect potentially fraudulent devices before service activation
+     - Compliance with regulatory requirements for device management
+     - Network monitoring and tracking of specific devices
+
+    # Introduction
+
+    The International Mobile Equipment Identity (IMEI) is a unique identifier assigned to mobile devices by manufacturers. This 15-digit number serves as a fingerprint for each device and is used by mobile networks to identify equipment on their networks.
+
+    Mobile operators maintain three distinct registers for IMEI management:
+
+    ## Register Types
+
+    ### Allowed List (White List)
+    Contains all number series of equipment identities that are permitted for use on the network. Devices on this list are explicitly authorized for network access.
+
+    ### Prohibited List (Black List)
+    Contains all equipment identities that belong to equipment that must be barred from network access. This includes devices that are:
+    - **Lost**: Device reported missing by the subscriber
+    - **Stolen**: Device reported stolen by the subscriber or law enforcement
+    - **Blacklisted**: Device blocked due to fraud, non-payment, or other policy violations
+    - **Blocked**: Device restricted from network access for regulatory or technical reasons
+
+    ### Tracked List (Gray List)
+    Contains equipment identities that are monitored by the network for evaluation or other purposes. Devices on the tracked list are not barred from network access (unless they are also on the prohibited list or not on the allowed list), but their network activity is logged and monitored.
+
+    The use of these registers is at the operators' discretion, and the specific implementation may vary between different network operators and jurisdictions.
+
+    # Relevant terms and definitions
+
+    ### IMEI Fraud Check API service endpoint
+    The URL pointing to the RESTful resource of the IMEI Fraud Check API.
+
+    ### International Mobile Equipment Identity (IMEI)
+    A unique 15-digit identifier assigned to mobile devices by the manufacturer, used to identify the device on mobile networks.
+
+    ### Register Status
+    The classification of a device based on its presence in operator-maintained registers (allowed, prohibited, tracked lists).
+
+    ### Device Status
+    The operational status of a device on the network, determined by evaluating its presence across all applicable registers.
+
+    # API functionality
+
+    The API defines one primary service endpoint:
+
+    - `POST /check-status` to verify the register and operational status of a device using its IMEI
+
+    To call this endpoint, the API consumer must first obtain a valid access token from the token endpoint, which is then passed as an Authorization header. The API consumer must provide the IMEI of the device to be checked in the request body.
+
+    If the request is valid, the API response is a JSON object containing the device status and register information:
+    - The response will always contain `imei` and `operationalStatus`.
+    - A `lastChecked` field indicates when the information was last verified
+    - If the device has a negative status, `reportedDate` and `prohibitedReason` may be included if available
+    - Other response parameters are implementation dependent
+
+    An example of a JSON response object is as follows:
+    ```
+    {
+       "lastChecked": "2024-02-20T10:41:38.657Z",
+       "imei": "490154203237518",
+       "operationalStatus": "prohibited",
+       "prohibitedReason": "stolen",
+       "reportedDate": "2023-05-23T21:48:42.000Z"
+    }
+    ```
+
+    ## Status Determination Logic
+
+    The operational status is determined based on register presence:
+    1. If the device is on the **prohibited list**: status is "prohibited" (regardless of other lists)
+    2. If the device is on the **allowed list** and not on prohibited list: status is "allowed"
+    3. If the device is only on the **tracked list**: status is "tracked"
+    4. If the device is not on any list: status is "unknown"
+
+    ## Error handling
+
+    Errors may be returned for the following reasons. Note that this list is not exhaustive.
+
+    `401 UNAUTHENTICATED`:
+    - The access token is not a valid access token for the API provider
+    - The access token was valid but has now expired
+
+    `400 INVALID_ARGUMENT`:
+    - The API request is not compliant with this OAS definition
+    - Invalid IMEI format provided
+
+    `400 OUT_OF_RANGE`:
+    - A parameter value in the API request is outside the documented range
+
+    `404 IDENTIFIER_NOT_FOUND`:
+    - The IMEI provided in the request is not found in any accessible database
+
+    `403 PERMISSION_DENIED`:
+    - The access token does not have the required scope for the endpoint being called
+
+    `422 SERVICE_NOT_APPLICABLE`:
+    - The IMEI fraud check service cannot be applied to the provided identifier
+
+    `429 QUOTA_EXCEEDED`:
+    - The API consumer has exceeded their allocated quota for this API
+
+    `429 TOO_MANY_REQUESTS`:
+    - The rate limit for API requests has been exceeded
+
+    ### Additional CAMARA error responses
+
+    The list of error codes in this API specification is not exhaustive. Therefore the API specification may not document some non-mandatory error statuses as indicated in `CAMARA API Design Guide`.
+
+    Please refer to the `CAMARA_common.yaml` of the Commonalities Release associated to this API version for a complete list of error responses. The applicable Commonalities Release can be identified in the `API Readiness Checklist` document associated to this API version.
+
+    As a specific rule, error `501 - NOT_IMPLEMENTED` can be only a possible error response if it is explicitly documented in the API.
+
+    # Further info and support
+
+    ## Authorization and authentication
+
+    The "Camara Security and Interoperability Profile" provides details of how an API consumer requests an access token. Please refer to Identity and Consent Management (https://github.com/camaraproject/IdentityAndConsentManagement/) for the released version of the profile.
+
+    The specific authorization flows to be used will be agreed upon during the onboarding process, happening between the API consumer and the API provider, taking into account the declared purpose for accessing the API, whilst also being subject to the prevailing legal framework dictated by local legislation.
+
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  x-camara-commonalities: 0.6
+
+
+servers:
+  - url: "{apiRoot}/imei-fraud-check/vwip"
+    variables:
+      apiRoot:
+        default: https://api.example.com
+        description: API root, defined by the service provider, e.g. `api.example.com` or `api.example.com/somepath`
+
+tags:
+  - name: IMEI Fraud Check
+    description: Check the register status of mobile devices using their IMEI
+
+paths:
+  "/check-status":
+    post:
+      summary: Check the register status of a device using its IMEI
+      description: Verify if an IMEI is present in allowed, prohibited, or tracked lists maintained by operators
+      operationId: checkImeiStatus
+      tags:
+        - IMEI Fraud Check
+      security:
+        - openId:
+            - imei-fraud-check:check-status
+      parameters:
+        - $ref: "#/components/parameters/x-correlator"
+
+      requestBody:
+        description: IMEI to be checked for register status
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RequestBody"
+            examples:
+              Check IMEI Status:
+                $ref: '#/components/examples/CheckImeiStatus'
+
+      responses:
+        "200":
+          $ref: '#/components/responses/200CheckStatus'
+        "400":
+          $ref: '#/components/responses/400BadRequest'
+        "401":
+          $ref: '#/components/responses/401Unauthorized'
+        "403":
+          $ref: '#/components/responses/403Forbidden'
+        "404":
+          $ref: '#/components/responses/404NotFound'
+        "422":
+          $ref: '#/components/responses/422UnprocessableContent'
+        "429":
+          $ref: '#/components/responses/429TooManyRequests'
+
+components:
+  securitySchemes:
+    openId:
+      description: Common security scheme for all CAMARA APIs. The OpenID Connect discovery URL will be provided by the API provider during onboarding.
+      type: openIdConnect
+      openIdConnectUrl: https://example.com/.well-known/openid-configuration
+
+  parameters:
+    x-correlator:
+      name: x-correlator
+      in: header
+      description: Correlation id for the different services
+      schema:
+        $ref: "#/components/schemas/XCorrelator"
+
+  headers:
+    X-Correlator:
+      description: Correlation id for the different services
+      required: false
+      schema:
+        $ref: "#/components/schemas/XCorrelator"
+
+  responses:
+    200CheckStatus:
+      description: IMEI register status has been successfully retrieved
+      headers:
+        x-correlator:
+          $ref: "#/components/headers/X-Correlator"
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "#/components/schemas/CommonResponseBody"
+              - $ref: "#/components/schemas/ImeiStatus"
+          examples:
+            Allowed IMEI:
+              description: IMEI status check for an allowed device
+              value:
+                lastChecked: "2024-02-20T10:41:38.657Z"
+                imei: "490154203237518"
+                operationalStatus: "allowed"
+            Prohibited IMEI (Stolen):
+              description: IMEI status check for a prohibited device
+              value:
+                lastChecked: "2024-02-20T10:41:38.657Z"
+                imei: "490154203237519"
+                operationalStatus: "prohibited"
+                prohibitedReason: "stolen"
+                reportedDate: "2023-05-23T21:48:42.000Z"
+            Tracked IMEI:
+              description: IMEI status check for a tracked device
+              value:
+                lastChecked: "2024-02-20T10:41:38.657Z"
+                imei: "490154203237520"
+                operationalStatus: "tracked"
+            Unknown IMEI:
+              description: IMEI status check for a device not in any register
+              value:
+                lastChecked: "2024-02-20T10:41:38.657Z"
+                imei: "490154203237521"
+                operationalStatus: "unknown"
+            Multi-Register IMEI:
+              description: IMEI present in multiple registers (prohibited takes precedence)
+              value:
+                lastChecked: "2024-02-20T10:41:38.657Z"
+                imei: "490154203237522"
+                operationalStatus: "prohibited"
+                prohibitedReason: "blacklisted"
+                reportedDate: "2023-08-15T14:30:22.000Z"
+
+    400BadRequest:
+      description: Bad Request
+      headers:
+        x-correlator:
+          $ref: "#/components/headers/X-Correlator"
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "#/components/schemas/ErrorInfo"
+              - type: object
+                properties:
+                  status:
+                    enum:
+                      - 400
+                  code:
+                    enum:
+                      - INVALID_ARGUMENT
+                      - OUT_OF_RANGE
+          examples:
+            Invalid IMEI Format:
+              description: IMEI format is invalid
+              value:
+                status: 400
+                code: INVALID_ARGUMENT
+                message: "Invalid IMEI format. IMEI must be 15 digits."
+            Missing IMEI:
+              description: IMEI parameter is missing
+              value:
+                status: 400
+                code: INVALID_ARGUMENT
+                message: "IMEI is required"
+
+    401Unauthorized:
+      description: Unauthorized
+      headers:
+        x-correlator:
+          $ref: "#/components/headers/X-Correlator"
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "#/components/schemas/ErrorInfo"
+              - type: object
+                properties:
+                  status:
+                    enum:
+                      - 401
+                  code:
+                    enum:
+                      - UNAUTHENTICATED
+          examples:
+            Unauthenticated Request:
+              description: Request cannot be authenticated
+              value:
+                status: 401
+                code: UNAUTHENTICATED
+                message: Request not authenticated due to missing, invalid, or expired credentials. A new authentication is required.
+
+    403Forbidden:
+      description: Forbidden
+      headers:
+        x-correlator:
+          $ref: "#/components/headers/X-Correlator"
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "#/components/schemas/ErrorInfo"
+              - type: object
+                properties:
+                  status:
+                    enum:
+                      - 403
+                  code:
+                    enum:
+                      - PERMISSION_DENIED
+          examples:
+            Permission Denied:
+              description: Access token does not have required scope
+              value:
+                status: 403
+                code: PERMISSION_DENIED
+                message: Client does not have sufficient permissions to perform this action.
+
+    404NotFound:
+      description: Not found
+      headers:
+        x-correlator:
+          $ref: "#/components/headers/X-Correlator"
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "#/components/schemas/ErrorInfo"
+              - type: object
+                properties:
+                  status:
+                    enum:
+                      - 404
+                  code:
+                    enum:
+                      - IDENTIFIER_NOT_FOUND
+          examples:
+            IMEI Not Found:
+              description: The provided IMEI is not found in any database
+              value:
+                status: 404
+                code: IDENTIFIER_NOT_FOUND
+                message: The provided IMEI cannot be found in any accessible database.
+
+    422UnprocessableContent:
+      description: Unprocessable Content
+      headers:
+        x-correlator:
+          $ref: "#/components/headers/X-Correlator"
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "#/components/schemas/ErrorInfo"
+              - type: object
+                properties:
+                  status:
+                    enum:
+                      - 422
+                  code:
+                    enum:
+                      - SERVICE_NOT_APPLICABLE
+          examples:
+            Service Not Applicable:
+              description: The fraud check service is not applicable for this IMEI
+              value:
+                status: 422
+                code: SERVICE_NOT_APPLICABLE
+                message: The fraud check service is not applicable for the provided IMEI.
+
+    429TooManyRequests:
+      description: Too Many Requests
+      headers:
+        x-correlator:
+          $ref: "#/components/headers/X-Correlator"
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "#/components/schemas/ErrorInfo"
+              - type: object
+                properties:
+                  status:
+                    enum:
+                      - 429
+                  code:
+                    enum:
+                      - QUOTA_EXCEEDED
+                      - TOO_MANY_REQUESTS
+          examples:
+            Too Many Requests:
+              description: Rate limit exceeded
+              value:
+                status: 429
+                code: TOO_MANY_REQUESTS
+                message: Rate limit reached
+            Quota Exceeded:
+              description: API quota exceeded
+              value:
+                status: 429
+                code: QUOTA_EXCEEDED
+                message: Out of resource quota
+
+  schemas:
+    CommonResponseBody:
+      description: Common parameters included in all responses
+      properties:
+        lastChecked:
+          description: |
+            Date and time that the information was last confirmed by the fraud check service to be correct. It must follow [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) and must have time zone.
+          type: string
+          format: date-time
+          example: "2024-02-20T10:41:38.657Z"
+
+    ImeiStatus:
+      description: The register and operational status information for the queried IMEI
+      type: object
+      properties:
+        imei:
+          type: string
+          description: The IMEI that was checked
+          pattern: '^[0-9]{15}$'
+          example: "490154203237518"
+        operationalStatus:
+          type: string
+          description: The operational status of the device, determined by register presence
+          enum:
+            - allowed
+            - prohibited
+            - tracked
+            - unknown
+          example: "allowed"
+        prohibitedReason:
+          type: string
+          description: Reason why the IMEI is prohibited. Only included when operationalStatus is "prohibited".
+          enum:
+            - lost
+            - stolen
+            - blacklisted
+            - blocked
+            - fraud
+            - non-payment
+            - regulatory
+          example: "stolen"
+        reportedDate:
+          type: string
+          format: date-time
+          description: |
+            Date and time when the IMEI was reported with its current prohibited status (only present when operationalStatus is "prohibited"). It must follow [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) and must have time zone.
+          example: "2023-05-23T21:48:42.000Z"
+
+    ErrorInfo:
+      type: object
+      required:
+        - status
+        - code
+        - message
+      properties:
+        status:
+          type: integer
+          description: HTTP response status code
+        code:
+          type: string
+          description: A human-readable code to describe the error
+        message:
+          type: string
+          description: A human-readable description of what the error represents
+
+    RequestBody:
+      description: Request body for IMEI register status check
+      type: object
+      required:
+        - imei
+      properties:
+        imei:
+          type: string
+          description: The IMEI number of the device to check (15 digits)
+          pattern: '^[0-9]{15}$'
+          example: "490154203237518"
+
+    XCorrelator:
+      type: string
+      pattern: '^[a-zA-Z0-9-_:;.\/<>{}]{0,256}$'
+      example: "b4333c46-49c0-4f62-80d7-f0ef930f1c46"
+
+  examples:
+    CheckImeiStatus:
+      description: Example request to check IMEI register status
+      value:
+        imei: "490154203237518"
+
+
+
+
+
+
+
+
+
