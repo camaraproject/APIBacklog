@@ -30,7 +30,6 @@ assignees: ''
 - [ ] API Repository created _(LF Admin via automation)_
 - [ ] Add repository link to API wiki page _(LF Admin)_
 - [ ] Update `README.md` in repo with API details _(API owner)_
-- [ ] File issue to update CAMARA website and slide deck _(in Marketing repo)_
 - [ ] Update `APIBacklog.md` with status: `Onboarded`
 - [ ] (Optional) Nominate initial maintainers _(API owner)_
 - [ ] (Optional) Update `Maintainers.md` with PR
