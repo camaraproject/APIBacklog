@@ -5,18 +5,32 @@ title: '[Onboarding Tracker] $repo_name$'
 labels: 'API Onboarding Tracker'
 assignees: ''
 ---
-
 <!-- API & Repository Onboarding Tracker -->
 
 ## API Repository Information
-- **API Repository Name:** XXXX
-- **Sub Project (or "Independent"):** XXXX _(Name of existing parent Sub Project or "Independent" — for wiki classification)_
-- **Mailing List:** XXXX _(if part of Sub Project, add here the mailing list of the Sub Project)_
-- **Repository:** XXXX
-- **Wiki Page:** XXXX
-- **API Owner:** TBD
-- **API Proposal:** https://github.com/camaraproject/APIBacklog/blob/main/documentation/XXXX.md
-- **Original Approval Issue:** https://github.com/camaraproject/APIBacklog/issues/XXXX
+- **API Repository Name:** XXXX  
+- **Sub Project (or "Independent"):** XXXX  
+- **Mailing List:** XXXX  
+- **Repository:** XXXX  
+- **Wiki Page:** XXXX  
+- **API Owner:** TBD  
+- **API Proposal:** https://github.com/camaraproject/APIBacklog/blob/main/documentation/XXXX.md  
+- **Original Approval Issue:** https://github.com/camaraproject/APIBacklog/issues/XXXX  
+
+> ⚠️ Progress to the next gate only after completing all items in the current one.
+
+---
+
+## GATE 0 – Codeowner Validation (must be completed before repository creation)
+
+- [ ] Code owner(s) **nominated and confirmed** by API Backlog WG  
+- [ ] **LF account** active and **Confluence access** granted  
+- [ ] Subscribed to `all@lists.camaraproject.org`  
+- [ ] **GitHub account** active with notifications enabled  
+- [ ] Invitation to **CAMARA GitHub Organization** accepted  
+- [ ] **EasyCLA** validation successfully completed via **test PR** in `camaraproject/EasyCLA`  
+
+> Once all items are complete, repository creation can proceed.
 
 ---
 
