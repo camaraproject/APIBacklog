@@ -13,7 +13,7 @@ The recipient then uses this code or password as an additional layer of security
 
 ### Technical viability
 API represents an attempt to standardize interfaces between OTP Call solutions deployed by MNOs or external providers and their enterprise users. As such the API is not bound to any specific cloud platform or specific solution but aims to encourage vendors providing MNO or enterprise solution to support this API format and assure interoperability between different solutions.
-Commercial viability
+### Commercial viability
 There are not specific cloud requirements related to proposed API.
 YAML code available?
 YES
