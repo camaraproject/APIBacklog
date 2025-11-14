@@ -5,7 +5,7 @@
 IMEI Fraud Check API
 
 ## API family owner
-xFlow Research — Ali Iqbal
+xFlow Research
 
 ## API summary
 The IMEI Fraud Check API enables clients to verify the authenticity and fraud status of mobile devices by querying operator-managed IMEI registers.  
