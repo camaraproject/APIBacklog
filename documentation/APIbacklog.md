@@ -987,12 +987,12 @@ This is a live doc that captures the status of all the APIs which have been form
     </tr>
     <tr>
     <tr>
-      <th>IMEI Fraud</th>
+      <th> DeviceAuthenticity (previously IMEI Fraud)</th>
       <td>xFlow Research Inc*<div>xFlow Research Inc</div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/IMEI%20Fraud.md">Template</a><div>2023/08/13</div>
       </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td><ul><li>TSC Approved (2025/11/20)</li></ul></td>
       <td>N/A</td>
       <td>N/A</td>
     </tr>
@@ -1002,7 +1002,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/pull/243">Template</a><div>2024/11/26</div>
       </td>
-      <td><ul><li>Updates requested by TSC (2025/08/21)</li></ul></td>
+      <td><ul><li>TSC Approved (2025/10/02) & Onboarding under GSMA (2025/11/25)</li></ul></td>
       <td>N/A</td>
       <td>N/A</td>
     </tr>
@@ -1021,6 +1021,16 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>Heksagon*<div></div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/issues/259">Template</a><div>2025/09/24</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    </tr>
+      <th>Radio Signal Attenuation</th>
+      <td>Ericsson*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/267">Template</a><div>2025/10/20</div>
       </td>
       <td><ul><li>Under backlog discussion</li></ul></td>
       <td>N/A</td>
