@@ -7,6 +7,7 @@ Voice One-Time Password (OTP) Call
 
 ### API family owner
 Heksagon
+
 ### API summary
 The “Voice One Time Password Call” API is used to send short-lived one time passwords (OTP) to a phone number via voice call and validate it afterwards, in order to provide a proof of possession of the phone number.
 Voice OTP Call API performs real-time checks to verify that the user possessed the device that carries the indicated mobile phone number. It provides a frequent method of verifying possession of the device by delivering an OTP through voice call and validating it afterwards.
