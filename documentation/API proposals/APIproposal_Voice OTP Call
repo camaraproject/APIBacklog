@@ -19,6 +19,7 @@ API represents an attempt to standardize interfaces between OTP Call solutions d
 
 ### Commercial viability
 There are not specific cloud requirements related to proposed API.
+
 ### YAML code available?
 YES
 Validated in lab/productive environments?
