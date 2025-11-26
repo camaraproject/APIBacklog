@@ -25,7 +25,8 @@ YES
 
 ### Validated in lab/productive environments?
 YES, Lab environment
-Validated with real customers?
+
+### Validated with real customers?
 NO. API has not been deployed real use yet but we are in communication with several interested parties and expect PoC by Q1 2026
 ### Validated with operators?
 Not yet. It is one of our new products and hence we didn’t get an opportunity to get it validated with some telco operators. We are expecting some PoC to start by Q1 2026 
