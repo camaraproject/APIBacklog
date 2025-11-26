@@ -22,7 +22,8 @@ There are not specific cloud requirements related to proposed API.
 
 ### YAML code available?
 YES
-Validated in lab/productive environments?
+
+### Validated in lab/productive environments?
 YES, Lab environment
 Validated with real customers?
 NO. API has not been deployed real use yet but we are in communication with several interested parties and expect PoC by Q1 2026
