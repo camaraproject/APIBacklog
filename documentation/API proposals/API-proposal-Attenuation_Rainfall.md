@@ -6,7 +6,7 @@ Radio signal attenuation API (for rainfall analysis  use cases)
 Ericsson
 
 ### API summary  
-The API exposes microwave link endpoints, carrier frequencies and the current attenuation level  for a given geographical area.
+The API exposes microwave link endpoints, carrier frequencies and the current attenuation level  for a given geographical area. Furthermore, the API provides near real-time rainfall data by leveraging radio links in the operator's network, which can be affected by rain.
 
 The API may be used to estimate rain intensity over a given geographical area. Each CSP's microwave link has fixed coordinates which are the endpoints of a signal that fluctuates due to rain intensity. Rain absorbs the microwave signal energy in a deterministic manner for a given frequency. 
 
@@ -22,7 +22,7 @@ API exposes a streamed data source of dB attenuation per microwave link. Each li
 ### Commercial viability  
 Service is in commercial operation already in some areas leveraging deployed microwave infrastructures.
 
-The API can complement other data sources such as weather stations, radar and satellites. 
+The API can complement other data sources such as weather stations, radar and satellites. Also, it can be used for weather forecasting and to  improve the rain models.
 Depending on links density and topology, a better spatial resolution can be achieved compared to normal weather radars. A better update frequency (e.g. every 10seconds) can be achieved. 
 
 Weather information is needed for manned and unmanned flight management systems. Especially for drones on lower altitudes, ground radars have problems with the curvature of the earth. No other good source for rain intensity exists below 5000 feet. 
