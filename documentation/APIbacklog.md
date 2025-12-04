@@ -929,8 +929,11 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIproposal_eSIM%20Remote%20Management_China%20Unicom.md">Template</a><div>2024/11/26</div>
       </td>
-      <td><ul><li>TSC Approved (2025/03/20) and Onboarding</li></ul></td>
-      <td>Pending</td>
+      <td><ul><li>TSC Approved (2025/03/20)</li></ul></td>
+      <td>
+        <a href="https://github.com/camaraproject/eSimRemoteManagement">eSimRemoteManagement</a>
+        <a href="https://github.com/camaraproject/eSimRemoteManagement/blob/main/MAINTAINERS.MD">Maintainers</a>
+      </td> 
       <td>N/A</td>
     </tr>
     <tr>
@@ -993,7 +996,10 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/IMEI%20Fraud.md">Template</a><div>2023/08/13</div>
       </td>
       <td><ul><li>TSC Approved (2025/11/20)</li></ul></td>
-      <td>N/A</td>
+      <td>
+        <a href="https://github.com/camaraproject/DeviceAuthenticity">DeviceAuthenticity</a>
+        <a href="https://github.com/camaraproject/DeviceAuthenticity/blob/main/MAINTAINERS.MD">Maintainers</a>
+      </td> 
       <td>N/A</td>
     </tr>
     <tr>
@@ -1003,7 +1009,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/APIBacklog/pull/243">Template</a><div>2024/11/26</div>
       </td>
       <td><ul><li>TSC Approved (2025/10/02) & Onboarding under GSMA (2025/11/25)</li></ul></td>
-      <td>N/A</td>
+      <td>Pending</td>
       <td>N/A</td>
     </tr>
     </tr>
