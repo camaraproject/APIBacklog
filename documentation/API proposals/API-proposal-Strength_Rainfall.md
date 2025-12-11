@@ -1,6 +1,6 @@
 
 ### API family name  
-Radio signal attenuation API (for rainfall analysis  use cases)
+Radio signal strength API (for rainfall analysis  use cases)
 
 ### API family owner  
 Ericsson
