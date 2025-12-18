@@ -1013,12 +1013,22 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>N/A</td>
     </tr>
     </tr>
+      <th>Radio Signal Strength</th>
+      <td>Ericsson*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/267">Template</a><div>2025/10/20</div>
+      </td>
+      <td><ul><li>TSC Approved (2025/12/18)</li></ul></td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    </tr>
       <th>In Home Device Management API</th>
       <td>Infosys*<div></div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/issues/250">Template</a><div>2025/08/09</div>
       </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td><ul><li>TSC Approved (2025/12/18)</li></ul></td>
       <td>N/A</td>
       <td>N/A</td>
     </tr>
@@ -1033,10 +1043,10 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>N/A</td>
     </tr>
     </tr>
-      <th>Radio Signal Attenuation</th>
-      <td>Ericsson*<div></div></td>
+      <th>Group Management API</th>
+      <td>T-Mobile US*<div></div></td>
       <td>
-        <a href="https://github.com/camaraproject/APIBacklog/issues/267">Template</a><div>2025/10/20</div>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/288">Template</a><div>2025/12/17</div>
       </td>
       <td><ul><li>Under backlog discussion</li></ul></td>
       <td>N/A</td>
