@@ -1065,6 +1065,16 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>N/A</td>
       <td>N/A</td>
     </tr>
+    </tr>
+      <th>TrustWorthiness Intent API</th>
+      <td>National Centre for Scientific Research Demokritos (NCSRD), Infolysis S.A*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/293">Template</a><div>2025/12/22</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
     <tr>
       <th>Consent and Measurement</th>
       <td>Centillion*<div>Centillion</div></td>
