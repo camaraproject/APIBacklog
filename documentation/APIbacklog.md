@@ -1033,6 +1033,19 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>N/A</td>
     </tr>
     </tr>
+      <th>Consent Management API</th>
+      <td>Telefónica*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/276">Template</a><div>2025/11/05</div>
+      </td>
+      <td><ul><li>TSC Approved (2025/12/18)</li></ul></td>
+      <td>
+        <a href="https://github.com/camaraproject/ConsentManagement">ConsentManagement</a>
+        <a href="https://github.com/camaraproject/ConsentManagement/blob/main/MAINTAINERS.MD">Maintainers</a>
+      </td>  
+      <td>N/A</td>
+    </tr>
+    </tr>
       <th>Voice One Time Password Call</th>
       <td>Heksagon*<div></div></td>
       <td>
