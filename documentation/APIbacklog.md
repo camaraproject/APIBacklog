@@ -1018,7 +1018,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/issues/267">Template</a><div>2025/10/20</div>
       </td>
-      <td><ul><li>TSC Approved (2025/12/18)</li></ul></td>
+      <td><ul><li>TSC Approved & Onboarding (2025/12/18)</li></ul></td>
       <td>N/A</td>
       <td>N/A</td>
     </tr>
@@ -1028,7 +1028,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/issues/250">Template</a><div>2025/08/09</div>
       </td>
-      <td><ul><li>TSC Approved (2025/12/18)</li></ul></td>
+      <td><ul><li>TSC Approved & Onboarding (2025/12/18)</li></ul></td>
       <td>N/A</td>
       <td>N/A</td>
     </tr>
@@ -1038,7 +1038,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/issues/276">Template</a><div>2025/11/05</div>
       </td>
-      <td><ul><li>TSC Approved (2025/12/18)</li></ul></td>
+      <td><ul><li>TSC Approved & Onboarding (2025/12/18)</li></ul></td>
       <td>
         <a href="https://github.com/camaraproject/ConsentManagement">ConsentManagement</a>
         <a href="https://github.com/camaraproject/ConsentManagement/blob/main/MAINTAINERS.MD">Maintainers</a>
