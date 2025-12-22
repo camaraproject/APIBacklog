@@ -929,7 +929,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIproposal_eSIM%20Remote%20Management_China%20Unicom.md">Template</a><div>2024/11/26</div>
       </td>
-      <td><ul><li>TSC Approved (2025/03/20)</li></ul></td>
+      <td><ul><li>TSC Approved (2025/03/20) & Onboarding (2025/03/24)</li></ul></td>
       <td>
         <a href="https://github.com/camaraproject/eSimRemoteManagement">eSimRemoteManagement</a>
         <a href="https://github.com/camaraproject/eSimRemoteManagement/blob/main/MAINTAINERS.MD">Maintainers</a>
