@@ -929,8 +929,11 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIproposal_eSIM%20Remote%20Management_China%20Unicom.md">Template</a><div>2024/11/26</div>
       </td>
-      <td><ul><li>TSC Approved (2025/03/20) and Onboarding</li></ul></td>
-      <td>Pending</td>
+      <td><ul><li>TSC Approved (2025/03/20) & Onboarding (2025/03/24)</li></ul></td>
+      <td>
+        <a href="https://github.com/camaraproject/eSimRemoteManagement">eSimRemoteManagement</a>
+        <a href="https://github.com/camaraproject/eSimRemoteManagement/blob/main/MAINTAINERS.MD">Maintainers</a>
+      </td> 
       <td>N/A</td>
     </tr>
     <tr>
@@ -987,13 +990,16 @@ This is a live doc that captures the status of all the APIs which have been form
     </tr>
     <tr>
     <tr>
-      <th>IMEI Fraud</th>
+      <th> DeviceAuthenticity (previously IMEI Fraud)</th>
       <td>xFlow Research Inc*<div>xFlow Research Inc</div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/IMEI%20Fraud.md">Template</a><div>2023/08/13</div>
       </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
-      <td>N/A</td>
+      <td><ul><li>TSC Approved (2025/11/20)</li></ul></td>
+      <td>
+        <a href="https://github.com/camaraproject/DeviceAuthenticity">DeviceAuthenticity</a>
+        <a href="https://github.com/camaraproject/DeviceAuthenticity/blob/main/MAINTAINERS.MD">Maintainers</a>
+      </td> 
       <td>N/A</td>
     </tr>
     <tr>
@@ -1002,7 +1008,17 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/pull/243">Template</a><div>2024/11/26</div>
       </td>
-      <td><ul><li>Updates requested by TSC (2025/08/21)</li></ul></td>
+      <td><ul><li>TSC Approved (2025/10/02) & Onboarding under GSMA (2025/11/25)</li></ul></td>
+      <td>Pending</td>
+      <td>N/A</td>
+    </tr>
+    </tr>
+      <th>Radio Signal Strength</th>
+      <td>Ericsson*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/267">Template</a><div>2025/10/20</div>
+      </td>
+      <td><ul><li>TSC Approved & Onboarding (2025/12/18)</li></ul></td>
       <td>N/A</td>
       <td>N/A</td>
     </tr>
@@ -1012,8 +1028,21 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/issues/250">Template</a><div>2025/08/09</div>
       </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td><ul><li>TSC Approved & Onboarding (2025/12/18)</li></ul></td>
       <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    </tr>
+      <th>Consent Management API</th>
+      <td>Telefónica*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/276">Template</a><div>2025/11/05</div>
+      </td>
+      <td><ul><li>TSC Approved & Onboarding (2025/12/18)</li></ul></td>
+      <td>
+        <a href="https://github.com/camaraproject/ConsentManagement">ConsentManagement</a>
+        <a href="https://github.com/camaraproject/ConsentManagement/blob/main/MAINTAINERS.MD">Maintainers</a>
+      </td>  
       <td>N/A</td>
     </tr>
     </tr>
@@ -1021,6 +1050,26 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>Heksagon*<div></div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/issues/259">Template</a><div>2025/09/24</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    </tr>
+      <th>Group Management API</th>
+      <td>T-Mobile US*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/288">Template</a><div>2025/12/17</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    </tr>
+      <th>TrustWorthiness Intent API</th>
+      <td>National Centre for Scientific Research Demokritos (NCSRD), Infolysis S.A*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/293">Template</a><div>2025/12/22</div>
       </td>
       <td><ul><li>Under backlog discussion</li></ul></td>
       <td>N/A</td>
