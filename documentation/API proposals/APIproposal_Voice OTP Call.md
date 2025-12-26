@@ -1,0 +1,48 @@
+# API Proposal Template
+This template captures all the information that a partner should fill out when proposing a new API (or API family) to CAMARA.
+
+
+### API family name
+Voice One-Time Password (OTP) Call
+
+### API family owner
+Heksagon
+
+### API summary
+The “Voice One Time Password Call” API is used to send short-lived one time passwords (OTP) to a phone number via voice call and validate it afterwards, in order to provide a proof of possession of the phone number.
+Voice OTP Call API performs real-time checks to verify that the user possessed the device that carries the indicated mobile phone number. It provides a frequent method of verifying possession of the device by delivering an OTP through voice call and validating it afterwards.
+Voice OTP Call API is a secure method for providing one-time access to an application or performing a single transaction. It is possible to deliver OTP code in different languages including regional and local languages in different countries. Upon answering the voice call, the recipient would hear OTP code two to three times in different supported languages e.g. English-German-Spanish, English-Hindi-Urdu etc.
+The recipient then uses this code or password as an additional layer of security to login to a service, website or app.
+Use cases
+• Online Banking: To authenticate users during login and transactions, ensuring secure access to financial accounts.
+• Account Registration: To confirm user identity during account creation by sending a verification code to their mobile device.
+• Password Recovery: To securely verify users when they request to reset their passwords, ensuring only the rightful owner can make changes.
+• Two-Factor Authentication (2FA): To enhance security for sensitive applications by requiring a second verification step via call after entering a password.
+Benefits
+The One Time Password Call API has several benefits for the API consumer:
+• Enhanced Security: OTPs provide an additional layer of security beyond passwords, reducing the risk of unauthorized access.
+• User Verification: Ensures that the user has access to the registered mobile device, confirming their identity.
+• Cost-Effective: Reduces the need for complex authentication systems while providing strong security.
+• User Trust: Increases user confidence in the security of the platform, leading to higher user satisfaction.
+
+### Technical viability
+API represents an attempt to standardize interfaces between OTP Call solutions deployed by MNOs or external providers and their enterprise users. As such the API is not bound to any specific cloud platform or specific solution but aims to encourage vendors providing MNO or enterprise solution to support this API format and assure interoperability between different solutions.
+
+### Commercial viability
+For user registration, part of 2FA, dynamic verification codes, payment confirmation, and other scenarios.
+
+### YAML code available?
+YES
+
+### Validated in lab/productive environments?
+YES, Lab environment
+
+### Validated with real customers?
+NO. API has not been deployed real use yet but we are in communication with several interested parties and expect PoC by Q1 2026
+
+### Validated with operators?
+Not yet. It is one of our new products and hence we didn’t get an opportunity to get it validated with some telco operators. We are expecting some PoC to start by Q1 2026 
+
+### Supporters in API Backlog Working Group  
+List of supporters.  
+*NOTE: That shall be added by the Working Group. Supporting an API proposal means that the supporting company must provide at least 1 (one) Maintainer at the time of the Sub Project creation.*
