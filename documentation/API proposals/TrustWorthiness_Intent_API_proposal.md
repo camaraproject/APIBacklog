@@ -47,6 +47,7 @@ NO
 NO
 
 ### Supporters in API Backlog Working Group
+Infolysis P.C.
 
 List of supporters.  
 _NOTE: That shall be added by the Working Group. Supporting an API proposal means that the supporting company must provide at least 1 (one) Maintainer at the time of the Sub Project creation._
