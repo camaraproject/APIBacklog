@@ -4,7 +4,7 @@ This template captures all the information that a partner should fill out when p
 
 ### API family name
 
-CAMARA TrustWorthiness INTENT API.
+TrustWorthiness Intent.
 
 ### API family owner
 
