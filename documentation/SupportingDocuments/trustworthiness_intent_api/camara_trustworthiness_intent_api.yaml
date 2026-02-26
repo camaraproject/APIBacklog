@@ -13,25 +13,45 @@ info:
     - Resilience --> The ability to recover from failures and continue operations. How well the system maintains operations under failure conditions.
     - Reliability --> The ability to perform consistently over time. How well the system meets its performance and availability requirements.
 
+    Trust Categories mapping to telco capabilities:
+    - Security: 
+      - SIM/Device/Identity Authentication -> Identity-bound access control
+      - Fraud/Anomaly Detection signals -> Detection of policy violations or anomalous behavior
+    - Privacy:
+      - Network Slice Isolation -> Privacy slice creation/assignment
+      - UPF traffic segregation -> Proper handling of traffic based on privacy requirements
+    - Reliability:
+      - 5QI indicators -> Request QoS session change to meet reliability requirements
+      - QoD enforcement -> Enforce QoS policies to meet reliability requirements
+      - Device Location cell coverage area -> Consider location-based reliability factors
+    - Resilience:
+      - 5QI indicators -> Prioritize traffic or resources to enhance resilience
+      - On-demand slice creation -> Dynamic slice creation and configuration to enhance resilience
+      - Service Continuity / Mobility Robustness -> Session and service continuity policies to enhance resilience
+    - Safety:
+      - 5QI indicators -> Deterministic handling of traffic to meet safety requirements(e.g. low latency for safety-critical applications)
+      - Emergency servvice prioritization -> Prioritize emergency services to meet safety requirements for life-critical applications
+
     The score based scale behaves as an operator-independent normative semantic framework to express trustworthiness intents in a standardized manner.
     The following ranges are proposed:
     Score Range            | Normative Meaning                                             
-     0.0 < score < 0.2     | Best-effort service, no explicit trust guarantees (best-effort profile)
-     0.2 <= score < 0.5    | Baseline telco assurance applied (baseline profile)
-     0.5 <= score < 0.8    | Enhanced trust mechanisms applied (enhanced profile)
-     0.8 <= score <= 1.0   | Strong/critical guarantees applied for regulated or critical services (critical profile)
+     0.0 < score < 0.2     | Best-effort service, no explicit trust guarantees (best-effort profile), e.g. SIM Authentication​
+     0.2 <= score < 0.5    | Baseline telco assurance applied (baseline profile), e.g. SIM/Device Authentication, Network slice isolation, 5QI Indicators​
+     0.5 <= score < 0.8    | Enhanced trust mechanisms applied (enhanced profile), e.g. Baseline profile + Identity Authentication, UPF traffic segregation, QoD enforcement, on-demand slice creation​
+     0.8 <= score <= 1.0   | Strong/critical guarantees applied for regulated or critical services (critical profile), e.g. Enhanced profile + Fraud anomaly/detection signals,
+                                                                                                                            Device Location cell coverage area,Service Continuity / mobility robustness, 
+                                                                                                                            Emergency service prioritization​
 
     Each system should conform among this profiles to ensure a common understanding of trustworthiness levels.
     
     Monitoring lifecycle management under consideration for future API versions. (intentId provided in response for future reference)
 
     Mitigation of privacy/compliance risks from free-text should be taken into consideration, as such, following proposals are mentioned for further discussion:
-    - The `text` field is intended solely to describe the trustworthiness intent at a conceptual level and MUST NOT contain personal data, identifiers, or user-specific information.
-    - Implementation of validation and rejection mechanisms against personal data or sensitive information in the `text` field. (e.g. patten checks for known PII formats and rejection of such inputs with appropriate error messages)
-    - The `text` field MUST NOT be persisted beyond the scope of immediate intent processing to avoid retention of sensitive information.
-    - The `label` field is authoritative for categorization and processing of the intent. To that extent the `text` field MUST be used exclusively for intent interpetation and clarification while MUST NOT be used to infer, classify, or store regulated-domain attributes beyond what is required to evaluate the requested trustworthiness categories.
+    - Operator input validation and sanitization guidelines for the `text` field to prevent inclusion of personal data or sensitive information. (e.g. pattern checks for known PII formats, length limits, and content filtering).
+    - Data Minimization for processing intent semantics against just raw text input.
+    - Role-Based Access Control (RBAC) and encrypted intent data. (e.g. SSL/TLS encryption for data in transit)
+    - Logging Protection and Retention Policy like sensitive information should not be logged and intent data should not be retained longer than necessary for processing.
   version: 0.1.0
-
 servers:
   - url: "{apiRoot}/api.example.com/v1"
     variables:
