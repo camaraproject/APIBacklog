@@ -1010,17 +1010,6 @@ This is a live doc that captures the status of all the APIs which have been form
       </td>  
       <td>N/A</td>
     </tr>
-    </tr>
-      <th>Voice One Time Password Call</th>
-      <td>Heksagon*<div></div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/issues/259">Template</a><div>2025/09/24</div>
-      </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
-      <td>N/A</td>
-      <td>N/A</td>
-    </tr>
-    </tr>
       <th>Group Management API</th>
       <td>T-Mobile US*<div></div></td>
       <td>
@@ -1199,6 +1188,17 @@ This is a live doc that captures the status of all the APIs which have been form
       <td><ul><li>Archived (2025/09/29)</li></ul></td>
       <td>N/A</td>
       <td>N/A</td>
+    </tr>
+    </tr>
+      <th>Voice One Time Password Call</th>
+      <td>Heksagon*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/259">Template</a><div>2025/09/24</div>
+      </td>
+      <td><ul><li>Archived (2025/09/29)</li></ul></td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
     </tr>
       <tr>
       <th>Send SMS</th>
