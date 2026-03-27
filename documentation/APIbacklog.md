@@ -977,7 +977,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/API-proposal-Strength_Rainfall.md">Template</a><div>2025/10/20</div>
       </td>
-      <td><ul><li>TSC Approved & Onboarding (2025/12/18)</li></ul></td>
+      <td><ul><li>TSC Approved & Onboarded (2025/12/18)</li></ul></td>
       <td>
         <a href="https://github.com/camaraproject/RainfallIntensity">RainfallIntensity</a>
         <a href="https://github.com/camaraproject/RainfallIntensity/blob/main/MAINTAINERS.MD">Maintainers</a>
