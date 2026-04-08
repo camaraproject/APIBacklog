@@ -74,10 +74,10 @@ This is a live doc that captures the status of all the APIs which have been form
       <th>Edge Application Management</th>
       <td>Telefónica*</td>
       <td>N/A<br>N/A</td>
-      <td><ul><li>TSC Approved (N/A)</li></ul></td>
+      <td><ul><li>TSC Approved (N/A) & Onboarding (2026/004/08)</li></ul></td>
       <td>
-        <a href="https://github.com/camaraproject/EdgeCloud">EdgeCloud</a><br>
-        <a href="https://github.com/camaraproject/EdgeCloud/blob/main/MAINTAINERS.MD">Maintainers</a>
+        <a href="https://github.com/camaraproject/EdgeApplicationManagement">EdgeApplicationManagement</a><br>
+        <a href="https://github.com/camaraproject/EdgeApplicationManagement/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>No release</td>
     </tr>
