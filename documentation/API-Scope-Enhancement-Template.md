@@ -1,84 +1,45 @@
 # API Scope Enhancement Template
 
+This template captures all the information that a partner should fill out when proposing a scope enhancement for an existing CAMARA API.
+
 ## API name  
-Optimal Edge Discovery (OED)  
-https://github.com/camaraproject/OptimalEdgeDiscovery  
+Name of the API or API family whose scope is proposed to be enhanced.  
+*(Include link if available)*  
 
 ## New API name  
-N/A (scope extension of OED)  
+New API name proposed to encompass the new scope (if applies).  
 
 ## Scope Enhancement owner  
-University of Patras  
+Company submitting the API enhancement.  
 
 ## Scope Enhancement summary  
-This proposal extends Optimal Edge Discovery (OED) to support **pre-deployment viability discovery**, in addition to its current runtime optimization capabilities.
-
-Today, OED focuses on selecting the optimal edge zone for an active device or session context. This enhancement introduces support for **deployment planning queries**, where no active device is present and the goal is to determine which edge options are viable in a target area given an application profile and constraints.
-
-### Example use cases
-- A cloud gaming provider evaluates whether a service can be launched in a specific geographic area based on latency constraints.
-- An application provider compares multiple regions/operators to identify viable rollout locations before deployment.
-- An aggregator platform provides developers with a unified interface to assess edge availability across multiple operators.
-
----
+High level description / scope of the API or API family, and two or three examples of in-scope business cases.  
 
 ## Technical viability  
-The enhancement relies on capabilities already aligned with current CAMARA and 3GPP architectures:
-
-- Exposure of network performance characteristics (e.g. latency estimates) through operator APIs (e.g. NEF-based exposure)
-- Edge/cloud infrastructure awareness (edge zones, providers)
-- Application profile–based constraint evaluation (already part of OED context)
-
-No fundamentally new network capabilities are required. The proposal primarily extends the **query model and response semantics** of OED.
-
-Standards alignment:
-- 3GPP NEF (Rel-15+) for network exposure
-- ETSI MEC / edge platform exposure models (where applicable)
-- CAMARA Commonalities for geographic/context modeling
-
----
+Identify the underlying network/cloud capabilities which are needed for the support of this API or API family, relating these capabilities to standards maturity.  
+*Example: this API requires the availability of NEF with this Rel-15 “X” feature.*  
 
 ## Commercial viability  
-The required capabilities are already supported or emerging in commercial and pre-commercial platforms:
-
-- Operator exposure platforms (e.g. NEF-based APIs)
-- Edge computing platforms from hyperscalers and telecom vendors
-- Aggregation platforms aligned with GSMA Open Gateway (e.g. Aduna-type models)
-
-These platforms already expose or internally use:
-- edge location information
-- performance estimation
-- application-aware routing or placement logic
-
-The proposal does not require new infrastructure, but rather a **standardized developer-facing abstraction** for planning.
-
----
+Specify the availability of commercial or (industrialized) open-source solutions for the identified network/cloud capabilities.  
+*NOTE: If open-source, provide a publicly available reference/link to the actual solution, and specify the version under consideration.*  
 
 ## YAML code available?  
-NO  
-
----
+YES / NO.  
 
 ## Validated in lab/productive environments?  
-NO  
-
-This proposal is currently at the **concept and API design stage**, motivated by identified gaps in the Edge Cloud API lifecycle.
-
----
+YES / NO.  
+If YES, specify if it was lab network or productive network.  
 
 ## Validated with real customers?  
-NO  
-
-The proposal is based on analysis of developer and platform requirements for edge deployment planning, particularly for latency-sensitive applications.
-
----
+YES / NO.  
+If YES, specify how many customers participated in the evaluation, and what their use cases were.  
+*NOTE: It is not mandatory (though recommendable) to specify the name of the customers.*  
 
 ## Validated with operators?  
-NO  
-
-The proposal has not yet been formally validated with operators and is submitted for Working Group discussion and evaluation.
-
----
+YES / NO.  
+If YES, specify how many operators participated in the evaluation.  
+*NOTE: It is not mandatory (though recommendable) to specify the name of the operators.*  
 
 ## Supporters in API Backlog Working Group  
-To be added by the Working Group
+List of supporters.  
+*NOTE: That shall be added by the Working Group.*  
