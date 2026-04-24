@@ -6,7 +6,7 @@
 | GSMA | Reg Cox | RegCox |
 | Orange | Gilles Renoux | GillesInnov35 |
 | Telefonica | Jorge Garcia | jgarciahospital |
-| Vodafone | Eric Murray | eric-murray |
 | Telefónica | Alberto Ramos | albertoramosmonagas |
+| Vodafone | Eric Murray | eric-murray |
 | AT&T | Pierre Close | pjhac |
 | Ericsson | Jan Friman | FrimanJan |
