@@ -1033,7 +1033,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <th>Enterprise Connectivity Governance API</th>
       <td>Infosys*<div></div></td>
       <td>
-        <a href="https://github.com/camaraproject/APIBacklog/issues/298">Template</a><div>2025/12/22</div>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/298">Template</a><div>2026/02/05</div>
       </td>
       <td><ul><li>Under backlog discussion</li></ul></td>
       <td>N/A</td>
@@ -1043,7 +1043,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <th>Network Contract Lifecycle Management</th>
       <td>Infosys*<div></div></td>
       <td>
-        <a href="https://github.com/camaraproject/APIBacklog/issues/299">Template</a><div>2025/12/22</div>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/299">Template</a><div>2026/02/13</div>
       </td>
       <td><ul><li>Under backlog discussion</li></ul></td>
       <td>N/A</td>
@@ -1053,7 +1053,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <th>Network‑Authenticated Assembly</th>
       <td>Infosys*<div></div></td>
       <td>
-        <a href="https://github.com/camaraproject/APIBacklog/issues/300">Template</a><div>2025/12/22</div>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/300">Template</a><div>2026/02/14</div>
       </td>
       <td><ul><li>Under backlog discussion</li></ul></td>
       <td>N/A</td>
@@ -1063,7 +1063,17 @@ This is a live doc that captures the status of all the APIs which have been form
       <th>V2X Exposure API</th>
       <td>X Flow Software Technology LLC*<div></div></td>
       <td>
-        <a href="https://github.com/camaraproject/APIBacklog/issues/302">Template</a><div>2025/12/22</div>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/302">Template</a><div>2026/03/06</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    </tr>
+      <th>User Experience Insights</th>
+      <td>China Mobile Hong Kong, Huawei*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/314">Template</a><div>2026/04/30</div>
       </td>
       <td><ul><li>Under backlog discussion</li></ul></td>
       <td>N/A</td>
