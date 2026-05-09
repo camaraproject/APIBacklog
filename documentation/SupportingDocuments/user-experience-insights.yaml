@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   title: User Experience Insights
   version: wip
-  x-camara-commonalities: 0.6
+  x-camara-commonalities: 0.8.0-rc.2
   description: |
     With CAMARA User Experience Insights service, application developers can obtain detailed usage statistics and network experience ratings for network quality. By tracking users' network status and the usage status of different applications in real time, it is possible to accurately identify users and application services with poor quality. This allows for recommending applications with better experiences or improving user experience through single-user assurance.
 
@@ -10,7 +10,7 @@ info:
     
     The User Experience Insights API allows application developers to subscribe to the network to achieve the following functions. 
     
-    This information helps application providers monitor the quality of service (QoS) of applications, identify areas with poor QoS, and deploy distributed network services accordingly.
+    This information helps application providers monitor the quality of experience(QoE) of applications, identify areas with poor QoS, and deploy distributed network services accordingly.
     
     This information can be used to monitor the network quality on the paths of VIP users, detect quality problems in a timely manner, and take protective measures to prevent user complaints and improve user satisfaction.
     
@@ -25,6 +25,27 @@ info:
   
     This API provides detailed data reporting, including basic application statistics (such as uplink statistics, downlink statistics, number of lost packets, valid uplink bandwidth, valid downlink bandwidth, average uplink bandwidth, and statistical summaries of periodic applications) and experience analysis data (such as application rating, maximum resolution, duration at maximum resolution, uplink bit rate, downlink bit rate, stalling duration, latency, and application creation latency).
 
+    # Authorization and authentication
+
+    The "Camara Security and Interoperability Profile" provides details of how an API consumer requests an access token. Please refer to Identity and Consent Management (https://github.com/camaraproject/IdentityAndConsentManagement/) for the released version of the profile.
+
+    The specific authorization flows to be used will be agreed upon during the onboarding process, happening between the API consumer and the API provider, taking into account the declared purpose for accessing the API, whilst also being subject to the prevailing legal framework dictated by local legislation.
+
+    In cases where personal data is processed by the API and users can exercise their rights through mechanisms such as opt-in and/or opt-out, the use of three-legged access tokens is mandatory. This ensures that the API remains in compliance with privacy regulations, upholding the principles of transparency and user-centric privacy-by-design.
+
+    # Identifying the device from the access token
+
+    This API requires the API consumer to identify a device as the subject of the API as follows:
+    - When the API is invoked using a two-legged access token, the subject will be identified from the optional `device` object, which therefore MUST be provided.
+    - When a three-legged access token is used however, this optional identifier MUST NOT be provided, as the subject will be uniquely identified from the access token.
+
+    This approach simplifies API usage for API consumers using a three-legged access token to invoke the API by relying on the information that is associated with the access token and was identified during the authentication process.
+
+    ## Error handling:
+
+    - If the subject cannot be identified from the access token and the optional `device` object is not included in the request, then the server will return an error with the `422 MISSING_IDENTIFIER` error code.
+
+    - If the subject can be identified from the access token and the optional `device` object is also included in the request, then the server will return an error with the `422 UNNECESSARY_IDENTIFIER` error code. This will be the case even if the same device is identified by these two methods, as the server is unable to make this comparison.
     
   license:
     name: Apache 2.0
@@ -66,7 +87,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/SubscriptionRequest"
+              $ref: "#/components/schemas/UserExperienceInsightRequest"
         required: true
       responses:
         "200":
@@ -94,21 +115,7 @@ components:
       type: openIdConnect
       description: Common security scheme for all CAMARA APIs
       openIdConnectUrl: https://example.com/.well-known/openid-configuration
-    notificationsBearerAuth:
-      description: Bearer authorization for notifications
-      type: http
-      scheme: bearer
-      bearerFormat: "{$request.body#/sinkCredential.credentialType}"
   parameters:
-    SubscriptionId:
-      name: subscriptionId
-      in: path
-      description: |
-        Subscription identifier that was obtained from the create event
-        subscription operation
-      required: true
-      schema:
-        $ref: "#/components/schemas/SubscriptionId"
     x-correlator:
       name: x-correlator
       in: header
@@ -125,99 +132,6 @@ components:
       type: string
       pattern: ^[a-zA-Z0-9-_:;.\/<>{}]{0,256}$
       example: "b4333c46-49c0-4f62-80d7-f0ef930f1c46"
-    Subscription:
-      description: Represents a event-type subscription.
-      type: object
-      required:
-        - sink
-        - protocol
-        - config
-        - types
-        - id
-        - startsAt
-      properties:
-        protocol:
-          $ref: "#/components/schemas/Protocol"
-        sink:
-          type: string
-          format: uri
-          pattern: ^https:\/\/.+$
-          description: |
-            The address to which events shall be delivered using the selected
-            protocol.
-          example: "https://endpoint.example.com/sink"
-        config:
-          $ref: "#/components/schemas/Config"
-        subscriptionId:
-          type: string
-          description: |
-            When this information is contained within an event notification, it SHALL be referred to as `subscriptionId` as per the Commonalities Event Notification Model.
-          example: qs15-h556-rt89-1298
-        startsAt:
-          type: string
-          format: date-time
-          description: Date when the event subscription will begin/began
-            It must follow [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) and must have time zone.
-          example: "2023-07-03T12:27:08.312Z"
-        expiresAt:
-          type: string
-          format: date-time
-          description: |
-            Date when the event subscription will expire. Only provided when
-            `subscriptionExpireTime` is indicated by API client or Telco
-            Operator has specific policy about that.
-            It must follow [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) and must have time zone.
-          example: "2023-07-03T12:27:08.312Z"
-        status:
-          type: string
-          description: |-
-            Current status of the subscription - Management of Subscription
-            State engine is not mandatory for now. Note not all statuses may
-            be considered to be implemented. Details:
-              - `ACTIVATION_REQUESTED`: Subscription creation (POST) is
-              triggered but subscription creation process is not finished
-              yet.
-              - `ACTIVE`: Subscription creation process is completed.
-              Subscription is fully operative.
-              - `DEACTIVE`: Subscription is temporarily inactive, but its
-              workflow logic is not deleted.
-              - `EXPIRED`: Subscription is ended (no longer active).
-              This status applies when subscription is ended due to
-              `SUBSCRIPTION_EXPIRED` or `ACCESS_TOKEN_EXPIRED` event.
-              - `DELETED`: Subscription is ended as deleted (no longer
-              active). This status applies when subscription information is
-              kept (i.e. subscription workflow is no longer active but its
-              metainformation is kept).
-          enum:
-            - ACTIVATION_REQUESTED
-            - ACTIVE
-            - EXPIRED
-            - DEACTIVE
-            - DELETED
-      discriminator:
-        propertyName: protocol
-        mapping:
-          HTTP: "#/components/schemas/HTTPSubscriptionResponse"
-          MQTT3: "#/components/schemas/MQTTSubscriptionResponse"
-          MQTT5: "#/components/schemas/MQTTSubscriptionResponse"
-          AMQP: "#/components/schemas/AMQPSubscriptionResponse"
-          NATS: "#/components/schemas/NATSSubscriptionResponse"
-          KAFKA: "#/components/schemas/ApacheKafkaSubscriptionResponse"
-
-    SubscriptionAsync:
-      description: |
-        Response for a event-type subscription request managed asynchronously
-        (Creation or Deletion)
-      type: object
-      properties:
-        subscriptionId:
-          $ref: "#/components/schemas/SubscriptionId"
-
-    SubscriptionId:
-      type: string
-      description: |
-        When this information is contained within an event notification, it SHALL be referred to as `subscriptionId` as per the Commonalities Event Notification Model.
-      example: qs15-h556-rt89-1298
     Device:
       description: |
         End-user equipment able to connect to a mobile network. Examples of devices include smartphones or IoT sensors/actuators.
@@ -319,59 +233,9 @@ components:
       type: integer
       minimum: 0
       maximum: 65535
-    Protocol:
-      type: string
-      enum: ["HTTP", "MQTT3", "MQTT5", "AMQP", "NATS", "KAFKA"]
-      description: |
-        Identifier of a delivery protocol. Only HTTP is allowed for now
-      example: "HTTP"
-    Config:
-      description: |
-        Implementation-specific configuration parameters needed by the
-        subscription manager for acquiring events.
-        In CAMARA we have predefined attributes like `subscriptionExpireTime`.
-        Specific event type attributes must be defined in `subscriptionDetail`
-        Note: if a request is performed for several event type, all subscribed
-        event will use same `config` parameters.
-      type: object
-      required:
-        - subscriptionDetail
-      properties:
-        subscriptionDetail:
-          $ref: "#/components/schemas/CreateSubscriptionDetail"
-        subscriptionExpireTime:
-          type: string
-          format: date-time
-          description: |
-            The subscription expiration time (in date-time format) requested by
-            the API consumer. Up to API project decision to keep it.
-            It must follow [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) and must have time zone.
-          example: "2023-07-03T12:27:08.312Z"
-    SinkCredential:
-      type: object
-      description: |
-        A sink credential provides authentication or authorization information
-      properties:
-        credentialType:
-          type: string
-          enum:
-            - PLAIN
-            - ACCESSTOKEN
-            - REFRESHTOKEN
-          description: |
-            The type of the credential.
-            Note: Type of the credential - MUST be set to ACCESSTOKEN for now
-      discriminator:
-        propertyName: credentialType
-        mapping:
-          PLAIN: "#/components/schemas/PlainCredential"
-          ACCESSTOKEN: "#/components/schemas/AccessTokenCredential"
-          REFRESHTOKEN: "#/components/schemas/RefreshTokenCredential"
-      required:
-        - credentialType
 
-    CreateSubscriptionDetail:
-      description: The detail of the requested event subscription
+    UserExperienceInsightRequest:
+      description: The request for querying a user experience insight
       type: object
       properties:
         device:
@@ -388,29 +252,6 @@ components:
           $ref: "#/components/schemas/AppcationType"           
       required:
         - device
-
-    SubscriptionRequest:
-      description: The request for creating a event-type event subscription
-      type: object
-      required:
-        - sink
-        - protocol
-        - config
-        - types
-      properties:
-        protocol:
-          $ref: "#/components/schemas/Protocol"
-        sink:
-          type: string
-          format: uri
-          description: |
-            The address to which events shall be delivered using the selected
-            protocol.
-          example: "https://endpoint.example.com/sink"
-        sinkCredential:
-          $ref: "#/components/schemas/SinkCredential"
-        config:
-          $ref: "#/components/schemas/Config"
     BitRate:
       type: string
       description: |
@@ -591,39 +432,6 @@ components:
       description: Indicates the Application type. Negotiated by the carrier and application vendor and configured on the carrier network.  
       type: string
       example: video/game/Live Video
-    Source:
-      type: string
-      format: uri-reference
-      minLength: 1
-      description: |
-        Identifies the context in which an event happened, as a non-empty
-        `URI-reference` like:
-        - URI with a DNS authority:
-          * https://github.com/cloudevents
-          * mailto:cncf-wg-serverless@lists.cncf.io
-        - Universally-unique URN with a UUID:
-          * urn:uuid:6e8bc430-9c3a-11d9-9669-0800200c9a66
-        - Application-specific identifier:
-          * /cloudevents/spec/pull/123
-          * 1-555-123-4567
-      example: "https://notificationSendServer12.supertelco.com"
-    TerminationReason:
-      type: string
-      description: |
-        - NETWORK_TERMINATED - API server stopped sending notification
-        - SUBSCRIPTION_EXPIRED - Subscription expire time (optionally set by
-        the requester) has been reached
-        - MAX_EVENTS_REACHED - Maximum number of events (optionally set by the
-        requester) has been reached
-        - ACCESS_TOKEN_EXPIRED - Access Token sinkCredential (optionally set by
-        the requester) expiration time has been reached
-        - SUBSCRIPTION_DELETED - Subscription was deleted by the requester
-      enum:
-        - MAX_EVENTS_REACHED
-        - NETWORK_TERMINATED
-        - SUBSCRIPTION_EXPIRED
-        - ACCESS_TOKEN_EXPIRED
-        - SUBSCRIPTION_DELETED
 
     DateTime:
       type: string
@@ -633,14 +441,6 @@ components:
         It must follow [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) and must have time zone.
       example: "2023-07-03T12:27:08.312Z"
 
-    EventTypeNotification:
-      type: string
-      description: |
-        event-type - Event triggered when an event-type event occurred
-        subscription-ended: Event triggered when the subscription ends
-      enum:
-        - org.camaraproject.user-experience-insights.v0.network-quality
-        - org.camaraproject.user-experience-insights.v0.subscription-ended
     ErrorInfo:
       type: object
       description: Error information
