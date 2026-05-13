@@ -8,5 +8,4 @@
 | Telefonica | Jorge Garcia | jgarciahospital |
 | Telefónica | Alberto Ramos | albertoramosmonagas |
 | Vodafone | Eric Murray | eric-murray |
-| AT&T | Pierre Close | pjhac |
 | Ericsson | Jan Friman | FrimanJan |
