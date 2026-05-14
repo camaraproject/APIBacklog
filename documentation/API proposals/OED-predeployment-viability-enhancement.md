@@ -88,12 +88,65 @@ Standards alignment:
 
 A candidate is considered **viable** if all mandatory constraints defined in the request are satisfied based on available performance estimates.
 
-### Metric characteristics
+---
 
-Returned metrics are:
+## Example request / response
 
-* **estimated**, not guaranteed
-* intended for **planning decisions**, not runtime routing
+### Request
+
+```json
+{
+  "targetArea": {
+    "areaId": "gr-patras"
+  },
+  "applicationProfile": {
+    "applicationProfileId": "cloud-gaming-low-latency"
+  },
+  "constraints": {
+    "maxLatencyP95Ms": 20
+  },
+  "preferences": {
+    "preferredProviders": ["provider-a", "provider-b"]
+  }
+}
+```
+
+### Response
+
+```json
+{
+  "edgeOptions": [
+    {
+      "edgeCloudZoneId": "gr-patras-lz1",
+      "providerInfo": {
+        "edgeCloudProvider": "provider-a",
+        "apiProviderId": "operator-a"
+      },
+      "viability": "viable",
+      "estimatedMetrics": {
+        "latencyP95Ms": 18,
+        "latencyRangeMs": {
+          "min": 12,
+          "max": 20
+        }
+      }
+    },
+    {
+      "edgeCloudZoneId": "gr-patras-lz2",
+      "providerInfo": {
+        "edgeCloudProvider": "provider-b",
+        "apiProviderId": "operator-b"
+      },
+      "viability": "not-viable",
+      "estimatedMetrics": {
+        "latencyP95Ms": 27
+      }
+    }
+  ]
+}
+```
+
+These examples illustrate that multiple candidate edge zones may be returned, each independently evaluated against the provided constraints.
 
 ---
 
@@ -112,6 +165,8 @@ These platforms already expose or internally use:
 * application-aware routing or placement logic
 
 The proposal does not require new infrastructure, but rather a **standardized developer-facing abstraction** for planning.
+
+The proposal aligns with existing industry trends toward multi-operator API aggregation and developer-facing network capabilities, where pre-deployment planning is a necessary step before invoking deployment or runtime APIs.
 
 ---
 
