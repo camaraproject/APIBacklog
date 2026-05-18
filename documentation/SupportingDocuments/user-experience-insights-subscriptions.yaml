@@ -8,15 +8,14 @@ info:
 
     # Introduction
     
-    The User Experience Insights API allows application developers to subscribe to the network to achieve the following functions. 
+    The User Experience Insights API allows application developers to subscribe to the network to achieve the following functions:
     
-    This information helps application providers monitor the quality of experience(QoE) of applications, identify areas with poor QoS, and deploy distributed network services accordingly.
-    
-    This information can be used to monitor the network quality on the paths of VIP users, detect quality problems in a timely manner, and take protective measures to prevent user complaints and improve user satisfaction.
-    
-    This information can be used to monitor the poor experience of similar applications in roaming areas and recommend the application with the optimal experience in different roaming areas.
-    
-    for Example, An application vendor wants to gain insights into and assess the network quality of its application in a specific region. The application service identifies a group of users who frequently use the application in that region and uses this API to monitor the application's performance. Through sample evaluation, if the network quality is found to be poor, the vendor can recommend deploying new devices or offering a premium package to improve network quality, thereby enhancing user retention.
+    - Adaptive Application Logic: Streaming or gaming applications can use this API to receive proactive alerts about user experience trends, allowing them to adjust application-level parameters (like bitrates or buffering strategies) ahead of time.
+
+    - Quality-Guaranteed Premium Ad-Insertion: The OTT Ad-Server uses the API to assess the Real-time Experience Score just before the ad-break. High-value 4K ads are only served when UXI confirms a high-quality connection; otherwise, a lighter version is used to ensure uninterrupted playback.
+
+    - SLA Monitoring for Enterprise Services: Enterprises can subscribe to experience insights for their workforce to ensure critical remote-working applications meet the required performance standards.
+
     # Relevant terms and definitions
 
     * **Device**: A device refers to any physical entity that can connect to a network and participate in network communication.

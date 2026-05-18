@@ -9,13 +9,13 @@ User Experience Insights (UEI)
 China Mobile Hong Kong, Huawei
 
 ### API summary  
-This API allows Application Functions (AF) to subscribe to real-time network experience notifications for specific users. The API leverages the analytics capabilities of the NWDAF (Network Data Analytics Function) and exposes them through the NEF (Network Exposure Function). When a user's network experience (e.g., throughput, latency, or reliability) falls below a predefined threshold or changes significantly, the network proactively notifies the AF.
+The User Experience Insights API is designed to expose the internal network "vision". By leveraging real-time data from network elements, it provides developers with high-fidelity Quality of Experience (QoE) scores and predictive network trends. This API allows Application Functions (AF) to subscribe to real-time network experience notifications for specific users. The API leverages the analytics capabilities of the NWDAF (Network Data Analytics Function) and exposes them through the NEF (Network Exposure Function). When a user's network experience (e.g., throughput, latency, or reliability) falls below a predefined threshold or changes significantly, the network proactively notifies the AF.
 
 In-scope business cases:
 
-VIP Customer Care & Proactive Intervention: Operator customer service systems can monitor high-value users' real-time experience. If a degradation is detected, the system can trigger automated "care" actions (e.g., issuing temporary vouchers or prioritizing technical support) before the user even files a complaint.
-
 Adaptive Application Logic: Streaming or gaming applications can use this API to receive proactive alerts about user experience trends, allowing them to adjust application-level parameters (like bitrates or buffering strategies) ahead of time.
+
+Quality-Guaranteed Premium Ad-Insertion: The OTT Ad-Server uses the API to assess the Real-time Experience Score just before the ad-break. High-value 4K ads are only served when UXI confirms a high-quality connection; otherwise, a lighter version is used to ensure uninterrupted playback.
 
 SLA Monitoring for Enterprise Services: Enterprises can subscribe to experience insights for their workforce to ensure critical remote-working applications meet the required performance standards.
 
