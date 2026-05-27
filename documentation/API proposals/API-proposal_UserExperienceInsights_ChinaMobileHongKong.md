@@ -19,6 +19,13 @@ Quality-Guaranteed Premium Ad-Insertion: The OTT Ad-Server uses the API to asses
 
 SLA Monitoring for Enterprise Services: Enterprises can subscribe to experience insights for their workforce to ensure critical remote-working applications meet the required performance standards.
 
+### Relation to other APIs
+The relation between the proposed User Experience Insights API and the Connectivity Insights API: The UEI API focuses on real-use QoE rather than network/application requirement fulfillment. Furthermore, UEI introduces an applicationProfile-free model, replacing custom threshold configurations to enforce unified detection rules and provides applicationType to detect a series of applications.
+
+The relation between the proposed User Experience Insights API and the Session Insight API: UEI introduces new QoE information(e.g., precise stalling seconds, HD bitrate duration, etc.) captured directly from user-plane traffic, which are not in the current Session Insights scope. Besides, the same as Connectivity Insights, Session Insights requires a session resource with `applicationProfile` defined. UEI is applicationProfile-free, it can be applied to a broader range of applications without the need for predefined profiles, making it more flexible and easier to adopt. Besides, UEI doesn't rely on explicitly creating a session resource, it leverages the user's active, real-use network sessions.
+
+The relation between the proposed User Experience Insights API and the Predictive Connectivity Data API: UEI is focused on observed or near-real-time real-use application QoE for an existing user/application context. “Prediction” or “trend” references are limited to short-term degradation detection within an active/recent session. Unlike Predictive Connectivity, which forecasts network capabilities for geographic areas, UEI performs no spatiotemporal mapping. It treats location data only as contextual metadata for the observed experience. Coverage forecasting, route/area planning, future service-level availability, and volume/altitude-based connectivity estimation remain out of scope and are covered by Predictive Connectivity Data.
+
 ### Technical viability  
 This API is technically viable based on 3GPP 5G core network standards:
 
