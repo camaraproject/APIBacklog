@@ -38,7 +38,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td><ul><li>TSC Approved (2023/03/09)</li></ul></td>
       <td>
         <a href="https://github.com/camaraproject/IdentityAndConsentManagement">IdentityAndConsentManagement</a><br>
-        <a href="https://github.com/camaraproject/HomeDevicesQoD/blob/main/MAINTAINERS.MD">Maintainers</a>
+        <a href="https://github.com/camaraproject/IdentityAndConsentManagement/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>
         <a href="https://github.com/camaraproject/IdentityAndConsentManagement/releases/tag/r3.3">v0.4.0 fall25</a><div>2025/08/11</div>
@@ -74,10 +74,10 @@ This is a live doc that captures the status of all the APIs which have been form
       <th>Edge Application Management</th>
       <td>Telefónica*</td>
       <td>N/A<br>N/A</td>
-      <td><ul><li>TSC Approved (N/A)</li></ul></td>
+      <td><ul><li>TSC Approved (N/A) & Onboarding (2026/004/08)</li></ul></td>
       <td>
-        <a href="https://github.com/camaraproject/EdgeCloud">EdgeCloud</a><br>
-        <a href="https://github.com/camaraproject/EdgeCloud/blob/main/MAINTAINERS.MD">Maintainers</a>
+        <a href="https://github.com/camaraproject/EdgeApplicationManagement">EdgeApplicationManagement</a><br>
+        <a href="https://github.com/camaraproject/EdgeApplicationManagement/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>No release</td>
     </tr>
@@ -131,21 +131,6 @@ This is a live doc that captures the status of all the APIs which have been form
       </td>
       <td>
         <a href="https://github.com/camaraproject/DeviceLocation/releases/tag/r3.2">v3.0.0 fall25</a><br>2025/09/16
-      </td>
-    </tr>
-    <tr>
-      <th>Home Devices Quality on Demand</th>
-      <td>Telefónica*, Deutsche Telekom, KDDI</td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIproposal_HomeDevicesQoD_Telefonica.md">Template</a><div>2022/09/14</div>
-      </td>
-      <td><ul><li>TSC Approved (2022/10/13)</li></ul></td>
-      <td>
-        <a href="https://github.com/camaraproject/HomeDevicesQoD">HomeDevicesQoD</a><br>
-        <a href="https://github.com/camaraproject/HomeDevicesQoD/blob/main/MAINTAINERS.MD">Maintainers</a>
-      </td>
-      <td>
-        <a href="https://github.com/camaraproject/HomeDevicesQoD/releases/tag/r1.2">v0.4.0 fall24</a><div>2024/09/16</div>
       </td>
     </tr>
     <tr>
@@ -297,19 +282,6 @@ This is a live doc that captures the status of all the APIs which have been form
       </td>
     </tr>
     <tr>
-      <th>Site-to-cloud VPN</th>
-      <td>China Telecom*, Huawei*<div>China Telecom, China Mobile, China Mobile, Huawei</div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIproposal_Site%20to%20cloud%20(S2C)%20VPN.md">Template</a><div>2023/07/23</div>
-      </td>
-      <td><ul><li>TSC Approved (2023/11/02)</li></ul></td>
-      <td>
-        <a href="https://github.com/camaraproject/SiteToCloudVPN">SiteToCloudVPN</a><br>
-        <a href="https://github.com/camaraproject/SiteToCloudVPN/blob/main/MAINTAINERS.MD">Maintainers</a>
-      </td>
-      <td>No release</td>
-    </tr>
-    <tr>
       <th>Device Swap</th>
       <td>MTN*<div>GSMA-OGW, MTN, Huawei</div></td>
       <td>
@@ -458,19 +430,6 @@ This is a live doc that captures the status of all the APIs which have been form
       </td>
     </tr>
     <tr>
-      <th>Send SMS</th>
-      <td>Airtel*<div>Airtel, KDDI, GSMA-OGW</div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIproposal_SendSMS.md">Template</a><div>2023/11/06</div>
-      </td>
-      <td><ul><li>TSC Approved (2023/12/07)</li></ul></td>
-      <td>
-        <a href="https://github.com/camaraproject/ShortMessageService">ShortMessageService</a><br>
-        <a href="https://github.com/camaraproject/ShortMessageService/blob/main/MAINTAINERS.MD">Maintainers</a>
-      </td>
-      <td>No release</td>
-    </tr>
-    <tr>
       <th>Call Forwarding Signal</th>
       <td>Telecom Italia*<div>Telecom Italia, GSMA-OGW, Orange, China Unicom</div></td>
       <td>
@@ -486,15 +445,15 @@ This is a live doc that captures the status of all the APIs which have been form
       </td>
     </tr>
     <tr>
-      <th>Device Quality Indicator</th>
+      <th>Device Media Streaming Rate</th>
       <td>Deutsche Telekom*<div>Deutsche Telekom, Vodafone</div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIProposal_Device_Connection_Quality_Indicator.md">Template</a><div>2024/01/19</div>
       </td>
       <td><ul><li>TSC Approved (2024/08/01)</li></ul></td>
       <td>
-        <a href="https://github.com/camaraproject/DeviceQualityIndicator">DeviceQualityIndicator</a><br>
-        <a href="https://github.com/camaraproject/DeviceQualityIndicator/blob/main/MAINTAINERS.MD">Maintainers</a>
+        <a href="https://github.com/camaraproject/DeviceMediaStreamingRate">DeviceMediaStreamingRate</a><br>
+        <a href="https://github.com/camaraproject/DeviceMediaStreamingRate/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>No release</td>
     </tr>
@@ -1018,7 +977,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/API-proposal-Strength_Rainfall.md">Template</a><div>2025/10/20</div>
       </td>
-      <td><ul><li>TSC Approved & Onboarding (2025/12/18)</li></ul></td>
+      <td><ul><li>TSC Approved & Onboarded (2025/12/18)</li></ul></td>
       <td>
         <a href="https://github.com/camaraproject/RainfallIntensity">RainfallIntensity</a>
         <a href="https://github.com/camaraproject/RainfallIntensity/blob/main/MAINTAINERS.MD">Maintainers</a>
@@ -1051,17 +1010,6 @@ This is a live doc that captures the status of all the APIs which have been form
       </td>  
       <td>N/A</td>
     </tr>
-    </tr>
-      <th>Voice One Time Password Call</th>
-      <td>Heksagon*<div></div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/issues/259">Template</a><div>2025/09/24</div>
-      </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
-      <td>N/A</td>
-      <td>N/A</td>
-    </tr>
-    </tr>
       <th>Group Management API</th>
       <td>T-Mobile US*<div></div></td>
       <td>
@@ -1076,6 +1024,56 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>National Centre for Scientific Research Demokritos (NCSRD), Infolysis S.A*<div></div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/issues/293">Template</a><div>2025/12/22</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    </tr>
+      <th>Enterprise Connectivity Governance API</th>
+      <td>Infosys*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/298">Template</a><div>2026/02/05</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    </tr>
+      <th>Network Contract Lifecycle Management</th>
+      <td>Infosys*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/299">Template</a><div>2026/02/13</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    </tr>
+      <th>Network‑Authenticated Assembly</th>
+      <td>Infosys*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/300">Template</a><div>2026/02/14</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    </tr>
+      <th>V2X Exposure API</th>
+      <td>X Flow Software Technology LLC*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/302">Template</a><div>2026/03/06</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    </tr>
+      <th>User Experience Insights</th>
+      <td>China Mobile Hong Kong, Huawei*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/314">Template</a><div>2026/04/30</div>
       </td>
       <td><ul><li>Under backlog discussion</li></ul></td>
       <td>N/A</td>
@@ -1200,6 +1198,58 @@ This is a live doc that captures the status of all the APIs which have been form
       <td><ul><li>Archived (2025/09/29)</li></ul></td>
       <td>N/A</td>
       <td>N/A</td>
+    </tr>
+    </tr>
+      <th>Voice One Time Password Call</th>
+      <td>Heksagon*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/259">Template</a><div>2025/09/24</div>
+      </td>
+      <td><ul><li>Archived (2025/09/29)</li></ul></td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    </tr>
+      <tr>
+      <th>Send SMS</th>
+      <td>Airtel*<div>Airtel, KDDI, GSMA-OGW</div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIproposal_SendSMS.md">Template</a><div>2023/11/06</div>
+      </td>
+      <td><ul><li>TSC Approved (2023/12/07) & Archived Phase C - Repository with partial progress (2026/02/05)</li></ul></td>
+      <td>
+        <a href="https://github.com/camaraproject/ShortMessageService">ShortMessageService</a><br>
+        <a href="https://github.com/camaraproject/ShortMessageService/blob/main/MAINTAINERS.MD">Maintainers</a>
+      </td>
+      <td>No release</td>
+    </tr>
+    <tr>
+      <th>Site-to-cloud VPN</th>
+      <td>China Telecom*, Huawei*<div>China Telecom, China Mobile, China Mobile, Huawei</div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIproposal_Site%20to%20cloud%20(S2C)%20VPN.md">Template</a><div>2023/07/23</div>
+      </td>
+      <td><ul><li>TSC Approved (2023/11/02) & Archived Phase C - Repository with partial progress (2026/02/05)</li></ul></td>
+      <td>
+        <a href="https://github.com/camaraproject/SiteToCloudVPN">SiteToCloudVPN</a><br>
+        <a href="https://github.com/camaraproject/SiteToCloudVPN/blob/main/MAINTAINERS.MD">Maintainers</a>
+      </td>
+      <td>No release</td>
+    </tr>
+    <tr>
+      <th>Home Devices Quality on Demand</th>
+      <td>Telefónica*, Deutsche Telekom, KDDI</td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIproposal_HomeDevicesQoD_Telefonica.md">Template</a><div>2022/09/14</div>
+      </td>
+      <td><ul><li>TSC Approved (2022/10/13) & Archived Phase D - Repository with reviewed release (2026/02/05)</li></ul></td>
+      <td>
+        <a href="https://github.com/camaraproject/HomeDevicesQoD">HomeDevicesQoD</a><br>
+        <a href="https://github.com/camaraproject/HomeDevicesQoD/blob/main/MAINTAINERS.MD">Maintainers</a>
+      </td>
+      <td>
+        <a href="https://github.com/camaraproject/HomeDevicesQoD/releases/tag/r1.2">v0.4.0 fall24</a><div>2024/09/16</div>
+      </td>
     </tr>
   </tbody>
 </table>
