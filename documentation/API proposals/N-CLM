@@ -1,0 +1,64 @@
+# API Proposal Template
+This template captures all the information that a partner should fill out when proposing a new API (or API family) to CAMARA.
+
+### API family name  
+Network Contract Lifecycle Management (N‑CLM)
+
+### API family owner  
+Infosys Limited
+*Contributors: @abd-abhisek, @bishnu-infy, @vijaymurthyn, @hemantagogoi-infy
+
+### API summary  
+N‑CLM is **not** traditional BSS/commercial contract management (billing, pricing, order‑to‑cash). It is a **network‑aware, real‑time programmatic API** that binds measurable SLA parameters (latency, bandwidth, availability) directly to a live CAMARA service instance (e.g., a QoD session or Dedicated Network reservation) and evaluates compliance continuously.
+
+Core capabilities:
+- **Bind** an SLA policy to a specific network service instance via its CAMARA resource ID.
+- **Evaluate** live network metrics against the bound policy in real time.
+- **Notify** the developer instantly on breach (CloudEvent webhook), with metric, threshold, and timestamp.
+- **Amend / Close** the policy programmatically without re‑provisioning the underlying service.
+
+**Use cases:**
+1. Developer attaches a latency < 50 ms policy to an active QoD session. On breach, the app receives a CloudEvent with the violating metric and decides to failover.
+2. Enterprise binds an availability ≥ 99.95 % policy to a Dedicated Network reservation and programmatically tightens the threshold mid‑term via PATCH.
+
+**What existing APIs don't cover (novelty gap):**
+
+| Capability | QoD / Dedicated Networks | CQM | N‑CLM |
+|---|---|---|---|
+| Request a QoS level | Yes, sets target quality | No | No |
+| Observe live metrics | No | Yes, reports telemetry | No |
+| Define a multi‑metric SLA policy with thresholds | No | No | Yes |
+| Continuous compliance evaluation against that policy | No | No | Yes |
+| Breach notification with metric, threshold, and timestamp | No (no SLA verdict) | No (raw data, no policy) | Yes |
+| Amend or relax thresholds mid‑term | No (reprovision needed) | Not applicable | Yes |
+| Cross‑service, cross‑operator portable SLA definition | No (per‑session, per‑operator) | No | Yes |
+
+In short: QoD requests quality, CQM observes quality, N‑CLM governs quality. None of the existing APIs provide the closed‑loop policy, evaluate, notify, amend cycle that N‑CLM introduces. It is an orthogonal governance layer, not a replacement for any of them.
+
+### Technical viability  
+- Sits in CAMARA's **Service‑Management** layer — not BSS, not network‑assurance.
+- Consumes metrics from existing telemetry (e.g., CQM) but does **not** duplicate telemetry collection; it adds a policy‑evaluation and breach‑notification layer on top.
+- Each policy is bound to a CAMARA service resource (QoD session, Dedicated Network, etc.), ensuring concrete enforcement scope — not a free‑floating contract.
+- Uses CAMARA CloudEvent subscription model for breach notifications (no proprietary eventing).
+- Normative metric definitions and breach semantics ensure cross‑operator portability.
+
+### Commercial viability  
+- No new proprietary network components — layers on existing CAMARA service APIs and operator telemetry.
+- Enables operators to offer governed, differentiable SLA products via a standard developer interface.
+- Clear enterprise demand: programmatic SLA assurance without operator‑specific portals or manual workflows.
+
+### YAML code available?  
+NO
+
+### Validated in lab/productive environments?  
+NO — Currently in design/proposal phase. Lab validation can be planned as a next step after CAMARA backlog acceptance.
+
+### Validated with real customers?  
+NO — Use cases have been validated conceptually.
+
+### Validated with operators?  
+IN PROGRESS — Validation is currently underway.
+
+### Supporters in API Backlog Working Group  
+List of supporters.  
+- Infosys Limited (@abd-abhisek, @bishnu-infy, @hemantagogoi-infy, @vijaymurthyn)
