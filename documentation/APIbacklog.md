@@ -1057,7 +1057,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/issues/259">Template</a><div>2025/09/24</div>
       </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td><ul><li>Archived (2026/03/27)</li></ul></td>
       <td>N/A</td>
       <td>N/A</td>
     </tr>
@@ -1072,10 +1072,70 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>N/A</td>
     </tr>
     </tr>
-      <th>TrustWorthiness Intent API</th>
+      <th>Trust Worthiness Intent API</th>
       <td>National Centre for Scientific Research Demokritos (NCSRD), Infolysis S.A*<div></div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/issues/293">Template</a><div>2025/12/22</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    </tr>
+      <th>Connectivity Governance</th>
+      <td>Infosys*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/298">Template</a><div>2026/02/05</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    </tr>
+      <th>Network Contract Lifecycle Management</th>
+      <td>Infosys*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/299">Template</a><div>2026/02/13</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    </tr>
+      <th>(Scope Enhancement for DeviceLocation) Network‑Authenticated Assembly</th>
+      <td>Infosys*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/300">Template</a><div>2026/02/14</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    </tr>
+      <th>V2X Exposure API</th>
+      <td>X Flow Software Technology LLC*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/302">Template</a><div>2026/03/06</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    </tr>
+      <th>User Experience Insight</th>
+      <td>China Mobile Hong Kong, Huawei*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/315">Template</a><div>2026/04/30</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    </tr>
+      <th>Eligibility-Info/Pre-flight API</th>
+      <td>AT&T, T-Mobile, Verizon*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/323">Template</a><div>2026/06/18</div>
       </td>
       <td><ul><li>Under backlog discussion</li></ul></td>
       <td>N/A</td>
