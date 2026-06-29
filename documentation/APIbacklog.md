@@ -1091,6 +1091,16 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>N/A</td>
       <td>N/A</td>
     </tr>
+    </tr>
+      <th>Network Outage API</th>
+      <td>BT*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/327">Template</a><div>2026/06/23</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
     <tr>
       <th>Consent and Measurement</th>
       <td>Centillion*<div>Centillion</div></td>
