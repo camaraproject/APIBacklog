@@ -1,0 +1,561 @@
+openapi: 3.0.3
+
+info:
+  title: Eligibility Info
+  description: |
+    The Eligibility Check API allows API Consumers to check whether a subscriber is
+    eligible to make a service API request before initiating the authorization flow.
+
+    This API supports checking eligibility for multiple scopes across multiple APIs
+    in a single request. Each scope receives its own eligibility determination in
+    the response.
+
+    This is a client credentials API — the phone number is always provided explicitly
+    in the request body.
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  version: v0.1.0-wip
+  x-camara-commonalities: 0.6
+
+externalDocs:
+  description: Product documentation at CAMARA
+  url: https://github.com/camaraproject/EligibilityInfo
+
+servers:
+  - url: "{apiRoot}/eligibility-info/v0.1"
+    variables:
+      apiRoot:
+        default: http://localhost:9091
+        description: API root, defined by the service provider
+
+tags:
+  - name: Eligibility Check
+    description: Check eligibility for service API requests
+
+paths:
+  /eligibility-check:
+    post:
+      summary: Check eligibility for service API requests
+      description: |
+        Check the eligibility of a subscriber to make service API requests for
+        the specified scope(s) and purpose.
+
+        **Cross-API Requests:**
+        Multiple scopes from different APIs may be checked in a single request.
+        Each scope receives its own StatusInfoItem in the response, allowing
+        for independent eligibility determination per scope.
+
+        **Partial Eligibility:**
+        A response MAY contain a mix of eligible and not-eligible scopes. This is
+        not an error condition. API Consumers decide whether to proceed with
+        eligible scopes only or treat partial eligibility as a failure.
+      operationId: checkEligibility
+      security:
+        - openId:
+            - eligibility-info:check
+      tags:
+        - Eligibility Check
+      parameters:
+        - $ref: "#/components/parameters/x-correlator"
+      requestBody:
+        required: true
+        description: Eligibility check request
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EligibilityCheckRequest"
+            examples:
+              SINGLE_SCOPE:
+                summary: Single scope
+                description: Check eligibility for a single API scope
+                value:
+                  phoneNumber: "+123456789"
+                  scopes:
+                    - "number-verification:verify"
+                  purpose: "dpv:FraudPreventionAndDetection"
+                  cspAuthUrlRequired: true
+              CROSS_API_SCOPES:
+                summary: Multiple APIs in one request
+                description: Check eligibility for Number Verification and SIM Swap together
+                value:
+                  phoneNumber: "+123456789"
+                  scopes:
+                    - "number-verification:verify"
+                    - "sim-swap:check"
+                  purpose: "dpv:FraudPreventionAndDetection"
+                  cspAuthUrlRequired: true
+      responses:
+        "200":
+          description: OK
+          headers:
+            x-correlator:
+              $ref: "#/components/headers/x-correlator"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EligibilityCheckResponse"
+              examples:
+                SINGLE_SCOPE_ELIGIBLE:
+                  summary: Single scope - eligible
+                  description: Subscriber is eligible for the requested scope
+                  value:
+                    eligibilityResponseId: "550e8400-e29b-41d4-a716-446655440000"
+                    expirationDate: "2023-07-03T14:27:08.312+02:00"
+                    ttl: 3600
+                    statusInfo:
+                      - scopes:
+                          - "number-verification:verify"
+                        purpose: "dpv:FraudPreventionAndDetection"
+                        eligibility: true
+                        authRequestUrl: "https://carrier.com/nv-auth"
+                SINGLE_SCOPE_NOT_ELIGIBLE:
+                  summary: Single scope - not eligible
+                  description: Subscriber is not eligible for the requested scope
+                  value:
+                    eligibilityResponseId: "550e8400-e29b-41d4-a716-446655440000"
+                    expirationDate: "2023-07-03T14:27:08.312+02:00"
+                    ttl: 3600
+                    statusInfo:
+                      - scopes:
+                          - "number-verification:verify"
+                        purpose: "dpv:FraudPreventionAndDetection"
+                        eligibility: false
+                        contextCode: "SUBSCRIBER_NOT_SUPPORTED"
+                        contextMessage: "The subscriber is not eligible for this service."
+                CROSS_API_BOTH_ELIGIBLE:
+                  summary: Cross-API - both eligible
+                  description: |
+                    Both NV and SIM Swap are eligible. NV requires a user-facing auth URL.
+                    SIM Swap uses CIBA/client credentials so has no authRequestUrl.
+                  value:
+                    eligibilityResponseId: "550e8400-e29b-41d4-a716-446655440000"
+                    expirationDate: "2023-07-03T14:27:08.312+02:00"
+                    ttl: 3600
+                    statusInfo:
+                      - scopes:
+                          - "number-verification:verify"
+                        purpose: "dpv:FraudPreventionAndDetection"
+                        eligibility: true
+                        authRequestUrl: "https://carrier.com/nv-auth"
+                      - scopes:
+                          - "sim-swap:check"
+                        purpose: "dpv:FraudPreventionAndDetection"
+                        eligibility: true
+                CROSS_API_MIXED_ELIGIBILITY:
+                  summary: Cross-API - mixed eligibility
+                  description: Eligible for NV, not eligible for SIM Swap
+                  value:
+                    eligibilityResponseId: "550e8400-e29b-41d4-a716-446655440000"
+                    expirationDate: "2023-07-03T14:27:08.312+02:00"
+                    ttl: 3600
+                    statusInfo:
+                      - scopes:
+                          - "number-verification:verify"
+                        purpose: "dpv:FraudPreventionAndDetection"
+                        eligibility: true
+                        authRequestUrl: "https://carrier.com/nv-auth"
+                      - scopes:
+                          - "sim-swap:check"
+                        purpose: "dpv:FraudPreventionAndDetection"
+                        eligibility: false
+                        contextCode: "SUBSCRIBER_NOT_SUPPORTED"
+                        contextMessage: "The subscriber is not eligible for this service."
+                CROSS_API_BOTH_NOT_ELIGIBLE:
+                  summary: Cross-API - both not eligible
+                  description: Neither NV nor SIM Swap are eligible
+                  value:
+                    eligibilityResponseId: "550e8400-e29b-41d4-a716-446655440000"
+                    expirationDate: "2023-07-03T14:27:08.312+02:00"
+                    ttl: 3600
+                    statusInfo:
+                      - scopes:
+                          - "number-verification:verify"
+                        purpose: "dpv:FraudPreventionAndDetection"
+                        eligibility: false
+                        contextCode: "SUBSCRIBER_NOT_SUPPORTED"
+                        contextMessage: "The subscriber is not eligible for this service."
+                      - scopes:
+                          - "sim-swap:check"
+                        purpose: "dpv:FraudPreventionAndDetection"
+                        eligibility: false
+                        contextCode: "DO_NOT_SELL"
+                        contextMessage: "The subscriber has opted out of data sharing."
+        "400":
+          $ref: "#/components/responses/Generic400"
+        "401":
+          $ref: "#/components/responses/Generic401"
+        "403":
+          $ref: "#/components/responses/Generic403"
+        "404":
+          $ref: "#/components/responses/Generic404"
+        "422":
+          $ref: "#/components/responses/Generic422"
+        "429":
+          $ref: "#/components/responses/Generic429"
+        "500":
+          $ref: "#/components/responses/Generic500"
+        "503":
+          $ref: "#/components/responses/Generic503"
+
+components:
+  headers:
+    x-correlator:
+      description: Correlation id for the different services
+      schema:
+        $ref: "#/components/schemas/XCorrelator"
+
+  parameters:
+    x-correlator:
+      name: x-correlator
+      in: header
+      description: Correlation id for the different services
+      schema:
+        $ref: "#/components/schemas/XCorrelator"
+
+  schemas:
+    XCorrelator:
+      description: Value for the x-correlator
+      type: string
+      pattern: ^[a-zA-Z0-9-_:;.\/<>{}]{0,256}$
+      example: "b4333c46-49c0-4f62-80d7-f0ef930f1c46"
+
+    PhoneNumber:
+      type: string
+      description: |
+        A public identifier addressing a telephone subscription. In mobile networks
+        it corresponds to the MSISDN. Must be in E.164 international format with '+' prefix.
+      pattern: '^\+[1-9][0-9]{4,14}$'
+      example: "+123456789"
+
+    EligibilityCheckRequest:
+      type: object
+      description: The request body for the eligibility check.
+      required:
+        - phoneNumber
+        - scopes
+        - purpose
+      properties:
+        phoneNumber:
+          $ref: "#/components/schemas/PhoneNumber"
+        scopes:
+          $ref: "#/components/schemas/Scopes"
+        purpose:
+          $ref: "#/components/schemas/Purpose"
+        cspAuthUrlRequired:
+          type: boolean
+          description: |
+            Optional flag indicating whether the API Consumer requests the
+            authorization URL to be returned in the response when eligible.
+          example: true
+
+    Scopes:
+      type: array
+      minItems: 1
+      items:
+        type: string
+      description: |
+        List of scopes to check eligibility for. May include scopes from
+        multiple APIs (e.g., number-verification and sim-swap).
+      example:
+        - "number-verification:verify"
+
+    Purpose:
+      type: string
+      pattern: '^dpv:[a-zA-Z0-9]+$'
+      description: |
+        The intended purpose of the API request using W3C DPV vocabulary.
+      example: "dpv:FraudPreventionAndDetection"
+
+    EligibilityCheckResponse:
+      type: object
+      required:
+        - eligibilityResponseId
+        - statusInfo
+        - expirationDate
+        - ttl
+      properties:
+        eligibilityResponseId:
+          type: string
+          format: uuid
+          description: |
+            A unique identifier for this eligibility check result.
+
+            SCOPE BINDING:
+            This ID is bound to the exact scopes included in the request. It records
+            the eligibility determination for each requested scope.
+
+            USAGE IN SUBSEQUENT API CALLS:
+            API Consumers MAY include this value as a header (e.g., x-eligibility-response-id)
+            in subsequent service API requests. When received, the API Provider:
+
+            - Scope was checked AND eligible: MAY skip redundant eligibility validation
+            - Scope was checked AND NOT eligible: MUST reject the request
+            - Scope was NOT in original check: MUST reject the request
+
+            VALIDITY:
+            - Valid for the duration specified by ttl
+            - MAY be used for multiple API requests within the TTL window
+            - After expiration, API Providers MUST reject or ignore the ID
+          example: "550e8400-e29b-41d4-a716-446655440000"
+        statusInfo:
+          $ref: "#/components/schemas/StatusInfo"
+        expirationDate:
+          type: string
+          format: date-time
+          description: |
+            The date and time at which the eligibility response expires.
+            Format: RFC 3339 with time zone.
+          example: "2023-07-03T14:27:08.312+02:00"
+        ttl:
+          type: integer
+          description: |
+            Time-to-live in seconds. Indicates how long the eligibility response
+            and eligibilityResponseId remain valid.
+          example: 3600
+
+    StatusInfo:
+      type: array
+      description: |
+        List of eligibility results. Each scope receives its own item.
+
+        GROUPING:
+        Grouping is optional. Carriers may return one item per scope or group
+        scopes together when they share the same eligibility status. Even within
+        the same API family, different scopes may have different authRequestUrl
+        values, so separate items are recommended.
+      items:
+        $ref: "#/components/schemas/StatusInfoItem"
+      minItems: 1
+
+    StatusInfoItem:
+      type: object
+      required:
+        - scopes
+        - purpose
+        - eligibility
+      properties:
+        scopes:
+          type: array
+          items:
+            type: string
+          minItems: 1
+          description: |
+            The scope(s) this eligibility result applies to.
+        purpose:
+          $ref: "#/components/schemas/Purpose"
+        eligibility:
+          type: boolean
+          description: |
+            Whether the subscriber is eligible for this scope.
+            - true: Eligible. authRequestUrl may be provided if applicable.
+            - false: Not eligible. contextCode and contextMessage may be provided.
+        contextCode:
+          type: string
+          x-extensible-enum:
+            - DO_NOT_SELL
+            - SUBSCRIPTION_CANCELLED
+            - SUBSCRIBER_NOT_SUPPORTED
+          description: |
+            A machine-readable code providing context about ineligibility.
+            Only present when eligibility is false.
+
+            Standard values:
+            - DO_NOT_SELL: Privacy opt-out restriction (e.g., CCPA)
+            - SUBSCRIPTION_CANCELLED: The subscription is no longer active
+            - SUBSCRIBER_NOT_SUPPORTED: The subscriber is not eligible for this service
+
+            This enum is extensible. Carriers MAY return carrier-specific codes
+            for scenarios not covered by standard values. Consumers MUST handle
+            unknown codes gracefully.
+          example: "SUBSCRIBER_NOT_SUPPORTED"
+        contextMessage:
+          type: string
+          description: |
+            A human-readable message explaining ineligibility.
+            Only present when eligibility is false.
+          example: "The subscriber is not eligible for this service."
+        authRequestUrl:
+          type: string
+          format: uri
+          description: |
+            URL to initiate the user-facing authorization flow.
+
+            This field is OPTIONAL even when eligibility is true. APIs using
+            backchannel authentication (CIBA) or client credentials do not
+            require a user-facing URL and will omit this field.
+
+            When present, the URL is specific to this scope.
+          example: "https://carrier.com/auth"
+
+    ErrorInfo:
+      type: object
+      required:
+        - status
+        - code
+        - message
+      properties:
+        status:
+          type: integer
+          description: HTTP response status code
+        code:
+          type: string
+          description: Error code
+        message:
+          type: string
+          description: Human-readable error description
+
+  responses:
+    Generic400:
+      description: Bad Request
+      headers:
+        x-correlator:
+          $ref: "#/components/headers/x-correlator"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorInfo"
+          examples:
+            INVALID_ARGUMENT:
+              summary: Invalid argument
+              value:
+                status: 400
+                code: INVALID_ARGUMENT
+                message: Client specified an invalid argument, request body or query param.
+
+    Generic401:
+      description: Unauthorized
+      headers:
+        x-correlator:
+          $ref: "#/components/headers/x-correlator"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorInfo"
+          examples:
+            UNAUTHENTICATED:
+              summary: Unauthenticated
+              value:
+                status: 401
+                code: UNAUTHENTICATED
+                message: Request not authenticated due to missing, invalid, or expired credentials.
+
+    Generic403:
+      description: Forbidden
+      headers:
+        x-correlator:
+          $ref: "#/components/headers/x-correlator"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorInfo"
+          examples:
+            PERMISSION_DENIED:
+              summary: Permission denied
+              description: |
+                Client does not have sufficient permissions. This includes scenarios
+                where the requested scope/purpose combination is not allowed.
+              value:
+                status: 403
+                code: PERMISSION_DENIED
+                message: Client does not have sufficient permissions to perform this action.
+
+    Generic404:
+      description: Not Found
+      headers:
+        x-correlator:
+          $ref: "#/components/headers/x-correlator"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorInfo"
+          examples:
+            NOT_FOUND:
+              summary: Resource not found
+              value:
+                status: 404
+                code: NOT_FOUND
+                message: The specified resource is not found.
+            IDENTIFIER_NOT_FOUND:
+              summary: Phone number not found
+              value:
+                status: 404
+                code: IDENTIFIER_NOT_FOUND
+                message: Phone number not found.
+
+    Generic422:
+      description: Unprocessable Content
+      headers:
+        x-correlator:
+          $ref: "#/components/headers/x-correlator"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorInfo"
+          examples:
+            SERVICE_NOT_APPLICABLE:
+              summary: Service not applicable
+              description: |
+                The eligibility check service itself cannot process this phone number
+                (e.g., the number is not recognized by this carrier). This is distinct
+                from an ineligibility result, which is returned in a 200 response.
+              value:
+                status: 422
+                code: SERVICE_NOT_APPLICABLE
+                message: The service is not available for the provided phone number.
+
+    Generic429:
+      description: Too Many Requests
+      headers:
+        x-correlator:
+          $ref: "#/components/headers/x-correlator"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorInfo"
+          examples:
+            TOO_MANY_REQUESTS:
+              summary: Rate limit exceeded
+              value:
+                status: 429
+                code: TOO_MANY_REQUESTS
+                message: Rate limit exceeded. Please try again later.
+
+    Generic500:
+      description: Internal Server Error
+      headers:
+        x-correlator:
+          $ref: "#/components/headers/x-correlator"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorInfo"
+          examples:
+            INTERNAL:
+              summary: Internal server error
+              value:
+                status: 500
+                code: INTERNAL
+                message: An internal server error occurred.
+
+    Generic503:
+      description: Service Unavailable
+      headers:
+        x-correlator:
+          $ref: "#/components/headers/x-correlator"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorInfo"
+          examples:
+            UNAVAILABLE:
+              summary: Service unavailable
+              value:
+                status: 503
+                code: UNAVAILABLE
+                message: The service is currently unavailable. Please try again later.
+
+  securitySchemes:
+    openId:
+      type: openIdConnect
+      openIdConnectUrl: https://example.org/.well-known/openid-configuration
