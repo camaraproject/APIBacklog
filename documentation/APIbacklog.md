@@ -249,7 +249,9 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/ClickToDial">ClickToDial</a><br>
         <a href="https://github.com/camaraproject/ClickToDial/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
-      <td>No release</td>
+      <td>
+        <a href="https://github.com/camaraproject/ClickToDial/releases/tag/r1.4">v0.1.0 Spring26</a><div>2026/05/28</div>
+      </td>
     </tr>
     <tr>
       <th>KYC Match</th>
@@ -327,7 +329,7 @@ This is a live doc that captures the status of all the APIs which have been form
       </td>
     </tr>
     <tr>
-      <th>Network Slicing</th>
+      <th>Network Slice Booking</th>
       <td>China Unicom*, China Telecom*, Huawei*<div>China Unicom, China Telecom, Huawei, China Mobile, Ericsson</div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIproposal_NetworkSlicing_ChinaUnicom.md">Template</a><div>2023/09/26</div>
@@ -338,7 +340,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/NetworkSliceBooking/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>
       <td>
-        <a href="https://github.com/camaraproject/NetworkSliceBooking/releases/tag/r1.2">v0.1.0 fall25</a><br>2025/09/17
+        <a href="https://github.com/camaraproject/NetworkSliceBooking/releases/tag/r2.3">v0.2.0 Spring26</a><br>2026/05/29
       </td>
     </tr>
     <tr>
@@ -829,7 +831,7 @@ This is a live doc that captures the status of all the APIs which have been form
       </td>
     </tr>
     <tr>
-      <th>Dynamic Predictive Connectivity Data</th>
+      <th>Predictive Connectivity Data</th>
       <td>Telefonica*<div></div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIProposal_Dynamic%20Dynamic%20Predictive%20Connectivity%20Data_Telefonica.md">Template</a><div>2025/01/03</div>
@@ -1020,7 +1022,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>N/A</td>
     </tr>
     </tr>
-      <th>TrustWorthiness Intent API</th>
+      <th>Trust Worthiness Intent API</th>
       <td>National Centre for Scientific Research Demokritos (NCSRD), Infolysis S.A*<div></div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/issues/293">Template</a><div>2025/12/22</div>
@@ -1030,7 +1032,17 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>N/A</td>
     </tr>
     </tr>
-      <th>Enterprise Connectivity Governance API</th>
+      <th>User Experience Insights</th>
+      <td>China Mobile Hong Kong, Huawei*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/pull/314">Template</a><div>2026/04/30</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    </tr>
+      <th>Connectivity Governance</th>
       <td>Infosys*<div></div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/issues/298">Template</a><div>2026/02/05</div>
@@ -1050,7 +1062,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>N/A</td>
     </tr>
     </tr>
-      <th>Network‑Authenticated Assembly</th>
+      <th>(Scope Enhancement for DeviceLocation) Network‑Authenticated Assembly</th>
       <td>Infosys*<div></div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/issues/300">Template</a><div>2026/02/14</div>
@@ -1070,10 +1082,20 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>N/A</td>
     </tr>
     </tr>
-      <th>User Experience Insights</th>
-      <td>China Mobile Hong Kong, Huawei*<div></div></td>
+      <th>Eligibility-Info/Pre-flight API</th>
+      <td>AT&T, T-Mobile, Verizon*<div></div></td>
       <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/314">Template</a><div>2026/04/30</div>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/323">Template</a><div>2026/06/18</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    </tr>
+      <th>Network Outage API</th>
+      <td>BT*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/327">Template</a><div>2026/06/23</div>
       </td>
       <td><ul><li>Under backlog discussion</li></ul></td>
       <td>N/A</td>
