@@ -3,11 +3,16 @@
 ## API name  
 [Connectivity Insight API](https://github.com/camaraproject/ConnectivityInsights)
 ## New API name  
-Uninvolved, the enhancement introduces a new endpoint for device-side and network-side QoE metrics on the existing Connectivity Insight API.
+Uninvolved, the enhancement introduces a new endpoint for the existing Connectivity Insight API.
 ## Scope Enhancement owner  
 China Mobile Hong Kong, Huawei
 ## Scope Enhancement summary  
 The User Experience Insights enchancement is designed to expose the internal network "vision". By leveraging near-real-time data from network elements, it provides developers with high-fidelity Quality of Experience (QoE) scores and near-real-time degradation indicators for active or recent application usage. This API allows Application Functions (AF) to subscribe to network experience notifications for specific users. The API leverages the analytics capabilities of the NWDAF (Network Data Analytics Function) and exposes them through the NEF (Network Exposure Function). When a user's network experience (e.g., throughput, latency, or reliability) falls below a predefined threshold or changes significantly, the network proactively notifies the AF.
+
+Enhancement scope: 
+- add device-side and network-side QoE metrics without application server perspective.
+- introduce session-less interaction model.
+- use applicationType in place of applicationProfileId.
 
 In-scope business cases:
 
