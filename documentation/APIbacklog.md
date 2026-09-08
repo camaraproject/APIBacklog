@@ -47,7 +47,7 @@ This is a live doc that captures the status of all the APIs which have been form
     <tr>
       <th>Quality on Demand</th>
       <td>Deutsche Telekom*, Orange, Telefónica, Vodafone</td>
-      <td>Template<br>N/A</td>
+      <td>N/A<br>N/A</td>
       <td><ul><li>TSC Approved (N/A)</li></ul></td>
       <td>
         <a href="https://github.com/camaraproject/QualityOnDemand">QualityOnDemand</a><br>
@@ -1036,7 +1036,6 @@ This is a live doc that captures the status of all the APIs which have been form
       </td>  
       <td>N/A</td>
     </tr>
-    </tr>
       <th>(Scope Enhancement of Connectivity Insights) User Experience Insights</th>
       <td>China Mobile Hong Kong, Huawei*<div></div></td>
       <td>
@@ -1125,7 +1124,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>N/A</td>
       <td>N/A</td>
     </tr>
-    </tr>
+    <tr>
       <th>Carrier Attestation</th>
       <td>Cairenes Solutions (independent telecom consultan)*<div></div></td>
       <td>
