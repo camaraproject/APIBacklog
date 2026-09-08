@@ -47,7 +47,7 @@ This is a live doc that captures the status of all the APIs which have been form
     <tr>
       <th>Quality on Demand</th>
       <td>Deutsche Telekom*, Orange, Telefónica, Vodafone</td>
-      <td>N/A<br>N/A</td>
+      <td>Template<br>N/A</td>
       <td><ul><li>TSC Approved (N/A)</li></ul></td>
       <td>
         <a href="https://github.com/camaraproject/QualityOnDemand">QualityOnDemand</a><br>
@@ -56,6 +56,17 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
         <a href="https://github.com/camaraproject/QualityOnDemand/releases/tag/r3.2">v1.1.0 fall25</a><br>2025/09/16
       </td>
+    </tr>
+      <tr>
+      <th>QoS Profiles</th>
+      <td>Deutsche Telekom*, Orange, Telefónica, Vodafone</td>
+      <td><a href="https://github.com/camaraproject/APIBacklog/issues/319">Template</a><div>2026/08/08</div></td>
+      <td><ul><li>Onboarded (2026/09/08)</li></ul></td>
+      <td>
+        <a href="https://github.com/camaraproject/QoSProfiles">QoSProfiles</a><br>
+        <a href="https://github.com/camaraproject/QoSProfiles/blob/main/MAINTAINERS.MD">Maintainers</a>
+      </td>
+      <td>No release</td>
     </tr>
     <tr>
       <th>Simple Edge Discovery</th>
@@ -592,6 +603,19 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/DedicatedNetworks/releases/tag/r1.2">v0.1.0 fall25</a><br>2025/09/18
       </td>
     </tr>
+      <tr>
+      <th>Network Service Areas</th>
+      <td>Ericsson*<div>Nokia, Telefonica, Vodafone</div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/325">Template</a><div>2024/06/20</div>
+      </td>
+      <td><ul><li>Onboarded (2026/09/08)</li></ul></td>
+      <td>
+        <a href="https://github.com/camaraproject/NetworkServiceAreas">NetworkServiceAreas</a><br>
+        <a href="https://github.com/camaraproject/NetworkServiceAreas/blob/main/MAINTAINERS.MD">Maintainers</a>
+      </td>
+      <td>N/A</td>
+    </tr>
     <tr>
       <th>Session Insights</th>
       <td>CableLabs*<div>Charter, Liberty Global, Vodafone</div></td>
@@ -1012,6 +1036,16 @@ This is a live doc that captures the status of all the APIs which have been form
       </td>  
       <td>N/A</td>
     </tr>
+    </tr>
+      <th>(Scope Enhancement of Connectivity Insights) User Experience Insights</th>
+      <td>China Mobile Hong Kong, Huawei*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/315">Template</a><div>2026/04/30</div>
+      </td>
+      <td><ul><li>Approved (2026/07/28)</li></ul></td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
       <th>Group Management API</th>
       <td>T-Mobile US*<div></div></td>
       <td>
@@ -1026,16 +1060,6 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>National Centre for Scientific Research Demokritos (NCSRD), Infolysis S.A*<div></div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/issues/293">Template</a><div>2025/12/22</div>
-      </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
-      <td>N/A</td>
-      <td>N/A</td>
-    </tr>
-    </tr>
-      <th>User Experience Insights</th>
-      <td>China Mobile Hong Kong, Huawei*<div></div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/pull/314">Template</a><div>2026/04/30</div>
       </td>
       <td><ul><li>Under backlog discussion</li></ul></td>
       <td>N/A</td>
@@ -1072,7 +1096,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>N/A</td>
     </tr>
     </tr>
-      <th>V2X Exposure API</th>
+      <th>(Scope Enhancement for Predictive Connectivity Data) Route QoS Prediction</th>
       <td>X Flow Software Technology LLC*<div></div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/issues/302">Template</a><div>2026/03/06</div>
@@ -1096,6 +1120,16 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>BT*<div></div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/issues/327">Template</a><div>2026/06/23</div>
+      </td>
+      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    </tr>
+      <th>Carrier Attestation</th>
+      <td>Cairenes Solutions (independent telecom consultan)*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/330">Template</a><div>2026/09/01</div>
       </td>
       <td><ul><li>Under backlog discussion</li></ul></td>
       <td>N/A</td>
