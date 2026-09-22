@@ -1,0 +1,994 @@
+openapi: 3.0.3
+info:
+  title: Route QoS Prediction
+  description: |
+    The Route QoS Prediction API provides **trajectory-aware, per-segment forecasts**
+    of network quality along a planned route, before a device travels it.
+
+    This draft formalises the AP2 northbound semantics. It is implementation
+    independent: the contract holds regardless of how an operator computes the
+    forecast (NWDAF, MEC, or any other analytics source).
+
+    # Semantics (AP2)
+
+    * All QoS metric values (`latencyMs`, `throughputMbps`, `reliabilityScore`,
+      `confidenceLevel`) are **best-effort, predictive estimations**. They are
+      non-binding and MUST NOT be interpreted as a service-level guarantee.
+    * Only structural fields and the per-segment `outcome.status` are guaranteed
+      to be present and well-formed.
+    * Device identification reuses the CAMARA Commonalities `Device` object and is
+      **optional**. The MVP is device-independent (route-only); when a 3-legged
+      access token is used, the device is derived from the token and `device` is omitted.
+    * Unknown / unavailable results are represented by a mandatory enum
+      `outcome.status` per segment. Metric fields are `null` when the status is
+      not `AVAILABLE` (never `0`, never silently absent).
+
+    # Authorization and authentication
+
+    The "Camara Security and Interoperability Profile" provides details about how
+    a client requests an access token. Which specific authorization flow is to be
+    used will be determined during onboarding, considering the declared purpose
+    and the scopes below.
+
+    # Additional CAMARA error responses
+
+    The list of error codes in this API specification is not exhaustive. The API
+    may return additional errors defined in the CAMARA Commonalities "API Design
+    Guidelines" (for example errors related to identifier handling or business
+    rules). Clients MUST be prepared to handle any documented CAMARA error.
+  version: wip
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  x-camara-commonalities: 0.5
+
+externalDocs:
+  description: Product documentation at CAMARA
+  url: https://github.com/camaraproject/
+
+servers:
+  - url: "{apiRoot}/route-qos-prediction/v0"
+    variables:
+      apiRoot:
+        default: https://localhost:9091
+        description: API root, defined by the service provider
+
+tags:
+  - name: Route QoS Prediction
+    description: Create, retrieve and delete route QoS predictions.
+  - name: Forecast Change Subscriptions
+    description: Subscribe to ongoing forecast-change events for an existing prediction.
+
+paths:
+  /retrieve:
+    post:
+      tags:
+        - Route QoS Prediction
+      summary: Retrieve a route QoS forecast
+      description: |
+        Submit a planned route and receive a per-segment QoS forecast.
+        This is a stateless retrieval: nothing is stored server-side and no
+        resource identifier is returned. It is **not** a subscription to future
+        forecast changes (those are handled separately, see AP4).
+      operationId: retrieveRouteQosForecast
+      security:
+        - openId:
+            - route-qos-prediction:read
+      parameters:
+        - $ref: "#/components/parameters/x-correlator"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RetrieveRouteQosRequest"
+      responses:
+        "200":
+          description: Forecast returned
+          headers:
+            x-correlator:
+              $ref: "#/components/headers/x-correlator"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RouteQosForecast"
+        "400":
+          $ref: "#/components/responses/Generic400"
+        "401":
+          $ref: "#/components/responses/Generic401"
+        "403":
+          $ref: "#/components/responses/Generic403"
+        "415":
+          $ref: "#/components/responses/Generic415"
+        "422":
+          $ref: "#/components/responses/Generic422"
+        "429":
+          $ref: "#/components/responses/Generic429"
+
+  /subscriptions:
+    post:
+      tags:
+        - Forecast Change Subscriptions
+      summary: Create a forecast-change subscription
+      description: |
+        Subscribe to ongoing forecast-change events for an existing prediction.
+        This is distinct from the prediction retrieval result returned by
+        `POST /retrieve`; it delivers only future forecast-change events.
+      operationId: createSubscription
+      security:
+        - openId:
+            - route-qos-prediction:subscriptions:write
+      parameters:
+        - $ref: "#/components/parameters/x-correlator"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SubscriptionRequest"
+      callbacks:
+        notifications:
+          "{$request.body#/sink}":
+            post:
+              summary: Forecast-change event notification
+              description: Notification delivered to the subscriber's sink when a forecast changes.
+              operationId: postNotification
+              requestBody:
+                required: true
+                content:
+                  application/cloudevents+json:
+                    schema:
+                      $ref: "#/components/schemas/CloudEvent"
+              responses:
+                "204":
+                  description: Notification received
+      responses:
+        "201":
+          description: Subscription created
+          headers:
+            x-correlator:
+              $ref: "#/components/headers/x-correlator"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Subscription"
+        "400":
+          $ref: "#/components/responses/Generic400"
+        "401":
+          $ref: "#/components/responses/Generic401"
+        "403":
+          $ref: "#/components/responses/Generic403"
+        "409":
+          $ref: "#/components/responses/Generic409"
+        "415":
+          $ref: "#/components/responses/Generic415"
+        "422":
+          $ref: "#/components/responses/Generic422"
+        "429":
+          $ref: "#/components/responses/Generic429"
+    get:
+      tags:
+        - Forecast Change Subscriptions
+      summary: List forecast-change subscriptions
+      description: List the forecast-change subscriptions owned by the caller.
+      operationId: listSubscriptions
+      security:
+        - openId:
+            - route-qos-prediction:subscriptions:read
+      parameters:
+        - $ref: "#/components/parameters/x-correlator"
+      responses:
+        "200":
+          description: List of subscriptions
+          headers:
+            x-correlator:
+              $ref: "#/components/headers/x-correlator"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Subscription"
+        "400":
+          $ref: "#/components/responses/Generic400"
+        "401":
+          $ref: "#/components/responses/Generic401"
+        "403":
+          $ref: "#/components/responses/Generic403"
+        "429":
+          $ref: "#/components/responses/Generic429"
+
+  /subscriptions/{subscriptionId}:
+    get:
+      tags:
+        - Forecast Change Subscriptions
+      summary: Retrieve a forecast-change subscription
+      description: Retrieve a forecast-change subscription by its identifier.
+      operationId: getSubscription
+      security:
+        - openId:
+            - route-qos-prediction:subscriptions:read
+      parameters:
+        - $ref: "#/components/parameters/x-correlator"
+        - $ref: "#/components/parameters/SubscriptionId"
+      responses:
+        "200":
+          description: Subscription found
+          headers:
+            x-correlator:
+              $ref: "#/components/headers/x-correlator"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Subscription"
+        "400":
+          $ref: "#/components/responses/Generic400"
+        "401":
+          $ref: "#/components/responses/Generic401"
+        "403":
+          $ref: "#/components/responses/Generic403"
+        "404":
+          $ref: "#/components/responses/Generic404"
+        "429":
+          $ref: "#/components/responses/Generic429"
+    delete:
+      tags:
+        - Forecast Change Subscriptions
+      summary: Delete a forecast-change subscription
+      description: Cancel a forecast-change subscription and stop further notifications.
+      operationId: deleteSubscription
+      security:
+        - openId:
+            - route-qos-prediction:subscriptions:write
+      parameters:
+        - $ref: "#/components/parameters/x-correlator"
+        - $ref: "#/components/parameters/SubscriptionId"
+      responses:
+        "204":
+          description: Subscription deleted
+          headers:
+            x-correlator:
+              $ref: "#/components/headers/x-correlator"
+        "400":
+          $ref: "#/components/responses/Generic400"
+        "401":
+          $ref: "#/components/responses/Generic401"
+        "403":
+          $ref: "#/components/responses/Generic403"
+        "404":
+          $ref: "#/components/responses/Generic404"
+        "429":
+          $ref: "#/components/responses/Generic429"
+
+components:
+  securitySchemes:
+    openId:
+      type: openIdConnect
+      description: OpenID Connect authentication, as defined by the CAMARA Security and Interoperability Profile.
+      openIdConnectUrl: https://example.com/.well-known/openid-configuration
+
+  headers:
+    x-correlator:
+      description: Correlation id for the different services.
+      schema:
+        $ref: "#/components/schemas/XCorrelator"
+
+  parameters:
+    x-correlator:
+      name: x-correlator
+      in: header
+      required: false
+      description: Correlation id for the different services.
+      schema:
+        $ref: "#/components/schemas/XCorrelator"
+
+    SubscriptionId:
+      name: subscriptionId
+      in: path
+      required: true
+      description: Identifier of a forecast-change subscription.
+      schema:
+        type: string
+        format: uuid
+
+  schemas:
+
+    XCorrelator:
+      description: Correlation id for the different services.
+      type: string
+      pattern: ^[a-zA-Z0-9-_:;.\/<>{}]{0,256}$
+      example: "b4333c46-49c0-4f62-80d7-f0ef930f1c46"
+
+    # ---- Request ----------------------------------------------------------
+
+    RetrieveRouteQosRequest:
+      description: Request for a route QoS forecast for a planned route.
+      type: object
+      required:
+        - route
+        - qosRequirements
+      properties:
+        device:
+          $ref: "#/components/schemas/Device"
+        route:
+          $ref: "#/components/schemas/Route"
+        qosRequirements:
+          type: array
+          minItems: 1
+          description: |
+            The QoS requirements the caller wants forecast for each segment. Each
+            requirement declares a metric and the target value to assess against;
+            `reliabilityScore` is then the probability that target is met.
+          items:
+            $ref: "#/components/schemas/QosRequirement"
+        predictionHorizon:
+          type: string
+          format: date-time
+          description: |
+            Upper time bound of interest. The forecast targets the period during
+            which the device is expected to traverse the route, up to this time.
+
+    Route:
+      type: object
+      description: A planned route expressed as an ordered list of waypoints.
+      required:
+        - waypoints
+      properties:
+        waypoints:
+          type: array
+          minItems: 2
+          maxItems: 50
+          description: |
+            Ordered geographic waypoints describing the route/corridor.
+            Native route input (not a polygon/area) is the AP5 delta versus
+            Predictive Connectivity Data.
+          items:
+            $ref: "#/components/schemas/Point"
+
+    Point:
+      description: A geographic point, expressed as latitude and longitude in decimal degrees.
+      type: object
+      required:
+        - latitude
+        - longitude
+      properties:
+        latitude:
+          type: number
+          format: double
+          minimum: -90
+          maximum: 90
+          description: Latitude component of a location, in decimal degrees.
+        longitude:
+          type: number
+          format: double
+          minimum: -180
+          maximum: 180
+          description: Longitude component of a location, in decimal degrees.
+
+    QosMetricName:
+      type: string
+      description: Name of a forecastable QoS metric.
+      enum:
+        - LATENCY
+        - THROUGHPUT
+        - RELIABILITY
+
+    QosRequirement:
+      description: |
+        A QoS requirement to assess along the route: a metric plus the target value
+        the caller needs. The target is interpreted per metric:
+        `LATENCY` is an upper bound in milliseconds; `THROUGHPUT` is a lower bound in
+        Mbps; `RELIABILITY` is a lower bound on a 0.0-1.0 scale.
+      type: object
+      required:
+        - metric
+        - targetValue
+      properties:
+        metric:
+          $ref: "#/components/schemas/QosMetricName"
+        targetValue:
+          type: number
+          format: float
+          minimum: 0
+          description: The target value for the metric, interpreted per the metric definition.
+
+    # ---- Device (Commonalities) ------------------------------------------
+
+    Device:
+      description: |
+        End-user device, identified via the CAMARA Commonalities `Device` object.
+        OPTIONAL. The MVP is device-independent; if a 3-legged access token is
+        used, the device is derived from the token and this object is omitted.
+        At most one identifier is expected.
+      type: object
+      minProperties: 1
+      properties:
+        phoneNumber:
+          $ref: "#/components/schemas/PhoneNumber"
+        networkAccessIdentifier:
+          $ref: "#/components/schemas/NetworkAccessIdentifier"
+        ipv4Address:
+          $ref: "#/components/schemas/DeviceIpv4Addr"
+        ipv6Address:
+          $ref: "#/components/schemas/DeviceIpv6Address"
+
+    PhoneNumber:
+      description: A public identifier addressing a telephone subscription (E.164).
+      type: string
+      pattern: '^\+[1-9][0-9]{4,14}$'
+      example: "+123456789"
+
+    NetworkAccessIdentifier:
+      description: A public identifier addressing a subscription in a mobile network.
+      type: string
+      example: "123456789@domain.com"
+
+    DeviceIpv4Addr:
+      type: object
+      description: |
+        The device should be identified by either the public (observed) IP
+        address and port as seen by the application server, or the private
+        (target) IP address and the public (observed) IP address.
+      properties:
+        publicAddress:
+          $ref: "#/components/schemas/SingleIpv4Addr"
+        privateAddress:
+          $ref: "#/components/schemas/SingleIpv4Addr"
+        publicPort:
+          $ref: "#/components/schemas/Port"
+      anyOf:
+        - required: [publicAddress, privateAddress]
+        - required: [publicAddress, publicPort]
+
+    SingleIpv4Addr:
+      description: A single IPv4 address with no subnet mask.
+      type: string
+      format: ipv4
+      example: "84.125.93.10"
+
+    Port:
+      description: TCP or UDP port number.
+      type: integer
+      minimum: 0
+      maximum: 65535
+
+    DeviceIpv6Address:
+      description: The device IPv6 address.
+      type: string
+      format: ipv6
+      example: "2001:db8:85a3:8d3:1319:8a2e:370:7344"
+
+    # ---- Response --------------------------------------------------------
+
+    RouteQosForecast:
+      description: A per-segment QoS forecast for the submitted route. Stateless; not stored server-side.
+      type: object
+      required:
+        - segments
+      properties:
+        generatedAt:
+          type: string
+          format: date-time
+          description: Time at which the forecast was generated.
+        validUntil:
+          type: string
+          format: date-time
+          description: Time after which the forecast should be considered stale and re-requested.
+        segments:
+          type: array
+          description: Per-segment forecast, in route order.
+          items:
+            $ref: "#/components/schemas/RouteSegment"
+
+    RouteSegment:
+      description: The forecast for a single segment of the submitted route.
+      type: object
+      required:
+        - segmentId
+        - outcome
+      properties:
+        segmentId:
+          type: string
+          example: "seg-007"
+          description: Identifier of the route segment.
+        startWaypointIndex:
+          type: integer
+          description: Index into the request route waypoints where the segment starts.
+        endWaypointIndex:
+          type: integer
+          description: Index into the request route waypoints where the segment ends.
+        outcome:
+          $ref: "#/components/schemas/SegmentOutcome"
+        latencyMs:
+          type: number
+          format: float
+          nullable: true
+          minimum: 0
+          description: |
+            Best-effort predicted one-way latency in milliseconds.
+            `null` when `outcome.status` is not `AVAILABLE`.
+        throughputMbps:
+          type: number
+          format: float
+          nullable: true
+          minimum: 0
+          description: |
+            Best-effort predicted throughput in Mbps.
+            `null` when `outcome.status` is not `AVAILABLE`.
+        requirementForecasts:
+          type: array
+          nullable: true
+          description: |
+            One entry per requested `qosRequirement`, giving the reliability of that
+            requirement on this segment. `null` when `outcome.status` is not `AVAILABLE`.
+          items:
+            $ref: "#/components/schemas/RequirementForecast"
+        confidenceLevel:
+          type: number
+          format: float
+          nullable: true
+          minimum: 0
+          maximum: 1
+          description: |
+            Best-effort calibrated probability (0.0-1.0) that the model's own
+            prediction for this segment is correct. Degrades with sparse/stale
+            data. Absolute cross-operator equivalence is NOT guaranteed; see
+            `confidenceBand` for a portable, coarser indicator. `null` when
+            `outcome.status` is not `AVAILABLE`.
+        confidenceBand:
+          $ref: "#/components/schemas/ConfidenceBand"
+
+    RequirementForecast:
+      description: The reliability of one requested QoS requirement on a segment.
+      type: object
+      required:
+        - metric
+        - reliabilityScore
+      properties:
+        metric:
+          $ref: "#/components/schemas/QosMetricName"
+        reliabilityScore:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+          description: |
+            Best-effort probability (0.0-1.0) that this requirement's `targetValue`
+            is met across this segment for the duration of traversal.
+
+    SegmentOutcome:
+      type: object
+      description: |
+        Mandatory enum-based outcome for the segment (AP2). Always present,
+        including for successful predictions.
+      required:
+        - status
+      properties:
+        status:
+          $ref: "#/components/schemas/OutcomeStatus"
+        reason:
+          type: string
+          description: Human-readable explanation, primarily for non-AVAILABLE statuses.
+
+    OutcomeStatus:
+      type: string
+      description: |
+        * `AVAILABLE` - a prediction was computed; metric fields populated.
+        * `INSUFFICIENT_DATA` - not enough / too-stale data to predict at
+          acceptable confidence; metric fields `null`.
+        * `OUT_OF_COVERAGE` - segment outside served coverage; no service
+          expected; metric fields `null`.
+        * `NOT_SUPPORTED` - a requested metric is not supported for this
+          segment/area; metric fields `null`.
+        * `UNAVAILABLE` - prediction could not be produced (internal/transient);
+          metric fields `null`.
+      enum:
+        - AVAILABLE
+        - INSUFFICIENT_DATA
+        - OUT_OF_COVERAGE
+        - NOT_SUPPORTED
+        - UNAVAILABLE
+
+    ConfidenceBand:
+      type: string
+      description: |
+        Coarse, cross-operator-portable confidence indicator. Provided as a more
+        comparable alternative to the numeric `confidenceLevel`.
+      enum:
+        - LOW
+        - MEDIUM
+        - HIGH
+
+    # ---- Subscriptions (Commonalities explicit model) --------------------
+
+    SubscriptionRequest:
+      description: Request to create a forecast-change subscription.
+      type: object
+      required:
+        - protocol
+        - sink
+        - types
+        - config
+      properties:
+        protocol:
+          $ref: "#/components/schemas/Protocol"
+        sink:
+          type: string
+          format: uri
+          description: The address to which forecast-change notifications are delivered.
+          example: "https://application-server.com/notifications"
+        sinkCredential:
+          $ref: "#/components/schemas/SinkCredential"
+        types:
+          type: array
+          minItems: 1
+          description: Event types the subscriber wants to receive.
+          items:
+            $ref: "#/components/schemas/EventType"
+        config:
+          $ref: "#/components/schemas/Config"
+
+    Subscription:
+      description: A forecast-change subscription resource.
+      type: object
+      required:
+        - id
+        - protocol
+        - sink
+        - types
+        - config
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Server-generated identifier of the subscription.
+        protocol:
+          $ref: "#/components/schemas/Protocol"
+        sink:
+          type: string
+          format: uri
+          description: The address to which forecast-change notifications are delivered.
+        sinkCredential:
+          $ref: "#/components/schemas/SinkCredential"
+        types:
+          type: array
+          minItems: 1
+          description: Event types the subscriber receives.
+          items:
+            $ref: "#/components/schemas/EventType"
+        config:
+          $ref: "#/components/schemas/Config"
+        startsAt:
+          type: string
+          format: date-time
+          description: Time at which the subscription started.
+        expiresAt:
+          type: string
+          format: date-time
+          description: Time at which the subscription expires.
+
+    Protocol:
+      type: string
+      description: Identifier of the delivery protocol used for notifications.
+      enum:
+        - HTTP
+
+    Config:
+      description: Subscription configuration, including filtering and lifecycle controls.
+      type: object
+      required:
+        - subscriptionDetail
+      properties:
+        subscriptionDetail:
+          $ref: "#/components/schemas/SubscriptionDetail"
+        subscriptionExpireTime:
+          type: string
+          format: date-time
+          description: Requested time at which the subscription should expire.
+        subscriptionMaxEvents:
+          type: integer
+          minimum: 1
+          description: Maximum number of events after which the subscription ends.
+        initialEvent:
+          type: boolean
+          description: If true, an initial event is sent reflecting the current forecast state.
+
+    SubscriptionDetail:
+      description: |
+        Filtering scope for the subscription. Route-based scoping is mandatory via
+        `route`; metric, segment and area scoping are optional refinements.
+      type: object
+      required:
+        - route
+      properties:
+        route:
+          $ref: "#/components/schemas/Route"
+        qosRequirements:
+          type: array
+          description: |
+            Optional QoS requirements that define what a forecast change is measured
+            against (for example the threshold a degradation event fires below).
+          items:
+            $ref: "#/components/schemas/QosRequirement"
+        segmentIds:
+          type: array
+          description: Optional subset of segment identifiers to receive events for.
+          items:
+            type: string
+        area:
+          $ref: "#/components/schemas/Circle"
+
+    Circle:
+      description: A circular geographic area used to further scope notifications.
+      type: object
+      required:
+        - center
+        - radius
+      properties:
+        center:
+          $ref: "#/components/schemas/Point"
+        radius:
+          type: number
+          format: double
+          minimum: 1
+          description: Radius of the area in metres.
+
+    SinkCredential:
+      description: |
+        Credential the operator uses to authenticate when delivering notifications
+        to the subscriber's sink.
+      type: object
+      required:
+        - credentialType
+      properties:
+        credentialType:
+          type: string
+          description: Type of credential supplied for the sink.
+          enum:
+            - ACCESSTOKEN
+        accessToken:
+          type: string
+          description: Access token presented when calling the sink.
+        accessTokenExpiresUtc:
+          type: string
+          format: date-time
+          description: Expiry time of the access token.
+        accessTokenType:
+          type: string
+          description: Type of the access token.
+          enum:
+            - bearer
+
+    EventType:
+      type: string
+      description: Forecast-change event type, using the CAMARA reverse-DNS convention.
+      enum:
+        - org.camaraproject.route-qos-prediction.v0.qos-degradation-forecast
+        - org.camaraproject.route-qos-prediction.v0.qos-recovery-forecast
+        - org.camaraproject.route-qos-prediction.v0.prediction-expired
+
+    CloudEvent:
+      description: Forecast-change notification, using the CloudEvents envelope.
+      type: object
+      required:
+        - id
+        - source
+        - specversion
+        - type
+        - time
+      properties:
+        id:
+          type: string
+          description: Identifier of this event, unique within the source.
+        source:
+          type: string
+          format: uri-reference
+          description: Identifies the context in which the event happened.
+        specversion:
+          type: string
+          description: Version of the CloudEvents specification used.
+          enum:
+            - "1.0"
+        type:
+          $ref: "#/components/schemas/EventType"
+        time:
+          type: string
+          format: date-time
+          description: Timestamp of when the event occurred.
+        datacontenttype:
+          type: string
+          description: Media type of the `data` value.
+          enum:
+            - application/json
+        data:
+          $ref: "#/components/schemas/EventData"
+
+    EventData:
+      description: Detail of a forecast-change event.
+      type: object
+      required:
+        - subscriptionId
+        - segmentId
+      properties:
+        subscriptionId:
+          type: string
+          format: uuid
+          description: The subscription that produced this notification.
+        segmentId:
+          type: string
+          description: The route segment the event relates to.
+        location:
+          $ref: "#/components/schemas/Point"
+        predictedLatencyMs:
+          type: number
+          format: float
+          nullable: true
+          minimum: 0
+          description: Predicted latency associated with the event, if applicable.
+        confidenceLevel:
+          type: number
+          format: float
+          nullable: true
+          minimum: 0
+          maximum: 1
+          description: Model confidence in the forecast that triggered the event.
+        expectedAt:
+          type: string
+          format: date-time
+          description: Predicted time at which the forecast change takes effect.
+
+    # ---- Error model (Commonalities) -------------------------------------
+
+    ErrorInfo:
+      description: Standard CAMARA error response body.
+      type: object
+      required:
+        - status
+        - code
+        - message
+      properties:
+        status:
+          type: integer
+          description: HTTP status code returned along with this error response.
+        code:
+          type: string
+          description: Application-level error code.
+        message:
+          type: string
+          description: A human-readable description of what the error represents.
+
+  responses:
+    Generic400:
+      description: Bad Request
+      headers:
+        x-correlator:
+          $ref: "#/components/headers/x-correlator"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorInfo"
+          examples:
+            GENERIC_400_INVALID_ARGUMENT:
+              description: Invalid Argument. Generic Syntax Exception.
+              value:
+                status: 400
+                code: INVALID_ARGUMENT
+                message: Client specified an invalid argument, request body or query param.
+            GENERIC_400_OUT_OF_RANGE:
+              description: Out of Range. Specific Syntax Exception used when a given field has a pre-defined range.
+              value:
+                status: 400
+                code: OUT_OF_RANGE
+                message: Client specified an invalid range.
+    Generic401:
+      description: Unauthorized
+      headers:
+        x-correlator:
+          $ref: "#/components/headers/x-correlator"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorInfo"
+          examples:
+            GENERIC_401_UNAUTHENTICATED:
+              description: Request cannot be authenticated.
+              value:
+                status: 401
+                code: UNAUTHENTICATED
+                message: Request not authenticated due to missing, invalid, or expired credentials.
+    Generic403:
+      description: Forbidden
+      headers:
+        x-correlator:
+          $ref: "#/components/headers/x-correlator"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorInfo"
+          examples:
+            GENERIC_403_PERMISSION_DENIED:
+              description: Permission denied. OAuth2 token access does not have the required scope or when the user fails operational security.
+              value:
+                status: 403
+                code: PERMISSION_DENIED
+                message: Client does not have sufficient permissions to perform this action.
+    Generic404:
+      description: Not Found
+      headers:
+        x-correlator:
+          $ref: "#/components/headers/x-correlator"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorInfo"
+          examples:
+            GENERIC_404_NOT_FOUND:
+              description: Resource is not found.
+              value:
+                status: 404
+                code: NOT_FOUND
+                message: The specified resource was not found.
+    Generic409:
+      description: Conflict
+      headers:
+        x-correlator:
+          $ref: "#/components/headers/x-correlator"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorInfo"
+          examples:
+            GENERIC_409_CONFLICT:
+              description: Conflict with the current state of the target resource.
+              value:
+                status: 409
+                code: CONFLICT
+                message: A conflicting subscription already exists.
+    Generic415:
+      description: Unsupported Media Type
+      headers:
+        x-correlator:
+          $ref: "#/components/headers/x-correlator"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorInfo"
+          examples:
+            GENERIC_415_UNSUPPORTED_MEDIA_TYPE:
+              description: Unsupported Media Type.
+              value:
+                status: 415
+                code: UNSUPPORTED_MEDIA_TYPE
+                message: The server refuses to accept the request because the payload format is in an unsupported format.
+    Generic422:
+      description: Unprocessable Content
+      headers:
+        x-correlator:
+          $ref: "#/components/headers/x-correlator"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorInfo"
+          examples:
+            GENERIC_422_SERVICE_NOT_APPLICABLE:
+              description: Service not applicable for the provided inputs.
+              value:
+                status: 422
+                code: SERVICE_NOT_APPLICABLE
+                message: The service is not available for the provided route or device.
+    Generic429:
+      description: Too Many Requests
+      headers:
+        x-correlator:
+          $ref: "#/components/headers/x-correlator"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorInfo"
+          examples:
+            GENERIC_429_TOO_MANY_REQUESTS:
+              description: Access to the API has been temporarily blocked due to rate or spike limits.
+              value:
+                status: 429
+                code: TOO_MANY_REQUESTS
+                message: Either out of resource quota or reaching rate limiting.
