@@ -1045,6 +1045,16 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>N/A</td>
       <td>N/A</td>
     </tr>
+    <tr>
+      <th>(Scope Enhancement for Predictive Connectivity Data) Route QoS Prediction</th>
+      <td>X Flow Software Technology LLC*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/302">Template</a><div>2026/03/06</div>
+      </td>
+      <td><ul><li>Approved (2026/09/24)</li></ul></td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
       <th>Group Management API</th>
       <td>T-Mobile US*<div></div></td>
       <td>
@@ -1089,16 +1099,6 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>Infosys*<div></div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/issues/300">Template</a><div>2026/02/14</div>
-      </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
-      <td>N/A</td>
-      <td>N/A</td>
-    </tr>
-    </tr>
-      <th>(Scope Enhancement for Predictive Connectivity Data) Route QoS Prediction</th>
-      <td>X Flow Software Technology LLC*<div></div></td>
-      <td>
-        <a href="https://github.com/camaraproject/APIBacklog/issues/302">Template</a><div>2026/03/06</div>
       </td>
       <td><ul><li>Under backlog discussion</li></ul></td>
       <td>N/A</td>
