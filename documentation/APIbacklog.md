@@ -1126,7 +1126,7 @@ This is a live doc that captures the status of all the APIs which have been form
     </tr>
     <tr>
       <th>Carrier Attestation</th>
-      <td>Cairenes Solutions (independent telecom consultan)*<div></div></td>
+      <td>Cairenes Solutions (independent telecom consultant)*<div></div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/issues/330">Template</a><div>2026/09/01</div>
       </td>
