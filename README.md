@@ -23,9 +23,9 @@ The Working Group has no (pre)releases yet, work in progress is within the main 
 
 ## Contributing
 * Meetings
-	* 2nd Thursdays at 10:00 CET/CEST (9:00 UTC during CET / 8:00 UTC during CEST)
+	* 2nd Thursdays at 09:00 UTC (10:00 CET / 11:00 CEST)
 		* [Registration / Join](https://zoom-lfx.platform.linuxfoundation.org/meeting/93440994620?password=d78d425d-912b-44c6-8ccc-9dafa0e4dfc4)
-	* 4th Thursdays at 17:00 CET/CEST (16:00 UTC during CET / 15:00 UTC during CEST)
+	* 4th Thursdays at 16:00 UTC (17:00 CET / 18:00 CEST)
 		* [Registration / Join](https://zoom-lfx.platform.linuxfoundation.org/meeting/96853703306?password=b973acfe-4f3e-489d-9af5-a19c1d0eab0e)
 
 
