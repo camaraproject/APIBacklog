@@ -1,0 +1,364 @@
+openapi: 3.1.0
+info:
+  title: CAMARA Trustworthiness Intent API (TWIA)
+  description: |
+    CAMARA proposal for a Trustworthiness Intent API within the CAMARA Service Management API category.
+    The goal is to enable developers and applications to request and monitor trust guarantees 
+    (security, privacy, reliability, resilience,safety) as high-level intents without specifying low-level configurations.
+
+    For the CAMARA TrustWorthiness Intent API have been defined the following trust categories under a normalized score based scale from 0.0 to 1.0:
+    - Safety --> The ability of users and systems not put at risk. How well the system prevents unsafe operations.
+    - Security --> The ability of system's protection mechanisms against potential threats. How well the system defends against cyberattacks.
+    - Privacy --> The ability to handle personal data according to regulations and user preferences. How well the system protects user data.
+    - Resilience --> The ability to recover from failures and continue operations. How well the system maintains operations under failure conditions.
+    - Reliability --> The ability to perform consistently over time. How well the system meets its performance and availability requirements.
+
+    Trust Categories mapping to telco capabilities:
+    - Security: 
+      - SIM/Device/Identity Authentication -> Identity-bound access control
+      - Fraud/Anomaly Detection signals -> Detection of policy violations or anomalous behavior
+    - Privacy:
+      - Network Slice Isolation -> Privacy slice creation/assignment
+      - UPF traffic segregation -> Proper handling of traffic based on privacy requirements
+    - Reliability:
+      - 5QI indicators -> Request QoS session change to meet reliability requirements
+      - QoD enforcement -> Enforce QoS policies to meet reliability requirements
+      - Device Location cell coverage area -> Consider location-based reliability factors
+    - Resilience:
+      - 5QI indicators -> Prioritize traffic or resources to enhance resilience
+      - On-demand slice creation -> Dynamic slice creation and configuration to enhance resilience
+      - Service Continuity / Mobility Robustness -> Session and service continuity policies to enhance resilience
+    - Safety:
+      - 5QI indicators -> Deterministic handling of traffic to meet safety requirements(e.g. low latency for safety-critical applications)
+      - Emergency servvice prioritization -> Prioritize emergency services to meet safety requirements for life-critical applications
+
+    The score based scale behaves as an operator-independent normative semantic framework to express trustworthiness intents in a standardized manner.
+    The following ranges are proposed:
+    Score Range            | Normative Meaning                                             
+     0.0 < score < 0.2     | Best-effort service, no explicit trust guarantees (best-effort profile), e.g. SIM Authentication​
+     0.2 <= score < 0.5    | Baseline telco assurance applied (baseline profile), e.g. SIM/Device Authentication, Network slice isolation, 5QI Indicators​
+     0.5 <= score < 0.8    | Enhanced trust mechanisms applied (enhanced profile), e.g. Baseline profile + Identity Authentication, UPF traffic segregation, QoD enforcement, on-demand slice creation​
+     0.8 <= score <= 1.0   | Strong/critical guarantees applied for regulated or critical services (critical profile), e.g. Enhanced profile + Fraud anomaly/detection signals,
+                                                                                                                            Device Location cell coverage area,Service Continuity / mobility robustness, 
+                                                                                                                            Emergency service prioritization​
+
+    Each system should conform among this profiles to ensure a common understanding of trustworthiness levels.
+    
+    Monitoring lifecycle management under consideration for future API versions. (intentId provided in response for future reference)
+
+    Mitigation of privacy/compliance risks from free-text should be taken into consideration, as such, following proposals are mentioned for further discussion:
+    - Operator input validation and sanitization guidelines for the `text` field to prevent inclusion of personal data or sensitive information. (e.g. pattern checks for known PII formats, length limits, and content filtering).
+    - Data Minimization for processing intent semantics against just raw text input.
+    - Role-Based Access Control (RBAC) and encrypted intent data. (e.g. SSL/TLS encryption for data in transit)
+    - Logging Protection and Retention Policy like sensitive information should not be logged and intent data should not be retained longer than necessary for processing.
+  version: 0.1.0
+servers:
+  - url: "{apiRoot}/api.example.com/v1"
+    variables:
+      apiRoot:
+        default: http://localhost:9091
+        description: API root
+
+tags:
+  - name: Intent
+    description: Manage trustworthiness intents
+
+paths:
+  /intents:
+    post:
+      tags: [Intent]
+      summary: Create a trustworthiness intent
+      operationId: createTrustIntent
+      requestBody:
+        required: true
+        content:
+          "application/json":
+            schema:
+              $ref: "#/components/schemas/TrustIntentCreate"
+            examples:
+              INTENT_INPUT:
+                summary: "Example Trustworthiness Intent"
+                description: "A request containing multiple trustworthiness categories."
+                value:
+                  type: TrustworthinessIntent
+                  serviceId: MyChatbotApp
+                  data:
+                    - label: Privacy
+                      text: Ensure privacy requirements are accurate for location data sharing.
+                    - label: Security
+                      text: Verify every device accessing the network.
+                    - label: Reliability
+                      text: Take measures to ensure stability.
+                    - label: Resilience
+                      text: Can you guarantee fault tolerance for financial services.
+                    - label: Safety
+                      text: Implement safe data access and sharing policies.
+      responses:
+        "200":
+          description: Intent result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TrustIntentResponse"
+              examples:
+                INTENT_RESPONSE:
+                  $ref: "#/components/examples/INTENT_RESPONSE"
+        "400":
+          $ref: "#/components/responses/Generic400"
+        "401":
+          $ref: "#/components/responses/Generic401"
+        "403":
+          $ref: "#/components/responses/Generic403"
+        "404":
+          $ref: "#/components/responses/Generic404"
+        "422":
+          $ref: "#/components/responses/Generic422"
+      security:
+        - openId:
+            - trustworthiness-intent:create
+components:
+  securitySchemes:
+    openId:
+      description: OpenID Connect authentication
+      type: openIdConnect
+      openIdConnectUrl: https://example.com/.well-known/openid-configuration
+  schemas:
+    Intent:
+      type: object
+      properties:
+        type:
+          type: string
+          description: A label identifying the specific type of intent.
+        serviceId:
+          type: string
+          description: A unique ID correlating the service that request the intent.
+      required:
+        - type
+      discriminator:
+        propertyName: type
+        mapping:
+          TrustworthinessIntent: "#/components/schemas/TrustIntentCreate"
+    TrustIntentCreate:
+      allOf:
+        - $ref: "#/components/schemas/Intent"
+        - type: object
+          properties:
+            type:
+              type: string
+              description: The intent Type, in our case TrustWorthinessIntent.
+              const: TrustworthinessIntent
+            data:
+              type: array
+              description: List of intent segments, each with a category label and the corresponding text.
+              minItems: 1
+              items:
+                $ref: "#/components/schemas/TrustIntentTargets"
+          required:
+            - data
+    TrustIntentResponse:
+      type: object
+      properties:
+        intentId:
+          type: string
+          description: The unique identifier of the created trustworthiness intent.
+        assetId:
+          type: string
+          description: The unique identifier of the asset associated with the intent.
+        data:
+          type: array
+          description: List of intent scores, each with a category label and a corresponding score.
+          minItems: 1
+          items:
+            $ref: "#/components/schemas/TrustScoresResponse"
+        overall_trustworthiness_level:
+          type: number
+          description: The average trustworthiness level after summing up the individual scores. Trust posture indicator for the asset.
+          minimum: 0.0
+          maximum: 1.0
+      required:
+        - intentId
+        - assetId
+        - data
+        - overall_trustworthiness_level
+    TrustIntentTargets:
+      type: object
+      description: Trustworthiness objectives
+      properties:
+        label:
+          type: string
+          description: The high-level intent category (e.g., Security, Privacy, Reliability).
+          enum: [Security, Privacy, Reliability, Resilience, Safety]
+        text:
+          type: string
+          description: The natural language statement from the user/chatbot about that category.
+          minLength: 2
+      required:
+        - label
+        - text
+    TrustScoresResponse:
+      type: object
+      description: Trustworthiness score
+      properties:
+        label:
+          type: string
+          description: The high-level intent category (e.g., Security, Privacy, Reliability).
+          enum: [Security, Privacy, Reliability, Resilience, Safety]
+        score:
+          type: number
+          description: The score of an intent category.
+          minimum: 0.0
+          maximum: 1.0
+      required:
+        - label
+        - score
+    ErrorInfo:
+      description: Common schema for errors
+      type: object
+      required:
+        - status
+        - code
+        - message
+      properties:
+        status:
+          type: integer
+          description: HTTP response status code
+        code:
+          type: string
+          description: A human-readable code to describe the error
+        message:
+          type: string
+          description: A human-readable description of what the event represents
+  responses:
+    Generic400:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "#/components/schemas/ErrorInfo"
+              - type: object
+                properties:
+                  status:
+                    enum:
+                      - 400
+                  code:
+                    enum:
+                      - INVALID_ARGUMENT
+          examples:
+            GENERIC_400_INVALID_ARGUMENT:
+              summary: Invalid argument
+              description: Invalid Argument. Generic Syntax Exception
+              value:
+                status: 400
+                code: INVALID_ARGUMENT
+                message: Client specified an invalid argument, request body or query param.
+    Generic401:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "#/components/schemas/ErrorInfo"
+              - type: object
+                properties:
+                  status:
+                    enum:
+                      - 401
+                  code:
+                    enum:
+                      - UNAUTHENTICATED
+          examples:
+            GENERIC_401_UNAUTHENTICATED:
+              description: Request cannot be authenticated and a new authentication is required
+              value:
+                status: 401
+                code: UNAUTHENTICATED
+                message: Request not authenticated due to missing, invalid, or expired credentials. A new authentication is required.
+    Generic403:
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "#/components/schemas/ErrorInfo"
+              - type: object
+                properties:
+                  status:
+                    enum:
+                      - 403
+                  code:
+                    enum:
+                      - PERMISSION_DENIED
+          examples:
+            GENERIC_403_PERMISSION_DENIED:
+              summary: Permission denied
+              description: Permission denied. OAuth2 token access does not have the required scope or when the user fails operational security
+              value:
+                status: 403
+                code: PERMISSION_DENIED
+                message: Client does not have sufficient permissions to perform this action.
+    Generic404:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "#/components/schemas/ErrorInfo"
+              - type: object
+                properties:
+                  status:
+                    enum:
+                      - 404
+                  code:
+                    enum:
+                      - IDENTIFIER_NOT_FOUND
+          examples:
+            GENERIC_404_IDENTIFIER_NOT_FOUND:
+              summary: Identifier not found
+              description: Some identifier cannot be matched.
+              value:
+                status: 404
+                code: IDENTIFIER_NOT_FOUND
+                message: Identifier not found.
+    Generic422:
+      description: Unprocessable Content
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "#/components/schemas/ErrorInfo"
+              - type: object
+                properties:
+                  status:
+                    enum:
+                      - 422
+                  code:
+                    enum:
+                      - MISSING_IDENTIFIER
+                      - UNSUPPORTED_IDENTIFIER
+          examples:
+            GENERIC_422_MISSING_IDENTIFIER:
+              summary: Missing required identifier
+              description: Some identifier is missing.
+              value:
+                status: 422
+                code: MISSING_IDENTIFIER
+                message: Identifier is missing.
+  examples:
+    INTENT_RESPONSE:
+      description: The score that will feed the network perform configuration after the intent.
+      value:
+        intentId: intent-12345
+        assetId: chatbot application
+        data:
+          - label: Privacy
+            score: 0.7
+          - label: Security
+            score: 0.85
+          - label: Reliability
+            score: 0.9
+          - label: Resilience
+            score: 0.95
+          - label: Safety
+            score: 0.83
+        overall_trustworthiness_level: 0.85
