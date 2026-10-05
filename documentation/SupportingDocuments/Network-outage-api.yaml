@@ -1,0 +1,488 @@
+openapi: 3.0.3
+info:
+  title: Network Outage Events API
+  version: 1.0.0
+  description: >
+    API for retrieving and subscribing to network outage, service degradation,
+    and planned maintenance events. Supports both pull (query-based) and push
+    (event subscription) models.
+
+servers:
+  - url: '{apiRoot}/v1/serviceProblem'
+    variables:
+      apiRoot:
+        default: http://localhost:9091
+
+paths:
+  /tac/{trackingAreaCode}:
+    get:
+      summary: Get service problem by Tracking Area Code (TAC)
+      operationId: getServiceProblemByTAC
+      parameters:
+        - name: trackingAreaCode
+          in: path
+          required: true
+          description: Tracking Area Code identifier
+          schema:
+            type: string
+        - name: x-correlator
+          in: header
+          required: false
+          description: Transaction identifier
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response containing service problem details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceProblem'
+        '400':
+          $ref: "#/components/responses/Generic400"
+        '401':
+          $ref: "#/components/responses/Generic401"
+        "403":
+          $ref: "#/components/responses/Generic403"
+        "404":
+          $ref: "#/components/responses/Generic404"
+        "500":
+          $ref: "#/components/responses/Generic500"
+        "503":
+          $ref: "#/components/responses/Generic503"
+
+  /location:
+    get:
+      summary: Get service problem by geographic location
+      operationId: getServiceProblemByLocation
+      parameters:
+        - name: latitude
+          in: query
+          required: true
+          schema:
+            type: number
+            format: float
+        - name: longitude
+          in: query
+          required: true
+          schema:
+            type: number
+            format: float
+        - name: accuracy
+          in: query
+          required: false
+          description: Location accuracy in metres
+          schema:
+            type: number
+            format: float
+      responses:
+        '200':
+          description: Successful response containing service problem details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceProblem'
+        '400':
+          $ref: "#/components/responses/Generic400"
+        '401':
+          $ref: "#/components/responses/Generic401"
+        "403":
+          $ref: "#/components/responses/Generic403"
+        "404":
+          $ref: "#/components/responses/Generic404"
+        "500":
+          $ref: "#/components/responses/Generic500"
+        "503":
+          $ref: "#/components/responses/Generic503"
+
+  /subscribe:
+    post:
+      summary: Subscribe to outage events
+      operationId: subscribeToServiceProblemEvents
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriptionRequest'
+      responses:
+        '201':
+          description: Subscription created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubscriptionResponse'
+        '400':
+          $ref: "#/components/responses/Generic400"
+        '401':
+          $ref: "#/components/responses/Generic401"
+        "403":
+          $ref: "#/components/responses/Generic403"
+        "500":
+          $ref: "#/components/responses/Generic500"
+        "503":
+          $ref: "#/components/responses/Generic503"
+
+  /subscriptions/{subscriptionId}:
+    delete:
+      summary: Unsubscribe from outage events
+      operationId: deleteSubscription
+      parameters:
+        - name: subscriptionId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Subscription deleted
+        '401':
+          $ref: "#/components/responses/Generic401"
+        "403":
+          $ref: "#/components/responses/Generic403"
+        "500":
+          $ref: "#/components/responses/Generic500"
+        "503":
+          $ref: "#/components/responses/Generic503"
+
+components:
+  schemas:
+    ServiceProblem:
+      type: object
+      required:
+        - status
+        - tac
+        - plmn
+      properties:
+        status:
+          type: string
+          description: Current lifecycle state of the outage
+          enum: [acknowledged, in_progress, resolved, closed]
+
+        description:
+          type: string
+          description: Short description of the service problem
+
+        outageMessage:
+          type: string
+          description: Detailed message suitable for end-user communication
+
+        incidentId:
+          type: string
+          description: Unique identifier for the outage incident
+
+        severity:
+          type: string
+          description: Severity classification of the outage
+          enum: [minor, major, critical]
+
+        outageType:
+          type: string
+          description: Type of outage
+          enum: [planned, unplanned]
+
+        rootCause:
+          type: string
+          description: Root cause classification
+
+        outageStartTimeInUTC:
+          type: string
+          format: date-time
+          description: Timestamp when the outage started
+
+        outageExpectedEndTimeInUTC:
+          type: string
+          format: date-time
+          description: Estimated resolution time
+
+        outageEndTimeInUTC:
+          type: string
+          format: date-time
+          description: Actual resolution time (if resolved)
+
+        affectedTechnologies:
+          type: array
+          description: Technologies affected by the outage
+          items:
+            type: string
+          example: ["LTE", "5G"]
+
+        affectedServices:
+          type: array
+          description: Services impacted by the outage
+          items:
+            type: string
+          example: ["voice", "data", "sms"]
+
+        tac:
+          type: array
+          description: Tracking Area Codes impacted
+          items:
+            type: string
+
+        plmn:
+          type: array
+          description: Public Land Mobile Network identifiers
+          items:
+            type: string
+
+        affectedLocation:
+          type: array
+          description: Geographic areas impacted
+          items:
+            $ref: '#/components/schemas/Location'
+
+        workarounds:
+          type: array
+          description: List of available workarounds
+          items:
+            $ref: '#/components/schemas/Workaround'
+
+    Location:
+      type: object
+      properties:
+        type:
+          type: string
+          description: Type of location representation (e.g. geojson, postcode)
+        value:
+          type: string
+          description: Location value
+
+    Workaround:
+      type: object
+      properties:
+        applicableServices:
+          type: array
+          items:
+            type: string
+        description:
+          type: string
+
+    SubscriptionRequest:
+      type: object
+      required:
+        - callbackUrl
+      properties:
+        callbackUrl:
+          type: string
+          description: Endpoint to receive event notifications
+        filters:
+          type: object
+          properties:
+            tac:
+              type: array
+              items:
+                type: string
+            plmn:
+              type: array
+              items:
+                type: string
+            location:
+              type: object
+              properties:
+                latitude:
+                  type: number
+                  format: float
+                longitude:
+                  type: number
+                  format: float
+                radius:
+                  type: number
+                  description: Radius in metres
+
+    SubscriptionResponse:
+      type: object
+      properties:
+        subscriptionId:
+          type: string
+        status:
+          type: string
+          description: Subscription status
+          example: active
+
+    ErrorInfo:
+      type: object
+      required:
+        - status
+        - code
+        - message
+      properties:
+        status:
+          type: integer
+          description: HTTP response status code
+        code:
+          type: string
+          description: A human-readable code to describe the error
+        message:
+          type: string
+          description: A human-readable description of what the event represents
+
+  headers:
+    correlator:
+      description: Value for the x-correlator
+      schema:
+        type: string
+        pattern: ^[a-zA-Z0-9-_:;.\/<>{}]{0,256}$
+        example: "b4333c46-49c0-4f62-80d7-f0ef930f1c46"
+
+  responses:
+    Generic400:
+      description: Bad Request
+      headers:
+        x-correlator:
+          $ref: '#/components/headers/correlator'
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "#/components/schemas/ErrorInfo"
+              - type: object
+                properties:
+                  status:
+                    enum:
+                      - 400
+                  code:
+                    enum:
+                      - INVALID_ARGUMENT
+                      - OUT_OF_RANGE
+          examples:
+            GENERIC_400_INVALID_ARGUMENT:
+              description: Invalid Argument. Generic Syntax Exception
+              value:
+                status: 400
+                code: INVALID_ARGUMENT
+                message: Client specified an invalid argument, request body or query param.
+            GENERIC_400_OUT_OF_RANGE:
+              description: Invalid Argument. Generic Syntax Exception
+              value:
+                status: 400
+                code: OUT_OF_RANGE
+                message: Value of TAC is out of range.
+    
+    Generic401:
+      description: Unauthorized
+      headers:
+        x-correlator:
+          $ref: '#/components/headers/correlator'
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "#/components/schemas/ErrorInfo"
+              - type: object
+                properties:
+                  status:
+                    enum:
+                      - 401
+                  code:
+                    enum:
+                      - UNAUTHENTICATED
+          examples:
+            GENERIC_401_UNAUTHENTICATED:
+              description: Request cannot be authenticated and a new authentication is required
+              value:
+                status: 401
+                code: UNAUTHENTICATED
+                message: Request not authenticated due to missing, invalid, or expired credentials. A new authentication is required.
+    Generic403:
+      description: Forbidden
+      headers:
+        x-correlator:
+          $ref: '#/components/headers/correlator'
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "#/components/schemas/ErrorInfo"
+              - type: object
+                properties:
+                  status:
+                    enum:
+                      - 403
+                  code:
+                    enum:
+                      - PERMISSION_DENIED
+          examples:
+            GENERIC_403_PERMISSION_DENIED:
+              description: Permission denied. OAuth2 token access does not have the required scope or when the user fails operational security
+              value:
+                status: 403
+                code: PERMISSION_DENIED
+                message: Client does not have sufficient permissions to perform this action.
+    Generic404:
+      description: Not found
+      headers:
+        x-correlator:
+          $ref: '#/components/headers/correlator'
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "#/components/schemas/ErrorInfo"
+              - type: object
+                properties:
+                  status:
+                    enum:
+                      - 404
+                  code:
+                    enum:
+                      - NOT_FOUND
+          examples:
+            GENERIC_404_NOT_FOUND:
+              description: Resource is not found
+              value:
+                status: 404
+                code: NOT_FOUND
+                message: The specified resource is not found.
+
+    Generic500:
+      description: Server error
+      headers:
+        x-correlator:
+          $ref: '#/components/headers/correlator'
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "#/components/schemas/ErrorInfo"
+              - type: object
+                properties:
+                  status:
+                    enum:
+                      - 500
+                  code:
+                    enum:
+                      - INTERNAL
+          examples:
+            GENERIC_500_INTERNAL:
+              description: Server error
+              value:
+                status: 500
+                code: INTERNAL
+                message: Server error
+
+    Generic503:
+      description: Server unavailable
+      headers:
+        x-correlator:
+          $ref: '#/components/headers/correlator'
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "#/components/schemas/ErrorInfo"
+              - type: object
+                properties:
+                  status:
+                    enum:
+                      - 503
+                  code:
+                    enum:
+                      - UNAVAILABLE
+          examples:
+            GENERIC_503_UNAVAILABLE:
+              description: Server unavailable
+              value:
+                status: 503
+                code: UNAVAILABLE
+                message: Server unavailable
