@@ -9,61 +9,58 @@ This template captures all the information that a partner should fill out when p
 > If there is any doubt regarding scope fit, the proposal owner shall justify it explicitly in the sections below with reference to the Project Charter.
 
 ### API family name  
-Name of the API or API family.
+Network Outage API
 
 ### API family owner  
-Company submitting the API proposal.
+EE
 
 ### API summary  
-High level description / scope of the API or API family, and two/three examples of in-scope business cases.
+The Network Outage API provides a standard way for authorised devices, apps and support channels to check whether a customer is affected by a known mobile network outage, service degradation or planned maintenance event. It helps explain poor or lost connectivity using operator network data, so customers can be given clearer information instead of being pushed through unnecessary troubleshooting or support journeys.
 
 ### CAMARA scope alignment
 
 #### Northbound API type  
 Select the CAMARA northbound API type for this proposal:
-- [ ] Service API
+- [X] Service API
 - [ ] Service Management API
 
 #### Scope fit with CAMARA  
-Explain why this proposal is in scope for CAMARA, with explicit reference to the [Project Charter](https://github.com/camaraproject/Governance/blob/main/ProjectCharter.md).
+This proposal is within the scope of CAMARA as defined in the Project Charter. The proposed Network Outage API is a customer-facing northbound API that exposes information about the operational status and availability of telecommunications network services in a simplified, standardised and developer-consumable format.
+The CAMARA Charter explicitly identifies Service Management APIs as being in scope, describing them as APIs intended for end consumers to manage or obtain information about offered service APIs in runtime, including service availability and performance information. The Network Outage API aligns directly with this definition by providing developers and enterprises with visibility of network outages, service degradation and availability status affecting network services.
+The proposal supports CAMARA's objectives to harmonise telecom APIs, abstract underlying network complexity and provide interoperable access to operator capabilities across markets. It enables consistent consumption of network status information without exposing operator-specific systems, processes or infrastructure implementations.
+The proposal does not address service fulfilment, provisioning, fault management workflows, commercial arrangements, pricing, settlement, assurance processes or other Operate API functions that are explicitly identified in the Charter as being outside CAMARA scope. Instead, it focuses solely on the standardisation of a customer-facing Service Management API, which is a core deliverable of the CAMARA Project.
 
 #### Telco capability exposed  
-Describe the telco network capability, or telco-supporting capability, that is abstracted / exposed by this proposal.
+Exposure of real-time and planned mobile network outage information and service availability status for a given Tracking Area Code (TAC), sourced from operator network monitoring and operations systems.
 
 #### Overlap with existing CAMARA APIs  
-- [] The CAMARA API portfolio has been reviewed, and it has been confirmed that there is no overlap.  
+- [X] The CAMARA API portfolio has been reviewed, and it has been confirmed that there is no overlap.  
 
 #### Explicit out-of-scope items for this proposal  
-List related capabilities, features, or functions that are explicitly out of scope for this proposal.
+This API is limited to exposing operator-maintained information regarding active or planned network service disruptions within a specified geographic area (e.g., Tracking Area Code). It does not provide device-level diagnostics, signal quality measurements, user location capabilities, network control functions, fault remediation, network topology information, outage forecasting, or QoS management capabilities.
 
 #### Proposal owner declaration  
-- [ ] I confirm that this proposal has been reviewed against the current CAMARA Project Charter scope.
+- [X] I confirm that this proposal has been reviewed against the current CAMARA Project Charter scope.
 
 ### Technical viability  
-Identify the underlying network/cloud capabilities which are needed for the support of this API or API family, relating these capabilities to standards maturity.  
-*Example: this API requires the availability of NEF with this Rel-15 "X" feature.*
+Needs network incident monitoring and reporting system that has the visibility of operator's mobile network.
 
 ### Commercial viability  
-Specify the availability of commercial or (industrialized) open-source solutions for the identified network/cloud capabilities.  
-*NOTE: If open-source, provide a publicly available reference/link to the actual solution, and specify the version under consideration.*
+Not applicable.
 
 ### YAML code available?  
-YES / NO.
+YES.
 
 ### Validated in lab/productive environments?  
-YES / NO.  
-If YES, specify if it was lab network or productive network.
+YES. Productive network.  
 
 ### Validated with real customers?  
-YES / NO.  
-If YES, specify how many customers participated in the evaluation, and what their use cases were.  
-*NOTE: It is not mandatory (though recommendable) to specify the name of the customers.*
+YES.
+1 OEM and multiple location based services customers.
+Use case: Whether network services are currently available in an area.
 
 ### Validated with operators?  
-YES / NO.  
-If YES, specify how many operators participated in the evaluation.  
-*NOTE: It is not mandatory (though recommendable) to specify the name of the operators.*
+NO.
 
 ### Supporters in API Backlog Working Group  
-List of supporters.  
-*NOTE: That shall be added by the Working Group. Supporting an API proposal means that the supporting company must provide at least 1 (one) Maintainer at the time of the Sub Project creation.*
+EE.
