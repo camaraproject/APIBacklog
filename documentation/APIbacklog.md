@@ -57,10 +57,10 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/QualityOnDemand/releases/tag/r3.2">v1.1.0 fall25</a><br>2025/09/16
       </td>
     </tr>
-      <tr>
+    <tr>
       <th>QoS Profiles</th>
       <td>Deutsche Telekom*, Orange, Telefónica, Vodafone</td>
-      <td><a href="https://github.com/camaraproject/APIBacklog/issues/319">Template</a><div>2026/08/08</div></td>
+      <td><a href="https://github.com/camaraproject/APIBacklog/issues/319">Template</a><div>2026/06/08</div></td>
       <td><ul><li>Onboarded (2026/09/08)</li></ul></td>
       <td>
         <a href="https://github.com/camaraproject/QoSProfiles">QoSProfiles</a><br>
@@ -85,7 +85,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <th>Edge Application Management</th>
       <td>Telefónica*</td>
       <td>N/A<br>N/A</td>
-      <td><ul><li>TSC Approved (N/A) & Onboarding (2026/004/08)</li></ul></td>
+      <td><ul><li>TSC Approved (N/A) & Onboarded (2026/04/16)</li></ul></td>
       <td>
         <a href="https://github.com/camaraproject/EdgeApplicationManagement">EdgeApplicationManagement</a><br>
         <a href="https://github.com/camaraproject/EdgeApplicationManagement/blob/main/MAINTAINERS.MD">Maintainers</a>
@@ -158,6 +158,19 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
         <a href="https://github.com/camaraproject/SimSwap/releases/tag/r2.2">v2.1.0 fall25</a><div>2025/09/17</div>
       </td>
+    </tr>
+    <tr>
+      <th>SIM Swap Time Frame</th>
+      <td>T-Mobile US*<div></div></td>
+      <td>
+        <a href="https://github.com/camaraproject/APIBacklog/issues/335">Template</a><div>2026/09/17</div>
+      </td>
+      <td><ul><li>Onboarded (2026/10/09)</li></ul></td>
+      <td>
+        <a href="https://github.com/camaraproject/SimSwapTimeFrame">SimSwapTimeFrame</a><br>
+        <a href="https://github.com/camaraproject/SimSwapTimeFrame/blob/main/MAINTAINERS.MD">Maintainers</a>
+      </td>
+      <td>No release</td>
     </tr>
     <tr>
       <th>Number Verification</th>
@@ -603,7 +616,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/DedicatedNetworks/releases/tag/r1.2">v0.1.0 fall25</a><br>2025/09/18
       </td>
     </tr>
-      <tr>
+    <tr>
       <th>Network Service Areas</th>
       <td>Ericsson*<div>Nokia, Telefonica, Vodafone</div></td>
       <td>
@@ -644,7 +657,7 @@ This is a live doc that captures the status of all the APIs which have been form
         <a href="https://github.com/camaraproject/ConnectedNetworkType/releases/tag/r1.2">v0.2.0 fall25</a><br>2025/09/16
       </td>    
       </tr>
-      <tr>
+    <tr>
       <th>Device Roaming Status</th>
       <td>Vodafone*<div>Vodafone, Deutsche Telekom</div></td>
       <td>
@@ -805,7 +818,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIScopeEnhancement_Application_Profiles.md">Template</a><div>2024/10/30</div>
       </td>
-      <td><ul><li>TSC Approved (2025/20/02)</li></ul></td>
+      <td><ul><li>TSC Approved (2025/02/20)</li></ul></td>
       <td>
         <a href="https://github.com/camaraproject/ApplicationProfiles">ApplicationProfiles</a>
         <a href="https://github.com/camaraproject/ApplicationProfiles/blob/main/MAINTAINERS.MD">Maintainers</a>
@@ -888,7 +901,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIproposal_NetworkTrafficAnalysis_chinaunicom.md">Template</a><div>2024/11/19</div>
       </td>
-      <td><ul><li>Onboarding - TSC Approved (2025/04/17)</li></ul></td>
+      <td><ul><li>TSC Approved (2025/04/17) & Onboarded (2025/10/08)</li></ul></td>
       <td>
         <a href="https://github.com/camaraproject/NetworkInsights">NetworkInsights</a>
         <a href="https://github.com/camaraproject/NetworkInsights/blob/main/MAINTAINERS.MD">Maintainers</a>
@@ -901,7 +914,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIproposal_NetworkHealthAssessment_chinaunicom.md">Template</a><div>2024/11/19</div>
       </td>
-      <td><ul><li>Onboarding - TSC Approved (2025/04/17)</li></ul></td>
+      <td><ul><li>TSC Approved (2025/04/17) & Onboarded (2025/10/08)</li></ul></td>
       <td>
         <a href="https://github.com/camaraproject/NetworkInsights">NetworkInsights</a>
         <a href="https://github.com/camaraproject/NetworkInsights/blob/main/MAINTAINERS.MD">Maintainers</a>
@@ -914,7 +927,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/APIproposal_eSIM%20Remote%20Management_China%20Unicom.md">Template</a><div>2024/11/26</div>
       </td>
-      <td><ul><li>TSC Approved (2025/03/20) & Onboarding (2025/03/24)</li></ul></td>
+      <td><ul><li>TSC Approved (2025/03/20) & Onboarded (2026/03/12)</li></ul></td>
       <td>
         <a href="https://github.com/camaraproject/eSimRemoteManagement">eSimRemoteManagement</a>
         <a href="https://github.com/camaraproject/eSimRemoteManagement/blob/main/MAINTAINERS.MD">Maintainers</a>
@@ -974,7 +987,6 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>No release</td>
     </tr>
     <tr>
-    <tr>
       <th> DeviceAuthenticity (previously IMEI Fraud)</th>
       <td>xFlow Research Inc*<div>xFlow Research Inc</div></td>
       <td>
@@ -997,7 +1009,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>Under GSMA</td>
       <td>N/A</td>
     </tr>
-    </tr>
+    <tr>
       <th>Rainfall Intensity</th>
       <td>Ericsson*<div></div></td>
       <td>
@@ -1010,32 +1022,33 @@ This is a live doc that captures the status of all the APIs which have been form
       </td>  
       <td>N/A</td>
     </tr>
-    </tr>
+    <tr>
       <th>In Home Device Management API</th>
       <td>Infosys*<div></div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/API-proposal-InHome_Device_Network_Management.md">Template</a><div>2025/08/09</div>
       </td>
-      <td><ul><li>TSC Approved & Onboarding (2025/12/18)</li></ul></td>
+      <td><ul><li>TSC Approved & Onboarded (2026/06/15)</li></ul></td>
       <td>
         <a href="https://github.com/camaraproject/InHomeDeviceManagement">InHomeDeviceManagement</a>
         <a href="https://github.com/camaraproject/InHomeDeviceManagement/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>  
       <td>N/A</td>
     </tr>
-    </tr>
+    <tr>
       <th>Consent Management API</th>
       <td>Telefónica*<div></div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/blob/main/documentation/API%20proposals/API-Scope_Enhancement_Consent_Info_Controlled_Delegation.md">Template</a><div>2025/11/05</div>
       </td>
-      <td><ul><li>TSC Approved & Onboarding (2025/12/18)</li></ul></td>
+      <td><ul><li>TSC Approved & Onboarded (2026/01/14)</li></ul></td>
       <td>
         <a href="https://github.com/camaraproject/ConsentManagement">ConsentManagement</a>
         <a href="https://github.com/camaraproject/ConsentManagement/blob/main/MAINTAINERS.MD">Maintainers</a>
       </td>  
       <td>N/A</td>
     </tr>
+    <tr>
       <th>(Scope Enhancement of Connectivity Insights) User Experience Insights</th>
       <td>China Mobile Hong Kong, Huawei*<div></div></td>
       <td>
@@ -1055,6 +1068,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>N/A</td>
       <td>N/A</td>
     </tr>
+    <tr>
       <th>Group Management API</th>
       <td>T-Mobile US*<div></div></td>
       <td>
@@ -1064,7 +1078,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>N/A</td>
       <td>N/A</td>
     </tr>
-    </tr>
+    <tr>
       <th>Trust Worthiness Intent API</th>
       <td>National Centre for Scientific Research Demokritos (NCSRD), Infolysis S.A*<div></div></td>
       <td>
@@ -1074,27 +1088,27 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>N/A</td>
       <td>N/A</td>
     </tr>
-    </tr>
+    <tr>
       <th>Connectivity Governance</th>
       <td>Infosys*<div></div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/issues/298">Template</a><div>2026/02/05</div>
       </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td><ul><li>Frozen (2026/09/24)</li></ul></td>
       <td>N/A</td>
       <td>N/A</td>
     </tr>
-    </tr>
+    <tr>
       <th>Network Contract Lifecycle Management</th>
       <td>Infosys*<div></div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/issues/299">Template</a><div>2026/02/13</div>
       </td>
-      <td><ul><li>Under backlog discussion</li></ul></td>
+      <td><ul><li>Frozen (2026/10/08)</li></ul></td>
       <td>N/A</td>
       <td>N/A</td>
     </tr>
-    </tr>
+    <tr>
       <th>(Scope Enhancement for DeviceLocation) Network‑Authenticated Assembly</th>
       <td>Infosys*<div></div></td>
       <td>
@@ -1104,7 +1118,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>N/A</td>
       <td>N/A</td>
     </tr>
-    </tr>
+    <tr>
       <th>Eligibility-Info/Pre-flight API</th>
       <td>AT&T, T-Mobile, Verizon*<div></div></td>
       <td>
@@ -1114,7 +1128,7 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>N/A</td>
       <td>N/A</td>
     </tr>
-    </tr>
+    <tr>
       <th>Network Outage API</th>
       <td>BT*<div></div></td>
       <td>
@@ -1254,18 +1268,17 @@ This is a live doc that captures the status of all the APIs which have been form
       <td>N/A</td>
       <td>N/A</td>
     </tr>
-    </tr>
+    <tr>
       <th>Voice One Time Password Call</th>
       <td>Heksagon*<div></div></td>
       <td>
         <a href="https://github.com/camaraproject/APIBacklog/issues/259">Template</a><div>2025/09/24</div>
       </td>
-      <td><ul><li>Archived (2025/09/29)</li></ul></td>
+      <td><ul><li>Frozen (2026/03/26)</li></ul></td>
       <td>N/A</td>
       <td>N/A</td>
     </tr>
-    </tr>
-      <tr>
+    <tr>
       <th>Send SMS</th>
       <td>Airtel*<div>Airtel, KDDI, GSMA-OGW</div></td>
       <td>
@@ -1321,6 +1334,7 @@ This is a live doc that captures the status of all the APIs which have been form
   - Under backlog discussion
   - Sent to TSC for approval (date)
   - Onboarding - TSC Approved (date)
+  - Onboarded (date)
   - TSC Approved (date)
   - Not approved (date)
   - Updates requested by TSC (date)
